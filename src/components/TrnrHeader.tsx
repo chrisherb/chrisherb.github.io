@@ -1,6 +1,6 @@
 import { Anchor, Header, Nav } from "grommet";
 import React from "react";
-import { navigate } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 export function TrnrHeader() {
@@ -10,13 +10,13 @@ export function TrnrHeader() {
       pad={{ left: "small", top: "small", right: "xlarge", bottom: "small" }}
       sticky="scrollup"
     >
-      <Anchor href="#top">
+      <Link to="/">
         <StaticImage
           height={55}
           src="../images/trnr-logo-sqr.svg"
           alt="Ternär Music Technology Square Logo"
         />
-      </Anchor>
+      </Link>
       <Nav direction="row-responsive">
         <Anchor label="Home" href="#home" />
         <Anchor label="Plugins" href="#plugins" />

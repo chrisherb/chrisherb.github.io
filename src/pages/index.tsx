@@ -11,65 +11,26 @@ import {
   TrnrTitle,
 } from "../components";
 import { deepMerge } from "grommet/utils";
-
-const trnrTheme = deepMerge(grommet, {
-  global: {
-    breakpoints: {
-      small: {
-        edgeSize: {
-          xlarge: "20px",
-        },
-      },
-    },
-  },
-  heading: {
-    level: {
-      2: {
-        xsmall: {
-          size: "18px",
-          height: "30px",
-        },
-      },
-      3: {
-        xlarge: {
-          size: "50px",
-        },
-      },
-      4: {
-        xlarge: {
-          size: "34px",
-        },
-      },
-    },
-  },
-});
+import { TrnrMain } from "../components/TrnrMain";
 
 const IndexPage = () => {
   return (
-    <Grommet full theme={trnrTheme} themeMode="dark">
-      <Box id="top">
-        {/* HEADER */}
-        <TrnrHeader />
+    <TrnrMain>
+      {/* TITLE */}
+      <TrnrTitle />
 
-        {/* TITLE */}
-        <TrnrTitle />
+      {/* PLUGINS */}
+      <TrnrPlugins />
 
-        {/* PLUGINS */}
-        <TrnrPlugins />
+      {/* DEVICES */}
+      <TrnrDevices />
 
-        {/* DEVICES */}
-        <TrnrDevices />
+      {/* SERVICES */}
+      <TrnrServices />
 
-        {/* SERVICES */}
-        <TrnrServices />
-
-        {/* CONTACT */}
-        <TrnrContact />
-
-        {/* FOOTER */}
-        <TrnrFooter />
-      </Box>
-    </Grommet>
+      {/* CONTACT */}
+      <TrnrContact />
+    </TrnrMain>
   );
 };
 
