@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
     options: {
       "trackingId": "314278890"
     }
-  }, "gatsby-plugin-sitemap"]
+  }, "gatsby-plugin-sitemap", "gatsby-plugin-react-helmet"]
 };
 
 export default config;
