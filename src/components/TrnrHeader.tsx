@@ -2,6 +2,7 @@ import { Anchor, Header, Nav } from "grommet";
 import React from "react";
 import { Link, navigate } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { TrnrLink } from "./TrnrLink";
 
 export function TrnrHeader() {
   return (
@@ -18,9 +19,9 @@ export function TrnrHeader() {
         />
       </Link>
       <Nav direction="row-responsive">
-        <Anchor label="Home" href="#home" />
         <Anchor label="Plugins" href="#plugins" />
         <Anchor label="Devices" href="#devices" />
+        <Anchor label="Music" href="https://ternaer.bandcamp.com/" />
         <Anchor label="Services" href="#services" />
         <Anchor label="Contact" href="#contact" />
       </Nav>
