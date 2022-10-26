@@ -11,6 +11,7 @@ import {
 } from "grommet";
 import { Link, Windows, Apple, Diamond } from "grommet-icons";
 import React from "react";
+import triplexScreenshot from "../images/triplex-screenshot.png";
 
 export function TrnrPlugins() {
   return (
@@ -24,7 +25,10 @@ export function TrnrPlugins() {
             right: "xlarge",
             bottom: "xlarge",
           }}
-          background={{ opacity: "medium", image: "url(/triplex-monitor.jpg)" }}
+          background={{
+            opacity: "medium",
+            image: "url(./triplex-monitor.jpg)",
+          }}
         >
           <Box
             direction="row"
@@ -94,7 +98,7 @@ export function TrnrPlugins() {
               >
                 <Anchor href="https://trnr.gumroad.com/l/triplex-classic">
                   <Image
-                    src="/triplex-screenshot.png"
+                    src={triplexScreenshot}
                     fill="horizontal"
                     alt="Triplex Classic Screenshot"
                   />

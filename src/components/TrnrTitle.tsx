@@ -1,5 +1,6 @@
 import { Box, Image, ResponsiveContext, Heading } from "grommet";
 import React from "react";
+import logo from "../images/ternar-music-technology.svg";
 
 export function TrnrTitle() {
   return (
@@ -26,10 +27,7 @@ export function TrnrTitle() {
               margin="0"
               style={{ display: "flex", height: "188px" }}
             >
-              <Image
-                src="/ternar-music-technology.svg"
-                alt="Ternär Music Technology Logo"
-              />
+              <Image src={logo} alt="Ternär Music Technology Logo" />
             </Heading>
             <Heading
               level="2"

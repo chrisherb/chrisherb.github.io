@@ -1,6 +1,7 @@
 import { Anchor, Header, Nav, Image } from "grommet";
 import React from "react";
 import { navigate } from "gatsby";
+import logoSqr from "../images/trnr-logo-sqr.svg";
 
 export function TrnrHeader() {
   return (
@@ -12,7 +13,7 @@ export function TrnrHeader() {
       <Anchor href="#top">
         <Image
           width={55}
-          src="/trnr-logo-sqr.svg"
+          src={logoSqr}
           alt="Ternär Music Technology Square Logo"
         />
       </Anchor>

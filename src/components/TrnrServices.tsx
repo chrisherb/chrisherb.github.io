@@ -17,7 +17,7 @@ export function TrnrServices() {
     <Box
       id="services"
       pad={{ left: "xlarge", top: "medium", right: "xlarge", bottom: "xlarge" }}
-      background={{ opacity: "medium", image: "url(/ableton.jpg)" }}
+      background={{ opacity: "medium", image: "url(./ableton.jpg)" }}
     >
       <Box
         direction="row"
