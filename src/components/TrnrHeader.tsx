@@ -1,5 +1,6 @@
 import { Anchor, Header, Nav, Image } from "grommet";
 import React from "react";
+import { navigate } from "gatsby";
 
 export function TrnrHeader() {
   return (
@@ -16,11 +17,11 @@ export function TrnrHeader() {
         />
       </Anchor>
       <Nav direction="row-responsive">
-        <Anchor href="#home" label="Home" />
-        <Anchor href="#plugins" label="Plugins" />
-        <Anchor href="#devices" label="Devices" />
-        <Anchor href="#services" label="Services" />
-        <Anchor href="#contact" label="Contact" />
+        <Anchor label="Home" onClick={() => navigate("#home")} />
+        <Anchor label="Plugins" onClick={() => navigate("#home")} />
+        <Anchor label="Devices" onClick={() => navigate("#devices")} />
+        <Anchor label="Services" onClick={() => navigate("#services")} />
+        <Anchor label="Contact" onClick={() => navigate("#contact")} />
       </Nav>
     </Header>
   );
