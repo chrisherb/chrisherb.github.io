@@ -20,7 +20,7 @@ export function TrnrTitle() {
           <Box
             width="large"
             pad="small"
-            margin={{ left: size !== "small" ? "-180px" : "" }}
+            margin={{ left: size !== "small" ? "-185px" : "" }}
           >
             <Heading
               level="1"
