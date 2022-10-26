@@ -18,11 +18,11 @@ export function TrnrHeader() {
         />
       </Anchor>
       <Nav direction="row-responsive">
-        <Anchor label="Home" onClick={() => navigate("#home")} />
-        <Anchor label="Plugins" onClick={() => navigate("#home")} />
-        <Anchor label="Devices" onClick={() => navigate("#devices")} />
-        <Anchor label="Services" onClick={() => navigate("#services")} />
-        <Anchor label="Contact" onClick={() => navigate("#contact")} />
+        <Anchor label="Home" href="#home" />
+        <Anchor label="Plugins" href="#plugins" />
+        <Anchor label="Devices" href="#devices" />
+        <Anchor label="Services" href="#services" />
+        <Anchor label="Contact" href="#contact" />
       </Nav>
     </Header>
   );
