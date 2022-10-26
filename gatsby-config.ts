@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Ternär Music Technology`,
-    siteUrl: `https://www.ternar.tech`,
+    siteUrl: `https://www.ternar.tech/`,
     description: `Software Instruments and Effects straight from Europe's heart of electronic music, Berlin.`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -11,6 +11,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
