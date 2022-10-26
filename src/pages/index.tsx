@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, HeadProps, PageProps } from "gatsby";
+import type { HeadFC } from "gatsby";
 import { Box, grommet, Grommet } from "grommet";
 import {
   TrnrContact,
