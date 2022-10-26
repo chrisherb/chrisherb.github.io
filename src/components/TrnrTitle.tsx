@@ -27,13 +27,17 @@ export function TrnrTitle() {
               margin="0"
               style={{ display: "flex", height: "188px" }}
             >
-              <Image src={logo} alt="Ternär Music Technology Logo" />
+              <Image
+                src={logo}
+                width="100%"
+                alt="Ternär Music Technology Logo"
+              />
             </Heading>
             <Heading
               level="2"
               size="xsmall"
               margin={{
-                left: size !== "small" ? "165px" : "73px",
+                left: size !== "small" ? "175px" : "0",
                 top: "small",
               }}
             >
