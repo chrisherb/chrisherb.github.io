@@ -24,7 +24,7 @@ export function TrnrDevices() {
       </Box>
       <Box wrap direction="row">
         <Box margin={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://trnr.gumroad.com/l/retrosampler">
+          <Anchor href="https://store.ternar.tech/l/retrosampler">
             <StaticImage
               src="../images/retrosampler.png"
               alt="RetroSampler Screenshot"
@@ -32,12 +32,12 @@ export function TrnrDevices() {
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://trnr.gumroad.com/l/bitecho">
+          <Anchor href="https://store.ternar.tech/l/bitecho">
             <StaticImage src="../images/bitecho.png" alt="BitEcho Screenshot" />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://trnr.gumroad.com/l/bitecho-pro">
+          <Anchor href="https://store.ternar.tech/l/bitecho-pro">
             <StaticImage
               src="../images/bitecho-pro.png"
               alt="BitEcho Pro Screenshot"
@@ -45,12 +45,12 @@ export function TrnrDevices() {
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://trnr.gumroad.com/l/hatster">
+          <Anchor href="https://store.ternar.tech/l/hatster">
             <StaticImage src="../images/hatster.png" alt="Hatster Screenshot" />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://trnr.gumroad.com/l/hatster-pro">
+          <Anchor href="https://store.ternar.tech/l/hatster-pro">
             <StaticImage
               src="../images/hatster-pro.png"
               alt="Hatster Pro Screenshot"

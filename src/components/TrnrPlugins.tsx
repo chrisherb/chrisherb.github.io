@@ -84,12 +84,12 @@ export function TrnrPlugins() {
                   <Apple />
                   <Button
                     label="Download Demo"
-                    href="https://trnr.gumroad.com/l/triplex-classic-demo"
+                    href="https://store.ternar.tech/l/triplex-classic-demo"
                   />
                   <Button
                     primary
                     label="Buy Full Version"
-                    href="https://trnr.gumroad.com/l/triplex-classic"
+                    href="https://store.ternar.tech/l/triplex-classic"
                   />
                 </Box>
               </Box>
@@ -103,7 +103,7 @@ export function TrnrPlugins() {
                   elevation="xlarge"
                   animation="fadeIn"
                 >
-                  <Anchor href="https://trnr.gumroad.com/l/triplex-classic">
+                  <Anchor href="https://store.ternar.tech/l/triplex-classic">
                     <StaticImage
                       src="../images/triplex-screenshot.png"
                       alt="Triplex Classic Screenshot"
