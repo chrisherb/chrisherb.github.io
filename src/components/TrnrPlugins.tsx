@@ -133,7 +133,8 @@ export function TrnrPlugins() {
                       <Text>{datum}</Text>
                     </Box>
                   )}
-                ></List>
+                  itemKey={(datum) => `key-${datum}`}
+                />
               </Box>
             </Grid>
           </Box>
