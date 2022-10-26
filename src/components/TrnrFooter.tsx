@@ -1,14 +1,6 @@
-import { Link } from "gatsby";
 import { Footer, Nav, Anchor, Text } from "grommet";
 import React from "react";
-import styled from "styled-components";
-
-const InternalLink = styled(Link)`
-  text-decoration: none;
-  :visited {
-    color: inherit;
-  }
-`;
+import { TrnrLink } from "./TrnrLink";
 
 export function TrnrFooter() {
   return (
@@ -29,9 +21,7 @@ export function TrnrFooter() {
           target="_blank"
         />
         <Anchor href="https://store.ternar.tech/" label="Store" />
-        <InternalLink to="/impressum">
-          <Anchor label="Impressum" />
-        </InternalLink>
+        <TrnrLink to="/impressum">Impressum</TrnrLink>
       </Nav>
     </Footer>
   );
