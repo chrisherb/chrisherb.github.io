@@ -29,6 +29,12 @@ const config: GatsbyConfig = {
         trackingId: `314278890`,
       },
     },
+    {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "en",
+      },
+    },
   ],
 };
 
