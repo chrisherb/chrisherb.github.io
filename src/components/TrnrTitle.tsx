@@ -1,6 +1,6 @@
-import { Box, Image, ResponsiveContext, Heading } from "grommet";
+import { StaticImage } from "gatsby-plugin-image";
+import { Box, ResponsiveContext, Heading } from "grommet";
 import React from "react";
-import logo from "../images/ternar-music-technology.svg";
 
 export function TrnrTitle() {
   return (
@@ -20,16 +20,11 @@ export function TrnrTitle() {
           <Box
             width="large"
             pad="small"
-            margin={{ left: size !== "small" ? "-185px" : "" }}
+            margin={{ left: size !== "small" ? "-190px" : "" }}
           >
-            <Heading
-              level="1"
-              margin="0"
-              style={{ display: "flex", height: "188px" }}
-            >
-              <Image
-                src={logo}
-                width="100%"
+            <Heading level="1" margin="0">
+              <StaticImage
+                src="../images/ternar-music-technology.svg"
                 alt="Ternär Music Technology Logo"
               />
             </Heading>
@@ -37,7 +32,7 @@ export function TrnrTitle() {
               level="2"
               size="xsmall"
               margin={{
-                left: size !== "small" ? "175px" : "0",
+                left: size !== "small" ? "165px" : "0",
                 top: "small",
               }}
             >

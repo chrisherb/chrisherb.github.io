@@ -1,11 +1,7 @@
-import { Anchor, Box, Heading, Image } from "grommet";
+import { Anchor, Box, Heading } from "grommet";
 import { Link } from "grommet-icons";
 import React from "react";
-import retroSampler from "../images/retrosampler.png";
-import bitEcho from "../images/bitecho.png";
-import bitEchoPro from "../images/bitecho-pro.png";
-import hatster from "../images/hatster.png";
-import hatsterPro from "../images/hatster-pro.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 export function TrnrDevices() {
   return (
@@ -29,37 +25,34 @@ export function TrnrDevices() {
       <Box wrap direction="row">
         <Box margin={{ right: "small", bottom: "small" }}>
           <Anchor href="https://trnr.gumroad.com/l/retrosampler">
-            <Image
-              src={retroSampler}
-              fill="horizontal"
+            <StaticImage
+              src="../images/retrosampler.png"
               alt="RetroSampler Screenshot"
             />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
           <Anchor href="https://trnr.gumroad.com/l/bitecho">
-            <Image src={bitEcho} fill="horizontal" alt="BitEcho Screenshot" />
+            <StaticImage src="../images/bitecho.png" alt="BitEcho Screenshot" />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
           <Anchor href="https://trnr.gumroad.com/l/bitecho-pro">
-            <Image
-              src={bitEchoPro}
-              fill="horizontal"
+            <StaticImage
+              src="../images/bitecho-pro.png"
               alt="BitEcho Pro Screenshot"
             />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
           <Anchor href="https://trnr.gumroad.com/l/hatster">
-            <Image src={hatster} fill="horizontal" alt="Hatster Screenshot" />
+            <StaticImage src="../images/hatster.png" alt="Hatster Screenshot" />
           </Anchor>
         </Box>
         <Box pad={{ right: "small", bottom: "small" }}>
           <Anchor href="https://trnr.gumroad.com/l/hatster-pro">
-            <Image
-              src={hatsterPro}
-              fill="horizontal"
+            <StaticImage
+              src="../images/hatster-pro.png"
               alt="Hatster Pro Screenshot"
             />
           </Anchor>

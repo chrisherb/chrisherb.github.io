@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="50mm"
-   height="13mm"
-   viewBox="0 0 50 13"
+   width="725"
+   height="188"
+   viewBox="0 0 191.82292 49.741668"
    version="1.1"
    id="svg844"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="trnr-logo.svg"
+   sodipodi:docname="ternar-music-technology.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +23,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.5620932"
-     inkscape:cx="135.63129"
-     inkscape:cy="57.960421"
-     inkscape:window-width="2400"
-     inkscape:window-height="1321"
+     inkscape:zoom="0.90583674"
+     inkscape:cx="407.91015"
+     inkscape:cy="193.74352"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
      inkscape:window-x="-9"
-     inkscape:window-y="-1359"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     units="px" />
   <defs
      id="defs841" />
   <g
@@ -40,7 +41,7 @@
      id="layer1">
     <g
        id="g3338"
-       transform="matrix(1.0602244,0,0,1.0602244,-82.198779,-135.58802)"
+       transform="matrix(4.0664131,0,0,4.0664131,-315.26741,-520.03795)"
        style="fill:#ffffff">
       <g
          aria-label="music technology"
