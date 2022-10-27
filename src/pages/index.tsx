@@ -1,16 +1,12 @@
 import * as React from "react";
 import type { HeadFC } from "gatsby";
-import { Box, grommet, Grommet } from "grommet";
 import {
   TrnrContact,
   TrnrDevices,
-  TrnrFooter,
-  TrnrHeader,
   TrnrPlugins,
   TrnrServices,
   TrnrTitle,
 } from "../components";
-import { deepMerge } from "grommet/utils";
 import { TrnrMain } from "../components/TrnrMain";
 
 const IndexPage = () => {
