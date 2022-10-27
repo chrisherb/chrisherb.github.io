@@ -85,7 +85,7 @@ export function TrnrServices() {
                 primary
                 label="Book on Fiverr"
               />
-              <Button href="#contact" label="Get in Contact for Rates" />
+              <Button href="#contact" label="Contact for Rates" />
             </CardFooter>
           </Card>
 
