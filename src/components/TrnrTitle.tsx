@@ -4,6 +4,15 @@ import React, { useContext } from "react";
 
 export function TrnrTitle() {
   const size = useContext(ResponsiveContext);
+  let logoMarginLeft = "";
+
+  if (size == "large") {
+    logoMarginLeft = "-190px";
+  } else if (size == "medium") {
+    logoMarginLeft = "-120px";
+  }
+
+  let textMarginLeft = size !== "small" ? "165px" : "";
 
   return (
     <Box
@@ -17,11 +26,7 @@ export function TrnrTitle() {
       }}
       background={{ opacity: "medium" }}
     >
-      <Box
-        width="large"
-        pad="small"
-        margin={{ left: size !== "small" ? "-190px" : "" }}
-      >
+      <Box width="large" pad="small" margin={{ left: logoMarginLeft }}>
         <Heading level="1" margin="0">
           <StaticImage
             src="../images/ternar-music-technology.svg"
@@ -32,7 +37,7 @@ export function TrnrTitle() {
           level="2"
           size="xsmall"
           margin={{
-            left: size !== "small" ? "165px" : "0",
+            left: textMarginLeft,
             top: "small",
           }}
         >
