@@ -24,6 +24,14 @@ export function TrnrDevices() {
       </Box>
       <Box wrap direction="row">
         <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/kickster">
+            <StaticImage
+              src="../images/kickster.png"
+              alt="Kickster Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
           <Anchor href="https://store.ternar.tech/l/retrosampler">
             <StaticImage
               src="../images/retrosampler.png"
