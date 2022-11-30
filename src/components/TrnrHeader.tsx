@@ -21,7 +21,7 @@ export function TrnrHeader() {
       <Nav direction="row-responsive">
         <Anchor label="Plugins" href="#plugins" />
         <Anchor label="Devices" href="#devices" />
-        <Anchor label="Music" href="https://ternaer.bandcamp.com/" />
+        <Anchor label="Music" href="https://ternar.bandcamp.com/" />
         <Anchor label="Services" href="#services" />
         <Anchor label="Contact" href="#contact" />
       </Nav>

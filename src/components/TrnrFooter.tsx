@@ -11,7 +11,7 @@ export function TrnrFooter() {
       <Text>© 2022 Ternär Music Technology Christopher Herb</Text>
       <Nav direction="row-responsive">
         <Anchor
-          href="https://soundcloud.com/ternaer"
+          href="https://soundcloud.com/ternar"
           label="Soundcloud"
           target="_blank"
         />
