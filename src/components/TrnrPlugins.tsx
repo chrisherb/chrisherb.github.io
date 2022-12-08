@@ -93,10 +93,8 @@ export function TrnrPlugins() {
               />
             </Box>
           </Box>
-          <Box>
+          <Box align="center">
             <Box
-              width={{ min: "small", max: "500px" }}
-              height={{ min: "small", max: "500px" }}
               margin="small"
               border={{ size: "medium" }}
               round="xsmall"
@@ -107,6 +105,9 @@ export function TrnrPlugins() {
                 <StaticImage
                   src="../images/triplex-screenshot.png"
                   alt="Triplex Classic Screenshot"
+                  width={480}
+                  height={480}
+                  quality={100}
                 />
               </Anchor>
             </Box>
