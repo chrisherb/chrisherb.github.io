@@ -24,18 +24,47 @@ export function TrnrDevices() {
       </Box>
       <Box wrap direction="row">
         <Box margin={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://store.ternar.tech/l/kickster">
+          <Anchor href="https://store.ternar.tech/l/retrosampler">
             <StaticImage
-              src="../images/kickster.png"
-              alt="Kickster Screenshot"
+              src="../images/retrosampler2.png"
+              alt="RetroSampler Screenshot"
             />
           </Anchor>
         </Box>
         <Box margin={{ right: "small", bottom: "small" }}>
-          <Anchor href="https://store.ternar.tech/l/retrosampler">
+          <Anchor href="https://store.ternar.tech/l/retrosampler-pro">
             <StaticImage
-              src="../images/retrosampler.png"
-              alt="RetroSampler Screenshot"
+              src="../images/retrosampler2-pro.png"
+              alt="RetroSampler Pro Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/channelstrip">
+            <StaticImage
+              src="../images/channelstrip.png"
+              alt="ChannelStrip Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/channelstrip-pro">
+            <StaticImage
+              src="../images/channelstrip-pro.png"
+              alt="ChannelStrip Pro Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/combine">
+            <StaticImage src="../images/combine.png" alt="Combine Screenshot" />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/kickster">
+            <StaticImage
+              src="../images/kickster.png"
+              alt="Kickster Screenshot"
             />
           </Anchor>
         </Box>
