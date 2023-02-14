@@ -24,6 +24,26 @@ export function TrnrDevices() {
       </Box>
       <Box wrap direction="row">
         <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/dmmg">
+            <StaticImage
+              height={250}
+              quality={100}
+              src="../images/dmmg.png"
+              alt="DmmG Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/dmmg-pro">
+            <StaticImage
+              height={250}
+              quality={100}
+              src="../images/dmmg-pro.png"
+              alt="DmmG Pro Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
           <Anchor href="https://store.ternar.tech/l/retrosampler">
             <StaticImage
               height={250}
