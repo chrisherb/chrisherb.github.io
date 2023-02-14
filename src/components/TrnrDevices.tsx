@@ -44,6 +44,16 @@ export function TrnrDevices() {
           </Anchor>
         </Box>
         <Box margin={{ right: "small", bottom: "small" }}>
+          <Anchor href="https://store.ternar.tech/l/mecki">
+            <StaticImage
+              height={250}
+              quality={100}
+              src="../images/mecki.png"
+              alt="Mecki Screenshot"
+            />
+          </Anchor>
+        </Box>
+        <Box margin={{ right: "small", bottom: "small" }}>
           <Anchor href="https://store.ternar.tech/l/retrosampler">
             <StaticImage
               height={250}
