@@ -20,8 +20,17 @@ export function TrnrFooter() {
           label="Instagram"
           target="_blank"
         />
-        <Anchor href="https://store.ternar.tech/" label="Gumroad" />
-        <TrnrLink to="/impressum">Impressum</TrnrLink>
+        <Anchor
+          href="https://trnr.gumroad.com/follow"
+          target="_blank"
+          label="Newsletter"
+        />
+        <TrnrLink to="/impressum" color="brand">
+          Impressum
+        </TrnrLink>
+        <TrnrLink to="/contact" color="brand">
+          Contact
+        </TrnrLink>
       </Nav>
     </Footer>
   );

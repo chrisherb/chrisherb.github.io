@@ -1,49 +1,44 @@
-import * as React from "react";
-import { Link, HeadFC } from "gatsby";
+import { HeadFC } from "gatsby";
+import { Box, Heading, Text } from "grommet";
+import { DocumentMissing } from "grommet-icons";
+import React from "react";
+import { TrnrLink } from "../components/TrnrLink";
+import { TrnrMain } from "../components/TrnrMain";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
-
-const NotFoundPage = () => {
+export default function Component() {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <TrnrMain>
+      <Box
+        id="music"
+        pad={{
+          left: "xlarge",
+          top: "medium",
+          right: "xlarge",
+          bottom: "xlarge",
+        }}
+        background="brand"
+      >
+        <Box
+          pad={{ top: "medium", bottom: "medium" }}
+          margin={{ bottom: "large" }}
+          border="bottom"
+        >
+          <Box direction="row">
+            <TrnrLink to="/" color="control">
+              Home
+            </TrnrLink>
+          </Box>
+          <Heading margin="0">404</Heading>
+        </Box>
+        <Box direction="row-responsive" pad={{ bottom: "large" }} gap="medium">
+          <DocumentMissing size="large" />
+          <Text size="xlarge">We're Sorry, we couldn't find the Page :(</Text>
+        </Box>
+      </Box>
+    </TrnrMain>
   );
-};
+}
 
-export default NotFoundPage;
-
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => (
+  <title>Ternär Music Technology | 404 Not found</title>
+);

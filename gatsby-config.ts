@@ -33,6 +33,7 @@ const config: GatsbyConfig = {
         fastHash: true,
       },
     },
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {

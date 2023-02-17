@@ -1,6 +1,6 @@
-import { Anchor, Header, Nav } from "grommet";
+import { Header, Nav } from "grommet";
 import React from "react";
-import { Link, navigate } from "gatsby";
+import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { TrnrLink } from "./TrnrLink";
 
@@ -14,16 +14,20 @@ export function TrnrHeader() {
       <Link to="/">
         <StaticImage
           height={55}
-          src="../images/trnr-logo-sqr.svg"
+          src="../images/static/trnr-logo-sqr.svg"
           alt="Ternär Music Technology Square Logo"
         />
       </Link>
       <Nav direction="row-responsive">
-        <Anchor label="Plugins" href="#plugins" />
-        <Anchor label="Devices" href="#devices" />
-        <Anchor label="Music" href="https://ternar.bandcamp.com/" />
-        <Anchor label="Services" href="#services" />
-        <Anchor label="Contact" href="#contact" />
+        <TrnrLink to="/music" color="brand">
+          Music
+        </TrnrLink>
+        <TrnrLink to="/devices" color="brand">
+          Devices
+        </TrnrLink>
+        <TrnrLink to="/services" color="brand">
+          Services
+        </TrnrLink>
       </Nav>
     </Header>
   );

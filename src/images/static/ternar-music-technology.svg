@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="500"
+   viewBox="0 0 132.29167 132.29165"
+   version="1.1"
+   id="svg1017"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="ternar-music-technology.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1019"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="331.5"
+     inkscape:cy="351.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#505050"
+     showguides="false" />
+  <defs
+     id="defs1014" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       aria-label="TR NR"
+       id="text4808-4-88"
+       style="font-size:46.9985px;line-height:0.64;font-family:'FORCED SQUARE';-inkscape-font-specification:'FORCED SQUARE';letter-spacing:0px;fill:#ffffff;stroke-width:1.17497"
+       transform="matrix(2.405303,0,0,2.405303,-120.26515,-180.39772)">
+      <path
+         d="M 75,80.02884 65,80 v 20 H 60 L 59.971161,80 H 50 v -5 h 25 z"
+         id="path33280-8-3"
+         sodipodi:nodetypes="ccccccccc"
+         style="fill:#ffffff" />
+      <path
+         d="m 75,105 v 25 H 70 L 55,112.5 V 130 h -5 v -25 h 4.840846 L 70,122.5 V 105 Z"
+         id="path33284-2-1"
+         sodipodi:nodetypes="ccccccccccc"
+         style="fill:#ffffff" />
+      <path
+         d="m 105,105 v 15 h -6.25 l 6.25,6.25 V 130 h -3.75 l -10,-10 H 85 v 10 l -5,-1e-5 V 105 Z m -5,5 H 85 v 5 h 15 z"
+         id="path33286-4-15"
+         style="fill:#ffffff;stroke-width:1.19504"
+         sodipodi:nodetypes="ccccccccccccccccc" />
+      <path
+         d="M 105,75 V 90 H 98.75 L 105,96.25 V 100 h -3.75 l -10,-10 H 85 v 10 l -5,-1e-5 V 75 Z m -5,5 H 85 v 5 h 15 z"
+         id="path34858-8-59"
+         style="fill:#ffffff;stroke-width:1.19504"
+         sodipodi:nodetypes="ccccccccccccccccc" />
+    </g>
+  </g>
+</svg>

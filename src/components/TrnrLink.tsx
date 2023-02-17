@@ -6,6 +6,7 @@ import { useContext } from "react";
 
 type Props = {
   children?: string;
+  color: "brand" | "control";
   to: string;
 };
 
@@ -18,7 +19,7 @@ export function TrnrLink(props: Props) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        color: normalizeColor("brand", theme),
+        color: normalizeColor(props.color, theme),
         fontWeight: theme.anchor?.fontWeight,
         textDecoration: hover
           ? theme.anchor?.hover?.textDecoration

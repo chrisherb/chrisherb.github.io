@@ -1,4 +1,5 @@
-import { Anchor, Box, Heading, Page, PageContent, Text } from "grommet";
+import { HeadFC } from "gatsby";
+import { Anchor, Heading, Page, PageContent, Text } from "grommet";
 import React from "react";
 import { TrnrMain } from "../components/TrnrMain";
 
@@ -101,3 +102,7 @@ export default function Impressum() {
     </TrnrMain>
   );
 }
+
+export const Head: HeadFC = () => (
+  <title>Ternär Music Technology | Impressum</title>
+);
