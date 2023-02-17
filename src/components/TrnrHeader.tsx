@@ -9,7 +9,6 @@ export function TrnrHeader() {
     <Header
       background={"control"}
       pad={{ left: "small", top: "small", right: "xlarge", bottom: "small" }}
-      sticky="scrollup"
     >
       <Link to="/">
         <StaticImage
