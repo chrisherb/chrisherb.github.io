@@ -51,6 +51,6 @@ export const Head: HeadFC = () => (
     />
 
     {/* Fonts CSS */}
-    <link rel="stylesheet" href="fonts/fonts.css"></link>
+    <link rel="stylesheet" href="/fonts/fonts.css"></link>
   </>
 );

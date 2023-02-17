@@ -1,21 +1,20 @@
 import React from "react";
-import { graphql, HeadFC, PageProps, useStaticQuery } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
 import { Box, Heading, Page, PageContent, Text } from "grommet";
 import { TrnrLink } from "../../components/TrnrLink";
+import useIsClient from "../../components/TrnrHooks";
 
 export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
+  const { isClient, key } = useIsClient();
+
   const playerStyle = {
     border: 0,
     width: "330px",
     height: "590px",
   };
 
-  const style = {
-    border: 0,
-    width: "100%",
-    height: "120px",
-  };
+  if (!isClient) return null;
 
   return (
     <TrnrMain>
@@ -53,16 +52,19 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
           </Box>
           <Box align="center" margin={{ vertical: "large" }}>
             <Box border="all">
-              <iframe
-                style={playerStyle}
-                src={`https://bandcamp.com/EmbeddedPlayer/album=${props.data.albumsJson?.raw?.current?.id}/size=large/bgcol=ffffff/linkcol=333333/transparent=true/`}
-                seamless
-              >
-                <a href={props.data.albumsJson?.url!}>
-                  {props.data.albumsJson?.title} by{" "}
-                  {props.data.albumsJson?.artist}
-                </a>
-              </iframe>
+              {isClient && (
+                <iframe
+                  key={key}
+                  style={playerStyle}
+                  src={`https://bandcamp.com/EmbeddedPlayer/album=${props.data.albumsJson?.raw?.current?.id}/size=large/bgcol=ffffff/linkcol=333333/transparent=true/`}
+                  seamless
+                >
+                  <a href={props.data.albumsJson?.url!}>
+                    {props.data.albumsJson?.title} by{" "}
+                    {props.data.albumsJson?.artist}
+                  </a>
+                </iframe>
+              )}
             </Box>
           </Box>
         </PageContent>

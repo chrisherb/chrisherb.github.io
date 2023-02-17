@@ -4,15 +4,16 @@ import { TrnrMain } from "../../components/TrnrMain";
 import { Box, Button, Heading, Page, PageContent, Text } from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
+import useIsClient from "../../components/TrnrHooks";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
+  const { isClient, key } = useIsClient();
+
   const fileName = props.data.productsJson?.custom_permalink + ".png";
   const node: any = props.data.allFile.nodes.find(
     (element: any) => element.relativePath == fileName
   );
   const image = getImage(node);
-
-  const style = { a: { color: "#000" } };
 
   return (
     <TrnrMain>
@@ -36,11 +37,14 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
               {props.data.productsJson?.name}
             </Heading>
             <Text>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: props.data.productsJson?.description!,
-                }}
-              />
+              {isClient && (
+                <div
+                  key={key}
+                  dangerouslySetInnerHTML={{
+                    __html: props.data.productsJson?.description!,
+                  }}
+                />
+              )}
             </Text>
             <Button
               margin="large"
