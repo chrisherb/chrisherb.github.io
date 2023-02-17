@@ -1,7 +1,6 @@
-import { navigate } from "gatsby";
+import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
-  Anchor,
   Box,
   Card,
   CardBody,
@@ -9,7 +8,6 @@ import {
   Heading,
   Paragraph,
   Stack,
-  Text,
 } from "grommet";
 import React, { useState } from "react";
 
@@ -40,7 +38,7 @@ export function TrnrCard(props: TrnrCardProps) {
       round="0"
       elevation=""
     >
-      <a href={props.link}>
+      <Link to={props.link}>
         <Stack>
           <CardBody>
             <GatsbyImage image={props.image} alt={props.title + "Picture"} />
@@ -64,7 +62,7 @@ export function TrnrCard(props: TrnrCardProps) {
             </CardHeader>
           )}
         </Stack>
-      </a>
+      </Link>
     </Card>
   );
 }
