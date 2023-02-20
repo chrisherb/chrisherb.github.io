@@ -21,8 +21,8 @@ export function TrnrHeader() {
         <TrnrLink to="/music" color="brand">
           Music
         </TrnrLink>
-        <TrnrLink to="/devices" color="brand">
-          Devices
+        <TrnrLink to="/audio-software" color="brand">
+          Audio Software
         </TrnrLink>
         <TrnrLink to="/services" color="brand">
           Services

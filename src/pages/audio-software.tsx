@@ -70,7 +70,7 @@ export default function Component() {
               Home
             </TrnrLink>
           </Box>
-          <Heading margin="0">Devices</Heading>
+          <Heading margin="0">Audio Software</Heading>
           <RadioButtonGroup
             pad={{ top: "small" }}
             name={"Filter"}
@@ -107,5 +107,5 @@ export default function Component() {
 }
 
 export const Head: HeadFC = () => (
-  <title>Ternär Music Technology | Devices</title>
+  <title>Ternär Music Technology | Audio Software</title>
 );
