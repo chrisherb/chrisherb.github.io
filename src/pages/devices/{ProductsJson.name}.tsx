@@ -5,6 +5,7 @@ import { Box, Button, Heading, Page, PageContent, Text } from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
 import useIsClient from "../../components/TrnrHooks";
+import { Shop } from "grommet-icons";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const { isClient, key } = useIsClient();
@@ -14,6 +15,9 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
     (element: any) => element.relativePath == fileName
   );
   const image = getImage(node);
+
+  const price = props.data.productsJson?.price!;
+  const priceString = price != 0 ? (price / 100).toFixed(2) + " €" : "FREE";
 
   return (
     <TrnrMain>
@@ -48,9 +52,10 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
             </Text>
             <Button
               margin="large"
-              label="I want this!"
+              label={"Get it for " + priceString}
               alignSelf="center"
               target="blank"
+              icon={<Shop />}
               href={
                 "https://store.ternar.tech/l/" +
                 props.data.productsJson?.custom_permalink!
