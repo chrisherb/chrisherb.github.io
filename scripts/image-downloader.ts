@@ -1,7 +1,7 @@
-const client = require("https");
-const { createWriteStream } = require("fs");
+import client from "https";
+import { createWriteStream } from "fs";
 
-function downloadImage(url, filepath) {
+export function downloadImage(url: string, filepath: string) {
   return new Promise((resolve, reject) => {
     client.get(url, (res) => {
       if (res.statusCode === 200) {
@@ -19,5 +19,3 @@ function downloadImage(url, filepath) {
     });
   });
 }
-
-module.exports = { downloadImage };
