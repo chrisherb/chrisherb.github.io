@@ -95,7 +95,8 @@ export function TrnrTitle() {
               marginBottom: 0,
             }}
           >
-            Waveform Manufacturing and Machinery <br /> Est. 2017 in Berlin
+            Waveform Manufacturing and Machinery <br /> Established 2017 in
+            Berlin
           </h2>
         </Box>
       </Box>
