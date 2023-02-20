@@ -16,6 +16,7 @@ export function TrnrLink(props: Props) {
 
   return (
     <Link
+      activeStyle={{ textDecoration: theme.anchor?.hover?.textDecoration }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
