@@ -16,6 +16,10 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
 
   if (!isClient) return null;
 
+  const date = new Date(props.data.albumsJson?.raw?.current?.release_date!);
+  const formatter = new Intl.DateTimeFormat("en", { month: "long" });
+  const dateString = formatter.format(date) + " " + date.getFullYear();
+
   return (
     <TrnrMain>
       <Page kind="narrow" background="brand">
@@ -40,12 +44,7 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
           </Heading>
           <Box gap="small">
             <Text>{props.data.albumsJson?.raw?.current?.about}</Text>
-            <Text>
-              Released{" "}
-              {new Date(
-                props.data.albumsJson?.raw?.current?.release_date!
-              ).toLocaleDateString("de-DE")}
-            </Text>
+            <Text>Released {dateString}</Text>
             <Text style={{ whiteSpace: "pre-line" }}>
               <i>{props.data.albumsJson?.raw?.current?.credits}</i>
             </Text>
