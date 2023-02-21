@@ -70,11 +70,13 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
               <Text style={{ whiteSpace: "pre-line" }}>
                 <i>{props.data.albumsJson?.raw?.current?.credits}</i>
               </Text>
-              <Button
-                icon={<Spotify color="control" size="large" />}
-                href={url!}
-                target="blank"
-              />
+              {url && (
+                <Button
+                  icon={<Spotify color="control" size="large" />}
+                  href={url!}
+                  target="blank"
+                />
+              )}
             </Box>
           </Box>
         </PageContent>
