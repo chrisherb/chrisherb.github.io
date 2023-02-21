@@ -21,7 +21,7 @@ export function TrnrFooter() {
           target="_blank"
         />
         <Anchor
-          href="https://trnr.gumroad.com/follow"
+          href="https://store.ternar.tech/follow"
           target="_blank"
           label="Newsletter"
         />
