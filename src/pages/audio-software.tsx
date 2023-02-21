@@ -134,11 +134,11 @@ export default function Component() {
                       label={"Details"}
                       to={product.productsPath}
                     />
-                    <TrnrButton
+                    <Button
                       primary
                       fill="horizontal"
                       label={"Add to Cart"}
-                      to={
+                      href={
                         product.short_url! +
                         "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
                         "&price=0"
