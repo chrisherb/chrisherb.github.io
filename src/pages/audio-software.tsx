@@ -19,7 +19,7 @@ export default function Component() {
           custom_permalink
           short_url
           productsPath: gatsbyPath(
-            filePath: "/audio-software/{ProductsJson.name}"
+            filePath: "/audio-software/{ProductsJson.custom_permalink}"
           )
         }
       }
@@ -139,7 +139,7 @@ export default function Component() {
                       label={"Add to Cart"}
                       href={
                         product.short_url! +
-                        "?wanted=true&referrer=https://ternar.tech/audio-software/" +
+                        "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
                         "&price=0"
                       }
                     />

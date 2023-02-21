@@ -61,7 +61,7 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
               icon={<Cart />}
               href={
                 props.data.productsJson?.short_url! +
-                "?wanted=true&referrer=https://ternar.tech/audio-software/" +
+                "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
                 props.data.productsJson?.custom_permalink +
                 "&price=0"
               }
