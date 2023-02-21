@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box, Heading, Text } from "grommet";
 import { Button, Paragraph, RadioButtonGroup } from "grommet/components";
 import React, { useState } from "react";
+import { TrnrButton } from "../components/TrnrButton";
 import { TrnrLink } from "../components/TrnrLink";
 import { TrnrMain } from "../components/TrnrMain";
 
@@ -127,17 +128,17 @@ export default function Component() {
                     gap="small"
                     align="center"
                   >
-                    <Button
+                    <TrnrButton
                       fill="horizontal"
                       alignSelf="center"
                       label={"Details"}
-                      href={product.productsPath}
+                      to={product.productsPath}
                     />
-                    <Button
+                    <TrnrButton
                       primary
                       fill="horizontal"
                       label={"Add to Cart"}
-                      href={
+                      to={
                         product.short_url! +
                         "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
                         "&price=0"
