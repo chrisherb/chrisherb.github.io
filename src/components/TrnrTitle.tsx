@@ -33,7 +33,7 @@ export function TrnrTitle() {
           description
           custom_permalink
           productsPath: gatsbyPath(
-            filePath: "/audio-software/{ProductsJson.name}"
+            filePath: "/audio-software/{ProductsJson.custom_permalink}"
           )
         }
       }
