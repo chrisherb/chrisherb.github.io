@@ -52,6 +52,7 @@ export default function Component() {
             background="light-3"
             pad="medium"
             elevation="0"
+            round="none"
           >
             <CardHeader>
               <Heading margin={{ top: "0", bottom: "medium" }} level="3">

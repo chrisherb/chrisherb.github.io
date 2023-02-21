@@ -45,7 +45,12 @@ export default function Component() {
           pad={{ bottom: "large" }}
           gap="medium"
         >
-          <Card pad="medium" background="light-3" elevation="none">
+          <Card
+            pad="medium"
+            background="background"
+            elevation="none"
+            round="none"
+          >
             <CardHeader justify="start">
               <AssistListening size="large" color="control" />
               <Heading level="3">Mix/Production Consulting</Heading>
@@ -61,7 +66,12 @@ export default function Component() {
             </CardFooter>
           </Card>
 
-          <Card pad="medium" background="light-1" elevation="none">
+          <Card
+            pad="medium"
+            background="background"
+            elevation="none"
+            round="none"
+          >
             <CardHeader justify="start">
               <Configure size="large" color="control" />
               <Heading level="3">Audio Processing Service</Heading>
@@ -77,7 +87,12 @@ export default function Component() {
             </CardFooter>
           </Card>
 
-          <Card pad="medium" background="light-1" elevation="none">
+          <Card
+            pad="medium"
+            background="background"
+            elevation="none"
+            round="none"
+          >
             <CardHeader justify="start">
               <Compliance size="large" color="control" />
               <Heading level="3">Mastering Service</Heading>
