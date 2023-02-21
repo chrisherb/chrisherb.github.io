@@ -32,7 +32,7 @@ export default function Component() {
         </Box>
         <Box direction="row-responsive" pad={{ bottom: "large" }} gap="medium">
           <DocumentMissing size="large" />
-          <Text size="xlarge">We're Sorry, we couldn't find the Page :(</Text>
+          <Text size="xlarge">Sorry, we couldn't find the Page :(</Text>
         </Box>
       </Box>
     </TrnrMain>
