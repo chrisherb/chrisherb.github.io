@@ -1,14 +1,15 @@
-import { Header, Nav } from "grommet";
+import { Button, Header, Nav } from "grommet";
 import React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { TrnrLink } from "./TrnrLink";
+import { Cart } from "grommet-icons";
 
 export function TrnrHeader() {
   return (
     <Header
       background={"control"}
-      pad={{ left: "small", top: "small", right: "xlarge", bottom: "small" }}
+      pad={{ left: "small", vertical: "small", right: "medium" }}
     >
       <Link to="/">
         <StaticImage
@@ -27,6 +28,12 @@ export function TrnrHeader() {
         <TrnrLink to="/services" color="brand">
           Services
         </TrnrLink>
+
+        <Button
+          plain
+          icon={<Cart color="brand" />}
+          href="https://app.gumroad.com/checkout"
+        />
       </Nav>
     </Header>
   );

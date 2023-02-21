@@ -1,9 +1,8 @@
 import { graphql, HeadFC, useStaticQuery } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
-import { Box, Heading } from "grommet";
-import { RadioButtonGroup } from "grommet/components";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Box, Heading, Text } from "grommet";
+import { Button, Paragraph, RadioButtonGroup } from "grommet/components";
 import React, { useState } from "react";
-import { TrnrCard } from "../components/TrnrCard";
 import { TrnrLink } from "../components/TrnrLink";
 import { TrnrMain } from "../components/TrnrMain";
 
@@ -16,8 +15,12 @@ export default function Component() {
           name
           description
           tags
+          price
           custom_permalink
-          productsPath: gatsbyPath(filePath: "/devices/{ProductsJson.name}")
+          short_url
+          productsPath: gatsbyPath(
+            filePath: "/audio-software/{ProductsJson.name}"
+          )
         }
       }
       allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
@@ -26,8 +29,8 @@ export default function Component() {
           childImageSharp {
             gatsbyImageData(
               quality: 100
-              height: 250
-              width: 250
+              height: 300
+              width: 550
               placeholder: BLURRED
               transformOptions: { fit: COVER, cropFocus: CENTER }
             )
@@ -74,7 +77,12 @@ export default function Component() {
           <RadioButtonGroup
             pad={{ top: "small" }}
             name={"Filter"}
-            options={["All", "VST", "Ableton", "Sample Pack"]}
+            options={[
+              { label: "All", value: "All" },
+              { label: "VST", value: "VST" },
+              { label: "Max for Live", value: "Ableton" },
+              { label: "Sample Pack", value: "Sample Pack" },
+            ]}
             direction="row"
             value={filterValue}
             onChange={(event) => {
@@ -82,22 +90,67 @@ export default function Component() {
             }}
           />
         </Box>
-        <Box wrap direction="row">
+        <Box wrap direction="row" gap="medium">
           {filteredData.map((product: any) => {
             const fileName = product.custom_permalink + ".png";
             const node = data.allFile.nodes.find(
               (element: any) => element.relativePath == fileName
             );
             const image = getImage(node);
+            const price = product.price!;
+            const priceString =
+              price != 0 ? (price / 100).toFixed(2) + " €" : "FREE";
             return (
-              <TrnrCard
-                key={product.id}
-                link={product.productsPath}
-                image={image!}
-                text={product.description.replace(/<\/?[^>]+(>|$)/g, "")}
-                title={product.name!}
-                maxLines={8}
-              />
+              <Box
+                background={"background"}
+                margin={{ bottom: "medium" }}
+                round={"none"}
+                elevation="none"
+                width="550px"
+              >
+                <GatsbyImage
+                  alt={product.name! + " Screenshot"}
+                  image={image!}
+                />
+                <Box
+                  pad={{ horizontal: "medium", top: "small", bottom: "medium" }}
+                >
+                  <Heading margin={{ top: "none", bottom: "small" }} level={2}>
+                    {product.name!}
+                  </Heading>
+                  <Paragraph fill margin={"none"} maxLines={4}>
+                    {product.description!.replace(/<\/?[^>]+(>|$)/g, "")}
+                  </Paragraph>
+                  <Box
+                    direction="row-responsive"
+                    margin={{ top: "medium" }}
+                    gap="small"
+                    align="center"
+                  >
+                    <Button
+                      fill="horizontal"
+                      alignSelf="center"
+                      label={"Details"}
+                      href={product.productsPath}
+                    />
+                    <Button
+                      primary
+                      fill="horizontal"
+                      label={"Add to Cart"}
+                      href={
+                        product.short_url! +
+                        "?wanted=true&referrer=https://ternar.tech/audio-software/" +
+                        "&price=0"
+                      }
+                    />
+                    <Box width="medium" align="end">
+                      <Text weight={"bold"} color="control" size="xlarge">
+                        {priceString}
+                      </Text>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             );
           })}
         </Box>

@@ -13,6 +13,15 @@ const trnrTheme = deepMerge(grommet, {
       },
     },
   },
+  button: {
+    border: {
+      radius: undefined,
+    },
+    padding: {
+      vertical: "9px",
+      horizontal: "24px",
+    },
+  },
   heading: {
     level: {
       2: {

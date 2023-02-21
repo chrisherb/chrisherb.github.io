@@ -1,6 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { getImage, StaticImage } from "gatsby-plugin-image";
-import { Box, ResponsiveContext, Heading } from "grommet";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import {
+  Box,
+  ResponsiveContext,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from "grommet";
 import React, { useContext } from "react";
 import { TrnrCard } from "./TrnrCard";
 import { TrnrLink } from "./TrnrLink";
@@ -24,7 +32,9 @@ export function TrnrTitle() {
           name
           description
           custom_permalink
-          productsPath: gatsbyPath(filePath: "/devices/{ProductsJson.name}")
+          productsPath: gatsbyPath(
+            filePath: "/audio-software/{ProductsJson.name}"
+          )
         }
       }
       allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
@@ -150,7 +160,7 @@ export function TrnrTitle() {
               );
             })}
           </Box>
-          <TrnrLink to="/devices" color="control">
+          <TrnrLink to="/audio-software" color="control">
             More
           </TrnrLink>
         </Box>

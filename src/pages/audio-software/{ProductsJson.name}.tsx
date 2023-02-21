@@ -5,7 +5,7 @@ import { Box, Button, Heading, Page, PageContent, Text } from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
 import useIsClient from "../../components/TrnrHooks";
-import { Shop } from "grommet-icons";
+import { Cart, Shop } from "grommet-icons";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const { isClient, key } = useIsClient();
@@ -27,14 +27,14 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
             image={image!}
             alt={props.data.productsJson?.name + "Picture"}
           />
-          <Box pad="large">
+          <Box pad={"large"}>
             <Box direction="row">
               <TrnrLink to="/" color="control">
                 Home
               </TrnrLink>
               <Text margin={{ horizontal: "xsmall" }}>»</Text>
-              <TrnrLink to="/devices" color="control">
-                Devices
+              <TrnrLink to="/audio-software" color="control">
+                Audio Software
               </TrnrLink>
             </Box>
             <Heading level="1" margin="0">
@@ -50,15 +50,20 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 />
               )}
             </Text>
+            <Text weight={"bold"} color="control" size="xxlarge">
+              {priceString}
+            </Text>
             <Button
-              margin="large"
-              label={"Get it for " + priceString}
-              alignSelf="center"
-              target="blank"
-              icon={<Shop />}
+              primary
+              margin={{ top: "small" }}
+              label={"Add to Cart"}
+              alignSelf="start"
+              icon={<Cart />}
               href={
-                "https://store.ternar.tech/l/" +
-                props.data.productsJson?.custom_permalink!
+                props.data.productsJson?.short_url! +
+                "?wanted=true&referrer=https://ternar.tech/audio-software/" +
+                props.data.productsJson?.custom_permalink +
+                "&price=0"
               }
             />
           </Box>
