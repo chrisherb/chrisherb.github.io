@@ -1,9 +1,10 @@
 import React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
-import { Box, Heading, Page, PageContent, Text } from "grommet";
+import { Box, Button, Heading, Page, PageContent, Text } from "grommet";
 import { TrnrLink } from "../../components/TrnrLink";
 import useIsClient from "../../components/TrnrHooks";
+import { Spotify } from "grommet-icons";
 
 export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
   const { isClient, key } = useIsClient();
@@ -19,6 +20,12 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
   const date = new Date(props.data.albumsJson?.raw?.current?.release_date!);
   const formatter = new Intl.DateTimeFormat("en", { month: "long" });
   const dateString = formatter.format(date) + " " + date.getFullYear();
+
+  const catalogNumber =
+    props.data.albumsJson?.title?.match(/(?<=\[).+?(?=\])/g)?.[0];
+  const url = props.data.allSpotifyJson.nodes.find(
+    (node) => node.catalogNumber == catalogNumber
+  )?.url;
 
   return (
     <TrnrMain>
@@ -42,20 +49,13 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
           >
             {props.data.albumsJson?.title}
           </Heading>
-          <Box gap="small">
-            <Text>{props.data.albumsJson?.raw?.current?.about}</Text>
-            <Text>Released {dateString}</Text>
-            <Text style={{ whiteSpace: "pre-line" }}>
-              <i>{props.data.albumsJson?.raw?.current?.credits}</i>
-            </Text>
-          </Box>
-          <Box align="center" margin={{ vertical: "large" }}>
-            <Box border="all">
+          <Box direction="row-responsive" gap="medium">
+            <Box border width="332px">
               {isClient && (
                 <iframe
                   key={key}
                   style={playerStyle}
-                  src={`https://bandcamp.com/EmbeddedPlayer/album=${props.data.albumsJson?.raw?.current?.id}/size=large/bgcol=ffffff/linkcol=333333/transparent=true/`}
+                  src={`https://bandcamp.com/EmbeddedPlayer/album=${props.data.albumsJson?.raw?.current?.id}/size=large/bgcol=000000/linkcol=6fffb0/transparent=true/`}
                   seamless
                 >
                   <a href={props.data.albumsJson?.url!}>
@@ -64,6 +64,17 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
                   </a>
                 </iframe>
               )}
+            </Box>
+            <Box width="300px" gap="medium">
+              <Text>Released {dateString}</Text>
+              <Text style={{ whiteSpace: "pre-line" }}>
+                <i>{props.data.albumsJson?.raw?.current?.credits}</i>
+              </Text>
+              <Button
+                icon={<Spotify color="control" size="large" />}
+                href={url!}
+                target="blank"
+              />
             </Box>
           </Box>
         </PageContent>
@@ -76,16 +87,22 @@ export const query = graphql`
   query TrnrAlbum($id: String) {
     albumsJson(id: { eq: $id }) {
       id
+      imageUrl
       artist
       title
       url
       raw {
         current {
-          about
           credits
           release_date
           id
         }
+      }
+    }
+    allSpotifyJson {
+      nodes {
+        catalogNumber
+        url
       }
     }
   }
