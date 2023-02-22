@@ -1,6 +1,6 @@
-a {
+.product-description a {
   color: rgb(111, 255, 176);
 }
-a:visited {
+.product-description a:visited {
   color: rgb(111, 255, 176);
 }

@@ -47,6 +47,7 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
             <Text>
               {isClient && (
                 <div
+                  className="product-description"
                   key={key}
                   dangerouslySetInnerHTML={{
                     __html: props.data.productsJson?.description!,
