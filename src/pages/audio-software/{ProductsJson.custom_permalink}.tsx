@@ -7,6 +7,7 @@ import { TrnrLink } from "../../components/TrnrLink";
 import useIsClient from "../../components/TrnrHooks";
 import { TrnrCartButton } from "../../components/TrnrCartButton";
 import { TrnrPriceLabel } from "../../components/TrnrPriceLabel";
+import "../../styles/reset.css";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const { isClient, key } = useIsClient();
