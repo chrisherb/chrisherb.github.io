@@ -1,0 +1,47 @@
+[
+  {
+    "catalogNumber": "TRNR012",
+    "spotify": "https://open.spotify.com/album/79oB2l7x3RQfth2XekuJoK?si=F8MByqBERj6uSZfVUU0HHA",
+    "apple": "https://geo.music.apple.com/de/album/_/1653565951?mt=1&app=music&ls=1&at=1000lHKX&ct=odesli_http&itscg=30200&itsct=odsl_m",
+    "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nSYiLE0ii9B3I59h2rlNdpuWR2XiHZ14g",
+    "pandora": "https://www.pandora.com/AL:19281525",
+    "amazon": "https://music.amazon.com/albums/B0BLSPGBFL",
+    "tidal": "https://listen.tidal.com/album/259252931"
+  },
+  {
+    "catalogNumber": "TRNR010",
+    "spotify": "https://open.spotify.com/album/5QUwIK509zrl3xpaKzC1Tl?si=WwhiaIV3T1G49PB20zsdeg"
+  },
+  {
+    "catalogNumber": "TRNR009",
+    "spotify": "https://open.spotify.com/album/5ID38anKfVJhdVjP8ACcIb?si=bxqKuIHfTL-v0fEb2N9MRg"
+  },
+  {
+    "catalogNumber": "TRNR008",
+    "spotify": "https://open.spotify.com/album/3I6YTm8ifPDhuyq2nJRMK3?si=pNBK4m00QYOpeT6IfeGJsw"
+  },
+  {
+    "catalogNumber": "TRNR006",
+    "spotify": "https://open.spotify.com/album/7xs6OUVpGSsOxONHNkAceX?si=QbqFQ4AFQUyCBKlvL7Jk6w"
+  },
+  {
+    "catalogNumber": "TRNR005",
+    "spotify": "https://open.spotify.com/album/6ooa2vt6qLo7e6I1dzaJ2k?si=-eI6J5EfQsSmx1XrTTEoAg"
+  },
+  {
+    "catalogNumber": "TRNR004",
+    "spotify": "https://open.spotify.com/album/1db7m50V7itx8sljywxmHK?si=lrs6S-lzQKi95h0_PoqWKA"
+  },
+  {
+    "catalogNumber": "TRNR003",
+    "spotify": "https://open.spotify.com/album/3YxkyglcPDIlDZiC6HNETa?si=IpVy9O7LQiispPrdO58m-Q"
+  },
+  {
+    "catalogNumber": "TRNR002",
+    "spotify": "https://open.spotify.com/album/2A0s9NvmykCBc44v95AByz?si=JsTUw2zdRqWjuJ4nfAhssQ"
+  },
+  {
+    "catalogNumber": "TRNR001",
+    "spotify": "https://open.spotify.com/album/6ET4NZUAHpCwtqAen8Qm8T?si=FJ8SLY1pSkuX5iH4anvneQ"
+  }
+]

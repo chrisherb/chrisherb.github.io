@@ -23,9 +23,9 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
 
   const catalogNumber =
     props.data.albumsJson?.title?.match(/(?<=\[).+?(?=\])/g)?.[0];
-  const url = props.data.allSpotifyJson.nodes.find(
+  const spotifyUrl = props.data.allStreamingUrlsJson.nodes.find(
     (node) => node.catalogNumber == catalogNumber
-  )?.url;
+  )?.spotify;
 
   return (
     <TrnrMain>
@@ -70,10 +70,10 @@ export default function Component(props: PageProps<Queries.TrnrAlbumQuery>) {
               <Text style={{ whiteSpace: "pre-line" }}>
                 <i>{props.data.albumsJson?.raw?.current?.credits}</i>
               </Text>
-              {url && (
+              {spotifyUrl && (
                 <Button
                   icon={<Spotify color="control" size="large" />}
-                  href={url!}
+                  href={spotifyUrl!}
                   target="blank"
                 />
               )}
@@ -101,10 +101,10 @@ export const query = graphql`
         }
       }
     }
-    allSpotifyJson {
+    allStreamingUrlsJson {
       nodes {
         catalogNumber
-        url
+        spotify
       }
     }
   }
