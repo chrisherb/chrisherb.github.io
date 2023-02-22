@@ -1,7 +1,7 @@
 import { graphql, HeadFC, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Box, Heading } from "grommet";
-import { Button, Paragraph, RadioButtonGroup } from "grommet/components";
+import { Paragraph, RadioButtonGroup } from "grommet/components";
 import React, { useState } from "react";
 import { TrnrButton } from "../components/TrnrButton";
 import { TrnrCartButton } from "../components/TrnrCartButton";

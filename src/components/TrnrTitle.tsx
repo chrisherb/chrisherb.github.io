@@ -1,14 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
-import {
-  Box,
-  ResponsiveContext,
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from "grommet";
+import { getImage, StaticImage } from "gatsby-plugin-image";
+import { Box, ResponsiveContext, Heading } from "grommet";
 import React, { useContext } from "react";
 import { TrnrCard } from "./TrnrCard";
 import { TrnrLink } from "./TrnrLink";

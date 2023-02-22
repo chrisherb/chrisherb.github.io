@@ -6,7 +6,7 @@ import {
   ResponsiveContext,
   Text,
 } from "grommet";
-import { Add, Cart } from "grommet-icons";
+import { Add } from "grommet-icons";
 import React, { useContext, useState } from "react";
 import useIsClient from "./TrnrHooks";
 
