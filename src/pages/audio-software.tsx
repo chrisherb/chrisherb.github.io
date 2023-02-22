@@ -1,11 +1,13 @@
 import { graphql, HeadFC, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Box, Heading, Text } from "grommet";
+import { Box, Heading } from "grommet";
 import { Button, Paragraph, RadioButtonGroup } from "grommet/components";
 import React, { useState } from "react";
 import { TrnrButton } from "../components/TrnrButton";
+import { TrnrCartButton } from "../components/TrnrCartButton";
 import { TrnrLink } from "../components/TrnrLink";
 import { TrnrMain } from "../components/TrnrMain";
+import { TrnrPriceLabel } from "../components/TrnrPriceLabel";
 
 export default function Component() {
   const data: any = useStaticQuery(graphql`
@@ -99,8 +101,8 @@ export default function Component() {
             );
             const image = getImage(node);
             const price = product.price!;
-            const priceString =
-              price != 0 ? (price / 100).toFixed(2) + " €" : "FREE";
+            const demo =
+              product.tags?.find((tag: any) => tag == "demo")?.length! > 0;
             return (
               <Box
                 background={"background"}
@@ -130,24 +132,16 @@ export default function Component() {
                   >
                     <TrnrButton
                       fill="horizontal"
-                      alignSelf="center"
                       label={"Details"}
                       to={product.productsPath}
                     />
-                    <Button
-                      primary
-                      fill="horizontal"
-                      label={"Add to Cart"}
-                      href={
-                        product.short_url! +
-                        "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
-                        "&price=0"
-                      }
+                    <TrnrCartButton
+                      isNameYourPrice={price == 0 && !demo}
+                      price={price / 100}
+                      product={product}
                     />
-                    <Box width="medium" align="end">
-                      <Text weight={"bold"} color="control" size="xlarge">
-                        {priceString}
-                      </Text>
+                    <Box width="280px" align="end" fill="horizontal">
+                      <TrnrPriceLabel demo={demo} price={price} size="xlarge" />
                     </Box>
                   </Box>
                 </Box>

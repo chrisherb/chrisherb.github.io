@@ -1,11 +1,12 @@
 import React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
-import { Box, Button, Heading, Page, PageContent, Text } from "grommet";
+import { Box, Heading, Page, PageContent, Text } from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
 import useIsClient from "../../components/TrnrHooks";
-import { Cart, Shop } from "grommet-icons";
+import { TrnrCartButton } from "../../components/TrnrCartButton";
+import { TrnrPriceLabel } from "../../components/TrnrPriceLabel";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const { isClient, key } = useIsClient();
@@ -16,8 +17,10 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   );
   const image = getImage(node);
 
+  const demo =
+    props.data.productsJson?.tags?.find((tag) => tag == "demo")?.length! > 0;
+
   const price = props.data.productsJson?.price!;
-  const priceString = price != 0 ? (price / 100).toFixed(2) + " €" : "FREE";
 
   return (
     <TrnrMain>
@@ -50,22 +53,14 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 />
               )}
             </Text>
-            <Text weight={"bold"} color="control" size="xxlarge">
-              {priceString}
-            </Text>
-            <Button
-              primary
-              margin={{ top: "small" }}
-              label={"Add to Cart"}
-              alignSelf="start"
-              icon={<Cart />}
-              href={
-                props.data.productsJson?.short_url! +
-                "?wanted=true&referrer=https://www.ternar.tech/audio-software/" +
-                props.data.productsJson?.custom_permalink +
-                "&price=0"
-              }
-            />
+            <Box width="small" gap="small">
+              <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
+              <TrnrCartButton
+                isNameYourPrice={price == 0 && !demo}
+                price={price / 100}
+                product={props.data.productsJson}
+              />
+            </Box>
           </Box>
         </PageContent>
       </Page>
@@ -79,6 +74,7 @@ export const query = graphql`
       id
       name
       price
+      tags
       description
       short_url
       custom_permalink
