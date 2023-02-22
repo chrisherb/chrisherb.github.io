@@ -8,6 +8,7 @@ import {
 } from "grommet";
 import { Add, Cart } from "grommet-icons";
 import React, { useContext, useState } from "react";
+import useIsClient from "./TrnrHooks";
 
 interface TrnrCartButtonProps {
   product?: any;
@@ -17,13 +18,16 @@ interface TrnrCartButtonProps {
 
 export function TrnrCartButton(props: TrnrCartButtonProps) {
   const [price, setPrice] = useState<string>(props.price.toString());
-
-  const href =
-    props.product?.short_url! +
-    "?wanted=true&referrer=" +
-    window.location.href +
-    "&price=" +
-    price;
+  const { isClient, key } = useIsClient();
+  let href: string = "";
+  if (isClient) {
+    href =
+      props.product?.short_url! +
+      "?wanted=true&referrer=" +
+      window.location.href +
+      "&price=" +
+      price;
+  }
 
   const screenSize = useContext(ResponsiveContext);
 
