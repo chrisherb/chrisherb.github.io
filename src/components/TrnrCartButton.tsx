@@ -6,7 +6,7 @@ import {
   ResponsiveContext,
   Text,
 } from "grommet";
-import { Add } from "grommet-icons";
+import { Checkmark } from "grommet-icons";
 import React, { useContext, useState } from "react";
 import useIsClient from "./TrnrHooks";
 
@@ -57,7 +57,7 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
               />
-              <Button icon={<Add />} href={href} />
+              <Button icon={<Checkmark />} href={href} />
             </Box>
           </Box>
         }
