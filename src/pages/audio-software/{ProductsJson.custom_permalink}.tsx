@@ -4,14 +4,11 @@ import { TrnrMain } from "../../components/TrnrMain";
 import { Box, Heading, Page, PageContent, Text } from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
-import useIsClient from "../../components/TrnrHooks";
 import { TrnrCartButton } from "../../components/TrnrCartButton";
 import { TrnrPriceLabel } from "../../components/TrnrPriceLabel";
 import "../../styles/reset.css";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
-  const { isClient, key } = useIsClient();
-
   const fileName = props.data.productsJson?.custom_permalink + ".png";
   const node: any = props.data.allFile.nodes.find(
     (element: any) => element.relativePath == fileName
@@ -45,15 +42,12 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
               {props.data.productsJson?.name}
             </Heading>
             <Text>
-              {isClient && (
-                <div
-                  className="product-description"
-                  key={key}
-                  dangerouslySetInnerHTML={{
-                    __html: props.data.productsJson?.description!,
-                  }}
-                />
-              )}
+              <div
+                className="product-description"
+                dangerouslySetInnerHTML={{
+                  __html: props.data.productsJson?.description!,
+                }}
+              />
             </Text>
             <Box width="small" gap="small">
               <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
