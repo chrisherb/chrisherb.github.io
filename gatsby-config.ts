@@ -21,6 +21,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/images/dynamic`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `sound`,
+        path: `${__dirname}/src/sound/`,
+      },
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,

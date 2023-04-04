@@ -1,7 +1,15 @@
 import React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
-import { Box, Heading, Page, PageContent, Text } from "grommet";
+import {
+  Box,
+  Heading,
+  NameValueList,
+  NameValuePair,
+  Page,
+  PageContent,
+  Text,
+} from "grommet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
 import { TrnrCartButton } from "../../components/TrnrCartButton";
@@ -19,6 +27,12 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
     props.data.productsJson?.tags?.find((tag) => tag == "demo")?.length! > 0;
 
   const price = props.data.productsJson?.price!;
+
+  const sounds = props.data.allFile.nodes.filter(
+    (element: any) =>
+      element.relativePath.endsWith(".mp3") &&
+      element.relativePath.startsWith(props.data.productsJson?.custom_permalink)
+  );
 
   return (
     <TrnrMain>
@@ -49,7 +63,18 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 }}
               />
             </Text>
-            <Box width="small" gap="small">
+
+            {sounds.length > 0 && (
+              <NameValueList layout="grid">
+                {sounds.map((sound) => (
+                  <NameValuePair name={sound.relativePath.split(".")[1]}>
+                    <audio controls src={sound.publicURL!}></audio>
+                  </NameValuePair>
+                ))}
+              </NameValueList>
+            )}
+
+            <Box width="small" gap="small" margin={{ top: "large" }}>
               <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
               <TrnrCartButton
                 isNameYourPrice={price == 0 && !demo}
@@ -75,8 +100,9 @@ export const query = graphql`
       short_url
       custom_permalink
     }
-    allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
+    allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)|(mp3)/" } }) {
       nodes {
+        publicURL
         relativePath
         childImageSharp {
           gatsbyImageData(width: 1005, placeholder: BLURRED, quality: 100)
