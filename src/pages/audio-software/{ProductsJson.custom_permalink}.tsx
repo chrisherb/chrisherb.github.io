@@ -28,11 +28,15 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
 
   const price = props.data.productsJson?.price!;
 
-  const sounds = props.data.allFile.nodes.filter(
-    (element: any) =>
-      element.relativePath.endsWith(".mp3") &&
-      element.relativePath.startsWith(props.data.productsJson?.custom_permalink)
-  );
+  const sounds = props.data.allFile.nodes
+    .filter(
+      (element: any) =>
+        element.relativePath.endsWith(".mp3") &&
+        element.relativePath.startsWith(
+          props.data.productsJson?.custom_permalink
+        )
+    )
+    .sort((a, b) => a.relativePath.localeCompare(b.relativePath));
 
   return (
     <TrnrMain>
@@ -65,16 +69,19 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
             </Text>
 
             {sounds.length > 0 && (
-              <NameValueList layout="grid">
-                {sounds.map((sound) => (
-                  <NameValuePair name={sound.relativePath.split(".")[1]}>
+              <NameValueList margin={{ top: "medium" }} layout="grid">
+                {sounds.map((sound, index) => (
+                  <NameValuePair
+                    key={index}
+                    name={sound.relativePath.split(".")[1]}
+                  >
                     <audio controls src={sound.publicURL!}></audio>
                   </NameValuePair>
                 ))}
               </NameValueList>
             )}
 
-            <Box width="small" gap="small" margin={{ top: "large" }}>
+            <Box width="small" gap="small" margin={{ top: "medium" }}>
               <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
               <TrnrCartButton
                 isNameYourPrice={price == 0 && !demo}
