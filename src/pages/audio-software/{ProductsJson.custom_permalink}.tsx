@@ -15,6 +15,7 @@ import { TrnrLink } from "../../components/TrnrLink";
 import { TrnrCartButton } from "../../components/TrnrCartButton";
 import { TrnrPriceLabel } from "../../components/TrnrPriceLabel";
 import "../../styles/reset.css";
+import useIsClient from "../../components/TrnrHooks";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const fileName = props.data.productsJson?.custom_permalink + ".png";
@@ -37,6 +38,12 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
         )
     )
     .sort((a, b) => a.relativePath.localeCompare(b.relativePath));
+
+  const youtubeId = props.data.allYoutubeUrlsJson.nodes.find(
+    (yt: any) => yt.productId == props.data.productsJson?.id
+  )?.youtubeId;
+
+  const { isClient, key } = useIsClient();
 
   return (
     <TrnrMain>
@@ -67,6 +74,17 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 }}
               />
             </Text>
+
+            {isClient && youtubeId && (
+              <iframe
+                width="560"
+                height="315"
+                src={"https://www.youtube-nocookie.com/embed/" + youtubeId}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                frameBorder={0}
+              ></iframe>
+            )}
 
             {sounds.length > 0 && (
               <NameValueList margin={{ top: "medium" }} layout="grid">
@@ -114,6 +132,12 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(width: 1005, placeholder: BLURRED, quality: 100)
         }
+      }
+    }
+    allYoutubeUrlsJson {
+      nodes {
+        productId
+        youtubeId
       }
     }
   }
