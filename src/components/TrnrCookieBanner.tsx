@@ -1,4 +1,4 @@
-import { Box, Button, Layer, Markdown } from "grommet";
+import { Box, Button, Grommet, Layer, Markdown, grommet } from "grommet";
 import { FormClose } from "grommet-icons";
 import React, { useState } from "react";
 
@@ -7,7 +7,7 @@ export const TrnrCookieBanner = () => {
   const onClose = () => setOpen(false);
 
   return (
-    <>
+    <Grommet theme={grommet} full themeMode="dark">
       {open && (
         <Layer
           position="bottom"
@@ -34,6 +34,6 @@ export const TrnrCookieBanner = () => {
           </Box>
         </Layer>
       )}
-    </>
+    </Grommet>
   );
 };
