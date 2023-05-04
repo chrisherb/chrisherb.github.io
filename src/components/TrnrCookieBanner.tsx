@@ -7,7 +7,7 @@ export const TrnrCookieBanner = () => {
   const onClose = () => setOpen(false);
 
   return (
-    <Grommet theme={grommet} full themeMode="dark">
+    <Grommet theme={grommet} themeMode="dark">
       {open && (
         <Layer
           position="bottom"
