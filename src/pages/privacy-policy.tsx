@@ -1,21 +1,29 @@
 import { HeadFC } from "gatsby";
 import { Heading, Page, PageContent, Paragraph, Text } from "grommet";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TrnrMain } from "../components/TrnrMain";
+import useIsClient from "../components/TrnrHooks";
 
 export default function Component() {
-  const url = new URL(window.location.href);
-  const app = url.searchParams.get("name");
+  const [appName, setAppName] = useState("App");
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const name: string = url.searchParams.get("name")!;
+    setAppName(name);
+  }, []);
+
+  const { isClient, key } = useIsClient();
 
   return (
     <TrnrMain>
       <Page kind="narrow">
         <PageContent background="light-1" pad="large">
-          <Heading>{app} Privacy Policy</Heading>
+          <Heading>{isClient && appName} Privacy Policy</Heading>
           <Text>
             This privacy policy governs your use of the software
             application&nbsp;
-            {app} (“Application”) for mobile devices.
+            {isClient && appName} (“Application”) for mobile devices.
           </Text>
           <Heading level="2">
             What information does the Application obtain and how is it used?
