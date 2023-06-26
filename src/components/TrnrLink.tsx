@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 type Props = {
   children?: string;
-  color: "brand" | "control";
+  color: "brand" | "control" | "text";
   to: string;
 };
 
