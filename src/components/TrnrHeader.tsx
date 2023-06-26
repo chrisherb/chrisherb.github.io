@@ -36,7 +36,8 @@ export function TrnrHeader() {
               full={size === "small" ? true : undefined}
               onClickOutside={() => setShowMenu(false)}
               animation="fadeIn"
-              plain
+              plain={size !== "small" ? true : undefined}
+              background={"control"}
             >
               <Box
                 background={"control"}
