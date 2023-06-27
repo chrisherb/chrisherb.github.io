@@ -1,13 +1,11 @@
 import { graphql, HeadFC, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import { Box, Heading } from "grommet";
-import { Paragraph, RadioButtonGroup } from "grommet/components";
+import { RadioButtonGroup } from "grommet/components";
 import React, { useState } from "react";
-import { TrnrButton } from "../components/TrnrButton";
-import { TrnrCartButton } from "../components/TrnrCartButton";
 import { TrnrLink } from "../components/TrnrLink";
 import { TrnrMain } from "../components/TrnrMain";
-import { TrnrPriceLabel } from "../components/TrnrPriceLabel";
+import { TrnrProductCard } from "../components/TrnrProductCard";
 
 export default function Component() {
   const data: any = useStaticQuery(graphql`
@@ -104,48 +102,15 @@ export default function Component() {
             const demo =
               product.tags?.find((tag: any) => tag == "demo")?.length! > 0;
             return (
-              <Box
-                background={"background"}
-                margin={{ bottom: "medium" }}
-                round={"none"}
-                elevation="none"
-                width="550px"
-              >
-                <GatsbyImage
-                  alt={product.name! + " Screenshot"}
-                  image={image!}
-                />
-                <Box
-                  pad={{ horizontal: "medium", top: "small", bottom: "medium" }}
-                >
-                  <Heading margin={{ top: "none", bottom: "small" }} level={2}>
-                    {product.name!}
-                  </Heading>
-                  <Paragraph fill margin={"none"} maxLines={4}>
-                    {product.description!.replace(/<\/?[^>]+(>|$)/g, "")}
-                  </Paragraph>
-                  <Box
-                    direction="row-responsive"
-                    margin={{ top: "medium" }}
-                    gap="small"
-                    align="center"
-                  >
-                    <TrnrButton
-                      fill="horizontal"
-                      label={"Details"}
-                      to={product.productsPath}
-                    />
-                    <TrnrCartButton
-                      isNameYourPrice={price == 0 && !demo}
-                      price={price / 100}
-                      product={product}
-                    />
-                    <Box width="280px" align="end" fill="horizontal">
-                      <TrnrPriceLabel demo={demo} price={price} size="xlarge" />
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
+              <TrnrProductCard
+                name={product.name}
+                description={product.description}
+                image={image!}
+                price={product.price}
+                product={product}
+                productsPath={product.productsPath}
+                demo={demo}
+              />
             );
           })}
         </Box>
