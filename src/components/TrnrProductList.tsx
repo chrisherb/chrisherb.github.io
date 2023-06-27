@@ -58,20 +58,7 @@ export function TrnrProductList(props: Props) {
               (element: any) => element.relativePath == fileName
             );
             const image = getImage(node);
-            const price = product.price!;
-            const demo =
-              product.tags?.find((tag: any) => tag == "demo")?.length! > 0;
-            return (
-              <TrnrProductCard
-                name={product.name}
-                description={product.description}
-                image={image!}
-                price={product.price}
-                product={product}
-                productsPath={product.productsPath}
-                demo={demo}
-              />
-            );
+            return <TrnrProductCard image={image!} product={product} />;
           })}
         </Box>
       </Box>

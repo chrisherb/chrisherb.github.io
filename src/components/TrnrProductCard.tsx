@@ -1,21 +1,29 @@
 import React from "react";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage,
+} from "gatsby-plugin-image";
 import { Box, Heading, Paragraph } from "grommet";
 import { TrnrButton } from "./TrnrButton";
 import { TrnrCartButton } from "./TrnrCartButton";
 import { TrnrPriceLabel } from "./TrnrPriceLabel";
 
 type Props = {
-  name: string;
-  description: string;
-  image: IGatsbyImageData;
-  productsPath: string;
-  price: number;
-  demo: boolean;
   product: any;
+  image: IGatsbyImageData;
 };
 
 export function TrnrProductCard(props: Props) {
+  const isDemo =
+    props.product.tags?.find((tag: any) => tag == "demo")?.length! > 0;
+
+  const isAbleton =
+    props.product.tags?.find((tag: any) => tag == "max for live")?.length > 0;
+
+  const isIos =
+    props.product.tags?.find((tag: any) => tag == "ios")?.length > 0;
+
   return (
     <Box
       background={"background"}
@@ -24,13 +32,36 @@ export function TrnrProductCard(props: Props) {
       elevation="none"
       width="550px"
     >
-      <GatsbyImage alt={props.name + " Screenshot"} image={props.image} />
+      <GatsbyImage
+        alt={props.product.name + " Screenshot"}
+        image={props.image}
+      />
       <Box pad={{ horizontal: "medium", top: "small", bottom: "medium" }}>
-        <Heading margin={{ top: "none", bottom: "small" }} level={2}>
-          {props.name}
-        </Heading>
+        <Box direction="row" justify="between">
+          <Heading margin={{ top: "none", bottom: "small" }} level={2}>
+            {props.product.name}
+          </Heading>
+          <Box direction="row" gap="xsmall" align="start">
+            {isAbleton && (
+              <StaticImage
+                height={36}
+                objectFit="scale-down"
+                src="../images/static/live.svg"
+                alt="Ableton Live Logo"
+              />
+            )}
+            {isIos && (
+              <StaticImage
+                height={36}
+                objectFit="scale-down"
+                src="../images/static/ios.svg"
+                alt="Ableton Live Logo"
+              />
+            )}
+          </Box>
+        </Box>
         <Paragraph fill margin={"none"} maxLines={4}>
-          {props.description.replace(/<\/?[^>]+(>|$)/g, "")}
+          {props.product.description.replace(/<\/?[^>]+(>|$)/g, "")}
         </Paragraph>
         <Box
           direction="row-responsive"
@@ -41,17 +72,17 @@ export function TrnrProductCard(props: Props) {
           <TrnrButton
             fill="horizontal"
             label={"Details"}
-            to={props.productsPath}
+            to={props.product.productsPath}
           />
           <TrnrCartButton
-            isNameYourPrice={props.price == 0 && !props.demo}
-            price={props.price / 100}
+            isNameYourPrice={props.product.price == 0 && !isDemo}
+            price={props.product.price / 100}
             product={props.product}
           />
           <Box width="280px" align="end" fill="horizontal">
             <TrnrPriceLabel
-              demo={props.demo}
-              price={props.price}
+              demo={isDemo}
+              price={props.product.price}
               size="xlarge"
             />
           </Box>
