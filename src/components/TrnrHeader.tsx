@@ -2,7 +2,7 @@ import { Box, Button, Header, Layer, ResponsiveContext, Text } from "grommet";
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { Close, Down, Menu, Up } from "grommet-icons";
+import { Cart, Close, Down, Menu, Up } from "grommet-icons";
 import { TrnrMenuButton } from "./TrnrMenuButton";
 
 export function TrnrHeader() {
@@ -20,12 +20,15 @@ export function TrnrHeader() {
             alt="Ternär Music Technology Square Logo"
           />
         </Link>
-        {!showMenu && (
-          <Button icon={<Menu />} onClick={() => setShowMenu(true)} />
-        )}
-        {showMenu && (
-          <Button icon={<Close />} onClick={() => setShowMenu(false)} />
-        )}
+        <Box direction="row">
+          <Button icon={<Cart />} href="https://app.gumroad.com/checkout" />
+          {!showMenu && (
+            <Button icon={<Menu />} onClick={() => setShowMenu(true)} />
+          )}
+          {showMenu && (
+            <Button icon={<Close />} onClick={() => setShowMenu(false)} />
+          )}
+        </Box>
       </Header>
       {showMenu && (
         <ResponsiveContext.Consumer>
