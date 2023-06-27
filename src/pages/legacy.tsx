@@ -1,5 +1,5 @@
 import { graphql, HeadFC, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import { TrnrProductList } from "../components/TrnrProductList";
 
 export default function Component() {
@@ -35,21 +35,14 @@ export default function Component() {
       }
     }
   `);
-  const [filterValue, setFilterValue] = useState("All");
   const filteredData = data.allProductsJson.nodes.filter((product: any) => {
-    if (filterValue == "All") {
-      return true;
-    } else {
-      const filteredProducts = product.tags.filter(
-        (tag: any) => tag == filterValue.toLowerCase()
-      );
-      return filteredProducts.length > 0;
-    }
+    const filteredProducts = product.tags.filter((tag: any) => tag == "legacy");
+    return filteredProducts.length > 0;
   });
 
   return (
     <TrnrProductList
-      title={"Audio Software"}
+      title={"Legacy"}
       products={filteredData}
       images={data.allFile.nodes}
     />
@@ -57,5 +50,5 @@ export default function Component() {
 }
 
 export const Head: HeadFC = () => (
-  <title>Ternär Music Technology | Audio Software</title>
+  <title>Ternär Music Technology | Legacy</title>
 );

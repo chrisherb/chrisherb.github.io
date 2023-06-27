@@ -35,21 +35,16 @@ export default function Component() {
       }
     }
   `);
-  const [filterValue, setFilterValue] = useState("All");
   const filteredData = data.allProductsJson.nodes.filter((product: any) => {
-    if (filterValue == "All") {
-      return true;
-    } else {
-      const filteredProducts = product.tags.filter(
-        (tag: any) => tag == filterValue.toLowerCase()
-      );
-      return filteredProducts.length > 0;
-    }
+    const filteredProducts = product.tags.filter(
+      (tag: any) => tag == "instrument"
+    );
+    return filteredProducts.length > 0;
   });
 
   return (
     <TrnrProductList
-      title={"Audio Software"}
+      title={"Instruments"}
       products={filteredData}
       images={data.allFile.nodes}
     />
@@ -57,5 +52,5 @@ export default function Component() {
 }
 
 export const Head: HeadFC = () => (
-  <title>Ternär Music Technology | Audio Software</title>
+  <title>Ternär Music Technology | Instruments</title>
 );
