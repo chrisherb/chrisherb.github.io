@@ -53,34 +53,58 @@ export function TrnrProductList(props: Props) {
           pad={{ top: "medium", bottom: "medium" }}
           margin={{ bottom: "large" }}
           border="bottom"
+          align="start"
         >
           <Box direction="row">
             <TrnrLink to="/" color="control">
               Home
             </TrnrLink>
           </Box>
-          <Heading margin={{ top: "none", bottom: "small" }}>
+          <Heading margin={{ top: "none", bottom: "xsmall" }}>
             {props.title}
           </Heading>
-          <Box direction="row" align="start" gap="small">
-            <Select
-              width="small"
-              options={["All", "Instrument", "Effect", "Sample Pack", "Legacy"]}
-              onChange={({ value }) => {
-                type = value;
-                filter();
-              }}
-              value={props.type}
-            />
-            <Select
-              width="small"
-              options={["All", "Max for Live", "VST", "iOS"]}
-              onChange={({ value }) => {
-                platform = value;
-                filter();
-              }}
-              value={props.platform}
-            />
+          <Box
+            direction="row"
+            align="start"
+            gap="small"
+            border="all"
+            pad={{ horizontal: "small", top: "xsmall", bottom: "small" }}
+            round="xsmall"
+          >
+            <Box>
+              <Text weight="bold" margin={{ bottom: "xsmall" }}>
+                Type
+              </Text>
+              <Select
+                width="small"
+                options={[
+                  "All",
+                  "Instrument",
+                  "Effect",
+                  "Sample Pack",
+                  "Legacy",
+                ]}
+                onChange={({ value }) => {
+                  type = value;
+                  filter();
+                }}
+                value={props.type}
+              />
+            </Box>
+            <Box>
+              <Text weight="bold" margin={{ bottom: "xsmall" }}>
+                Platform
+              </Text>
+              <Select
+                width="small"
+                options={["All", "Max for Live", "VST", "iOS"]}
+                onChange={({ value }) => {
+                  platform = value;
+                  filter();
+                }}
+                value={props.platform}
+              />
+            </Box>
           </Box>
         </Box>
         <Box wrap direction="row" gap="medium">
