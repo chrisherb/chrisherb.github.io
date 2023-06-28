@@ -51,15 +51,6 @@ export default function Component(props: PageProps) {
   );
 }
 
-function split(value: string, token: string) {
-  const splinter = value.split(token);
-  if (splinter.length > 1) {
-    return splinter[1].replaceAll("+", " ");
-  } else {
-    return "All";
-  }
-}
-
 export const Head: HeadFC = () => (
   <title>Ternär Music Technology | Audio Software</title>
 );
