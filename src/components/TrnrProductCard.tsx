@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  GatsbyImage,
-  IGatsbyImageData,
-  StaticImage,
-} from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { Box, Heading, Paragraph, Tag } from "grommet";
 import { TrnrButton } from "./TrnrButton";
 import { TrnrCartButton } from "./TrnrCartButton";
