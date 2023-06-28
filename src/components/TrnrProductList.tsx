@@ -74,7 +74,7 @@ export function TrnrProductList(props: Props) {
             />
             <Select
               width="small"
-              options={["All", "Max For Live", "VST", "iOS"]}
+              options={["All", "Max for Live", "VST", "iOS"]}
               onChange={({ value }) => {
                 platform = value;
                 filter();
