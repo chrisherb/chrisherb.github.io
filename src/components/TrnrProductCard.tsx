@@ -24,6 +24,9 @@ export function TrnrProductCard(props: Props) {
   const isIos =
     props.product.tags?.find((tag: any) => tag == "ios")?.length > 0;
 
+  const isVst =
+    props.product.tags?.find((tag: any) => tag == "vst")?.length > 0;
+
   return (
     <Box
       background={"background"}
@@ -48,6 +51,7 @@ export function TrnrProductCard(props: Props) {
                 objectFit="scale-down"
                 src="../images/static/live.svg"
                 alt="Ableton Live Logo"
+                title="Ableton Live version available"
               />
             )}
             {isIos && (
@@ -55,7 +59,17 @@ export function TrnrProductCard(props: Props) {
                 height={36}
                 objectFit="scale-down"
                 src="../images/static/ios.svg"
-                alt="Ableton Live Logo"
+                alt="iOS Logo"
+                title="iOS version available"
+              />
+            )}
+            {isVst && (
+              <StaticImage
+                height={36}
+                objectFit="scale-down"
+                src="../images/static/vst.svg"
+                alt="VST Logo"
+                title="VST version available"
               />
             )}
           </Box>
