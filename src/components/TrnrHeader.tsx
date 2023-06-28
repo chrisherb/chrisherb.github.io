@@ -65,15 +65,23 @@ export function TrnrHeader() {
                     <TrnrMenuButton
                       indented
                       label="Instruments"
-                      to="/instruments"
+                      to="/audio-software?type=Instrument"
                     />
-                    <TrnrMenuButton indented label="Effects" to="/effects" />
+                    <TrnrMenuButton
+                      indented
+                      label="Effects"
+                      to="/audio-software?type=Effect"
+                    />
                     <TrnrMenuButton
                       indented
                       label="Sample Packs"
-                      to="/sample-packs"
+                      to="/audio-software?type=Sample+Pack"
                     />
-                    <TrnrMenuButton indented label="Legacy" to="/legacy" />
+                    <TrnrMenuButton
+                      indented
+                      label="Legacy"
+                      to="/audio-software?type=Legacy"
+                    />
                   </>
                 )}
                 <TrnrMenuButton label="Services" to="/services" />

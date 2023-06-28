@@ -1,6 +1,6 @@
 import { navigate } from "gatsby";
-import { Box, Markdown, Text } from "grommet";
-import { Next, Underline } from "grommet-icons";
+import { Box, Text } from "grommet";
+import { Next } from "grommet-icons";
 import React, { useState } from "react";
 
 type Props = {
@@ -36,7 +36,6 @@ export function TrnrMenuButton(props: Props) {
       >
         {props.label}
       </Text>
-      {/* <Markdown>{"**" + props.label + "**"}</Markdown> */}
       <Next size="medium" />
     </Box>
   );

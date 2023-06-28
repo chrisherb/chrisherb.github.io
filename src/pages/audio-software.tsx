@@ -1,8 +1,8 @@
-import { graphql, HeadFC, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import { graphql, HeadFC, PageProps, useStaticQuery } from "gatsby";
+import React from "react";
 import { TrnrProductList } from "../components/TrnrProductList";
 
-export default function Component() {
+export default function Component(props: PageProps) {
   const data: any = useStaticQuery(graphql`
     query TrnrDevices {
       allProductsJson {
@@ -35,25 +35,29 @@ export default function Component() {
       }
     }
   `);
-  const [filterValue, setFilterValue] = useState("All");
-  const filteredData = data.allProductsJson.nodes.filter((product: any) => {
-    if (filterValue == "All") {
-      return true;
-    } else {
-      const filteredProducts = product.tags.filter(
-        (tag: any) => tag == filterValue.toLowerCase()
-      );
-      return filteredProducts.length > 0;
-    }
-  });
+
+  const params = new URLSearchParams(props.location.search);
+  const type = params.get("type");
+  const platform = params.get("platform");
 
   return (
     <TrnrProductList
       title={"Audio Software"}
-      products={filteredData}
+      type={type ? type : "All"}
+      platform={platform ? platform : "All"}
+      products={data.allProductsJson.nodes}
       images={data.allFile.nodes}
     />
   );
+}
+
+function split(value: string, token: string) {
+  const splinter = value.split(token);
+  if (splinter.length > 1) {
+    return splinter[1].replaceAll("+", " ");
+  } else {
+    return "All";
+  }
 }
 
 export const Head: HeadFC = () => (

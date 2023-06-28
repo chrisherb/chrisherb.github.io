@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TrnrMain } from "./TrnrMain";
-import { Box, Heading, RadioButtonGroup } from "grommet";
+import { Box, Heading, Select, SelectMultiple, Tag, Text } from "grommet";
 import { TrnrLink } from "./TrnrLink";
 import { TrnrProductCard } from "./TrnrProductCard";
 import { getImage } from "gatsby-plugin-image";
+import { navigate } from "gatsby";
 
 type Props = {
   title: string;
-  products: any;
+  products: Array<any>;
+  type: string;
+  platform: string;
   images: any;
 };
 
 export function TrnrProductList(props: Props) {
+  let type = props.type;
+  let platform = props.platform;
+
+  console.log("Type: " + type + " Platform: " + platform);
+  const productsByType = props.products.filter((product: any) => {
+    if (type == "All") return true;
+    return product.tags.includes(type.toLowerCase());
+  });
+  const productsByPlatform = productsByType.filter((product: any) => {
+    if (platform == "All") return true;
+    return product.tags.includes(platform.toLowerCase());
+  });
+
+  const filter = () => {
+    navigate(
+      "/audio-software?type=" +
+        type.replaceAll(" ", "+") +
+        "&platform=" +
+        platform.replaceAll(" ", "+")
+    );
+  };
+
   return (
     <TrnrMain>
       <Box
@@ -34,31 +59,47 @@ export function TrnrProductList(props: Props) {
               Home
             </TrnrLink>
           </Box>
-          <Heading margin="0">{props.title}</Heading>
-          {/* <RadioButtonGroup
-                pad={{ top: "small" }}
-                name={"Filter"}
-                options={[
-                  { label: "All", value: "All" },
-                  { label: "VST", value: "VST" },
-                  { label: "Max for Live", value: "Ableton" },
-                  { label: "Sample Pack", value: "Sample Pack" },
-                ]}
-                direction="row"
-                value={filterValue}
-                onChange={(event) => {
-                  setFilterValue(event.target.value);
-                }}
-              /> */}
+          <Heading margin={{ top: "none", bottom: "small" }}>
+            {props.title}
+          </Heading>
+          <Box direction="row" align="start" gap="small">
+            <Select
+              width="small"
+              options={["All", "Instrument", "Effect", "Sample Pack", "Legacy"]}
+              onChange={({ value }) => {
+                type = value;
+                filter();
+              }}
+              value={props.type}
+            />
+            <Select
+              width="small"
+              options={["All", "Max For Live", "VST", "iOS"]}
+              onChange={({ value }) => {
+                platform = value;
+                filter();
+              }}
+              value={props.platform}
+            />
+          </Box>
         </Box>
         <Box wrap direction="row" gap="medium">
-          {props.products.map((product: any) => {
+          {productsByPlatform.length == 0 && (
+            <Text>Nothing to see here...</Text>
+          )}
+          {productsByPlatform.map((product: any) => {
             const fileName = product.custom_permalink + ".png";
             const node = props.images.find(
               (element: any) => element.relativePath == fileName
             );
             const image = getImage(node);
-            return <TrnrProductCard image={image!} product={product} />;
+            return (
+              <TrnrProductCard
+                key={product.id}
+                image={image!}
+                product={product}
+              />
+            );
           })}
         </Box>
       </Box>
