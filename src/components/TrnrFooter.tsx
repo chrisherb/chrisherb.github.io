@@ -28,9 +28,6 @@ export function TrnrFooter() {
         <TrnrLink to="/impressum" color="brand">
           Impressum
         </TrnrLink>
-        <TrnrLink to="/contact" color="brand">
-          Contact
-        </TrnrLink>
       </Nav>
     </Footer>
   );

@@ -47,44 +47,9 @@ export function TrnrHeader() {
                 width={size !== "small" ? "medium" : undefined}
               >
                 <TrnrMenuButton label="Music" to="/music" />
-                <Box
-                  onClick={() => setShowAudioSoftware(!showAudioSoftware)}
-                  onMouseEnter={() => setHover(true)}
-                  onMouseLeave={() => setHover(false)}
-                  background={hover ? "black" : "none"}
-                  direction="row"
-                  justify="between"
-                  pad={{ left: "small", vertical: "medium", right: "medium" }}
-                >
-                  <Text weight={"bold"}>Audio Software</Text>
-                  {showAudioSoftware && <Down size="medium" />}
-                  {!showAudioSoftware && <Up size="medium" />}
-                </Box>
-                {showAudioSoftware && (
-                  <>
-                    <TrnrMenuButton
-                      indented
-                      label="Instruments"
-                      to="/audio-software?type=Instrument"
-                    />
-                    <TrnrMenuButton
-                      indented
-                      label="Effects"
-                      to="/audio-software?type=Effect"
-                    />
-                    <TrnrMenuButton
-                      indented
-                      label="Sample Packs"
-                      to="/audio-software?type=Sample+Pack"
-                    />
-                    <TrnrMenuButton
-                      indented
-                      label="Legacy"
-                      to="/audio-software?type=Legacy"
-                    />
-                  </>
-                )}
+                <TrnrMenuButton label="Audio Software" to="/audio-software" />
                 <TrnrMenuButton label="Services" to="/services" />
+                <TrnrMenuButton label="Contact" to="/contact" />
               </Box>
             </Layer>
           )}
