@@ -4,7 +4,7 @@ import {
   IGatsbyImageData,
   StaticImage,
 } from "gatsby-plugin-image";
-import { Box, Heading, Paragraph } from "grommet";
+import { Box, Heading, Paragraph, Tag } from "grommet";
 import { TrnrButton } from "./TrnrButton";
 import { TrnrCartButton } from "./TrnrCartButton";
 import { TrnrPriceLabel } from "./TrnrPriceLabel";
@@ -40,39 +40,13 @@ export function TrnrProductCard(props: Props) {
         image={props.image}
       />
       <Box pad={{ horizontal: "medium", top: "small", bottom: "medium" }}>
-        <Box direction="row" justify="between">
+        <Box direction="row" align="start" gap="xsmall">
           <Heading margin={{ top: "none", bottom: "small" }} level={2}>
             {props.product.name}
           </Heading>
-          <Box direction="row" gap="xsmall" align="start">
-            {isAbleton && (
-              <StaticImage
-                height={36}
-                objectFit="scale-down"
-                src="../images/static/live.svg"
-                alt="Ableton Live Logo"
-                title="Ableton Live version available"
-              />
-            )}
-            {isIos && (
-              <StaticImage
-                height={36}
-                objectFit="scale-down"
-                src="../images/static/ios.svg"
-                alt="iOS Logo"
-                title="iOS version available"
-              />
-            )}
-            {isVst && (
-              <StaticImage
-                height={36}
-                objectFit="scale-down"
-                src="../images/static/vst.svg"
-                alt="VST Logo"
-                title="VST version available"
-              />
-            )}
-          </Box>
+          {isAbleton && <Tag size="xsmall" value={"Live"} />}
+          {isIos && <Tag size="xsmall" value={"iOS"} />}
+          {isVst && <Tag size="xsmall" value={"VST"} />}
         </Box>
         <Paragraph fill margin={"none"} maxLines={4}>
           {props.product.description.replace(/<\/?[^>]+(>|$)/g, "")}
