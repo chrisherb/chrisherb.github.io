@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
 import {
   Box,
@@ -10,7 +10,7 @@ import {
   PageContent,
   Text,
 } from "grommet";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import { TrnrLink } from "../../components/TrnrLink";
 import { TrnrCartButton } from "../../components/TrnrCartButton";
 import { TrnrPriceLabel } from "../../components/TrnrPriceLabel";
@@ -27,6 +27,10 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const demo =
     props.data.productsJson?.tags?.find((tag) => tag == "demo")?.length! > 0;
 
+  const isIos =
+    props.data.productsJson?.tags?.find((tag: any) => tag == "ios")?.length! >
+    0;
+
   const price = props.data.productsJson?.price!;
 
   const sounds = props.data.allFile.nodes
@@ -42,6 +46,10 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   const youtubeId = props.data.allYoutubeUrlsJson.nodes.find(
     (yt: any) => yt.productId == props.data.productsJson?.id
   )?.youtubeId;
+
+  const appstoreUrl = props.data.allAppstoreUrlsJson.nodes.find(
+    (ap: any) => ap.productId == props.data.productsJson?.id
+  )?.url;
 
   const { isClient, key } = useIsClient();
 
@@ -98,14 +106,23 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 ))}
               </NameValueList>
             )}
-
-            <Box width="small" gap="small" margin={{ top: "medium" }}>
-              <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
-              <TrnrCartButton
-                isNameYourPrice={price == 0 && !demo}
-                price={price / 100}
-                product={props.data.productsJson}
-              />
+            <Box direction="row" align="end" gap="medium">
+              <Box width="small" gap="small" margin={{ top: "medium" }}>
+                <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
+                <TrnrCartButton
+                  isNameYourPrice={price == 0 && !demo}
+                  price={price / 100}
+                  product={props.data.productsJson}
+                />
+              </Box>
+              {isIos && appstoreUrl && (
+                <Link target="blank" to={appstoreUrl}>
+                  <StaticImage
+                    src="../../images/static/appstore.svg"
+                    alt="Apple AppStore Button"
+                  />
+                </Link>
+              )}
             </Box>
           </Box>
         </PageContent>
@@ -138,6 +155,12 @@ export const query = graphql`
       nodes {
         productId
         youtubeId
+      }
+    }
+    allAppstoreUrlsJson {
+      nodes {
+        productId
+        url
       }
     }
   }
