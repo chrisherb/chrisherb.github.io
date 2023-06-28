@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TrnrMain } from "./TrnrMain";
-import { Box, Heading, Select, SelectMultiple, Tag, Text } from "grommet";
+import { Box, Heading, Select, Text } from "grommet";
 import { TrnrLink } from "./TrnrLink";
 import { TrnrProductCard } from "./TrnrProductCard";
 import { getImage } from "gatsby-plugin-image";
