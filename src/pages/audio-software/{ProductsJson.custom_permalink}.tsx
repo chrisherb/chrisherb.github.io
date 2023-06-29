@@ -141,6 +141,13 @@ export const query = graphql`
       description
       short_url
       custom_permalink
+      variants {
+        title
+        options {
+          name
+          price_difference
+        }
+      }
     }
     allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)|(mp3)/" } }) {
       nodes {

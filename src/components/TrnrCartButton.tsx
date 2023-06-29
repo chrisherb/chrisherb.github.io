@@ -2,13 +2,14 @@ import {
   Box,
   Button,
   DropButton,
+  List,
   MaskedInput,
   ResponsiveContext,
   Text,
 } from "grommet";
 import { Checkmark } from "grommet-icons";
 import React, { useContext, useState } from "react";
-import useIsClient from "./TrnrHooks";
+import { navigate } from "gatsby";
 
 interface TrnrCartButtonProps {
   product?: any;
@@ -18,20 +19,63 @@ interface TrnrCartButtonProps {
 
 export function TrnrCartButton(props: TrnrCartButtonProps) {
   const [price, setPrice] = useState<string>(props.price.toString());
-  const { isClient, key } = useIsClient();
-  let href: string = "";
-  if (isClient) {
-    href =
+
+  const variants: Array<any> = props.product.variants;
+  const hasVariants = variants.length > 0;
+
+  const getHref = (price: string, variant?: string) => {
+    let href =
       props.product?.short_url! +
       "?wanted=true&referrer=" +
       window.location.href +
       "&price=" +
       price;
-  }
+    if (variant) href += "&variant=" + variant.replaceAll(" ", "%20");
+    return href;
+  };
 
   const screenSize = useContext(ResponsiveContext);
 
-  if (props.isNameYourPrice) {
+  if (hasVariants) {
+    return (
+      <DropButton
+        primary
+        fill="horizontal"
+        dropAlign={{ top: "bottom", left: "left" }}
+        label={
+          <Box direction="row" justify="center">
+            <Text>Configure</Text>
+          </Box>
+        }
+        dropContent={
+          <List
+            pad={"small"}
+            color="control"
+            border={false}
+            background="control"
+            onClickItem={(event: {
+              item?: any;
+              index?: number | undefined;
+            }) => {
+              navigate(
+                getHref(
+                  (event.item.price_difference / 100).toString(),
+                  event.item.name
+                )
+              );
+            }}
+            data={variants[0].options}
+            primaryKey={(item) => <Text key={item.name}>{item.name}</Text>}
+            secondaryKey={(item: any) => (
+              <Text key={item.price_difference} weight="bold">
+                {item.price_difference / 100} €
+              </Text>
+            )}
+          />
+        }
+      />
+    );
+  } else if (props.isNameYourPrice) {
     return (
       <DropButton
         primary
@@ -57,7 +101,7 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
               />
-              <Button icon={<Checkmark />} href={href} />
+              <Button icon={<Checkmark />} href={getHref(price)} />
             </Box>
           </Box>
         }
@@ -65,7 +109,12 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
     );
   } else {
     return (
-      <Button primary fill="horizontal" label={"Add to Cart"} href={href} />
+      <Button
+        primary
+        fill="horizontal"
+        label={"Add to Cart"}
+        href={getHref(price)}
+      />
     );
   }
 }

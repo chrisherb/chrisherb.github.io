@@ -14,6 +14,13 @@ export default function Component(props: PageProps) {
           price
           custom_permalink
           short_url
+          variants {
+            title
+            options {
+              name
+              price_difference
+            }
+          }
           productsPath: gatsbyPath(
             filePath: "/audio-software/{ProductsJson.custom_permalink}"
           )
