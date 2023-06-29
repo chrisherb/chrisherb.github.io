@@ -7,7 +7,7 @@ import {
   ResponsiveContext,
   Text,
 } from "grommet";
-import { Checkmark } from "grommet-icons";
+import { Checkmark, FormDown } from "grommet-icons";
 import React, { useContext, useState } from "react";
 import { navigate } from "gatsby";
 
@@ -43,8 +43,9 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
         fill="horizontal"
         dropAlign={{ top: "bottom", left: "left" }}
         label={
-          <Box direction="row" justify="center">
+          <Box background="control" direction="row" justify="between">
             <Text>Add to Cart</Text>
+            <FormDown />
           </Box>
         }
         dropContent={
