@@ -23,6 +23,11 @@ export function TrnrProductCard(props: Props) {
   const isVst =
     props.product.tags?.find((tag: any) => tag == "vst")?.length > 0;
 
+  const variants =
+    props.product.variants.length > 0
+      ? props.product.variants[0].options
+      : undefined;
+
   return (
     <Box
       background={"background"}
@@ -67,6 +72,11 @@ export function TrnrProductCard(props: Props) {
             <TrnrPriceLabel
               demo={isDemo}
               price={props.product.price}
+              priceMax={
+                variants
+                  ? variants[variants.length - 1].price_difference
+                  : undefined
+              }
               size="xlarge"
             />
           </Box>

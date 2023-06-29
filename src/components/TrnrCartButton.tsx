@@ -36,6 +36,7 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
 
   const screenSize = useContext(ResponsiveContext);
 
+  // CHOOSE OPTION
   if (hasVariants) {
     return (
       <DropButton
@@ -76,18 +77,23 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
         }
       />
     );
+    // NAME YOUR PRICE
   } else if (props.isNameYourPrice) {
     return (
       <DropButton
         primary
         fill="horizontal"
         label={"Add to Cart"}
+        dropAlign={{ top: "bottom", left: "left" }}
         dropContent={
           <Box
             background="control"
             width={screenSize == "small" ? undefined : "small"}
-            pad="small"
+            pad="xsmall"
           >
+            <Text weight="bold" margin={{ bottom: "xsmall" }}>
+              Name your Price:
+            </Text>
             <Box direction="row">
               <MaskedInput
                 reverse

@@ -24,22 +24,19 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   );
   const image = getImage(node);
 
-  const demo =
-    props.data.productsJson?.tags?.find((tag) => tag == "demo")?.length! > 0;
+  const product = props.data.productsJson!;
 
-  const isIos =
-    props.data.productsJson?.tags?.find((tag: any) => tag == "ios")?.length! >
-    0;
+  const demo = product.tags?.find((tag) => tag == "demo")?.length! > 0;
 
-  const price = props.data.productsJson?.price!;
+  const isIos = product.tags?.find((tag: any) => tag == "ios")?.length! > 0;
+
+  const price = product.price!;
 
   const sounds = props.data.allFile.nodes
     .filter(
       (element: any) =>
         element.relativePath.endsWith(".mp3") &&
-        element.relativePath.startsWith(
-          props.data.productsJson?.custom_permalink
-        )
+        element.relativePath.startsWith(product.custom_permalink)
     )
     .sort((a, b) => a.relativePath.localeCompare(b.relativePath));
 
@@ -52,6 +49,9 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
   )?.url;
 
   const { isClient, key } = useIsClient();
+
+  const variants =
+    product.variants!.length > 0 ? product.variants!.at(0)!.options : undefined;
 
   return (
     <TrnrMain>
@@ -108,7 +108,16 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
             )}
             <Box direction="row" align="end" gap="medium">
               <Box width="small" gap="small" margin={{ top: "medium" }}>
-                <TrnrPriceLabel demo={demo} price={price} size="xxlarge" />
+                <TrnrPriceLabel
+                  demo={demo}
+                  price={price}
+                  priceMax={
+                    variants
+                      ? variants[variants.length - 1]!.price_difference
+                      : undefined
+                  }
+                  size="xxlarge"
+                />
                 <TrnrCartButton
                   isNameYourPrice={price == 0 && !demo}
                   price={price / 100}
