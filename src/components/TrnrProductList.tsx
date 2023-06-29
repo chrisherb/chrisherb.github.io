@@ -16,16 +16,15 @@ type Props = {
 
 export function TrnrProductList(props: Props) {
   let type = props.type;
-  let platform = props.platform;
+  let format = props.platform;
 
-  console.log("Type: " + type + " Platform: " + platform);
   const productsByType = props.products.filter((product: any) => {
     if (type == "All") return true;
     return product.tags.includes(type.toLowerCase());
   });
   const productsByPlatform = productsByType.filter((product: any) => {
-    if (platform == "All") return true;
-    return product.tags.includes(platform.toLowerCase());
+    if (format == "All") return true;
+    return product.tags.includes(format.toLowerCase());
   });
 
   const filter = () => {
@@ -33,7 +32,7 @@ export function TrnrProductList(props: Props) {
       "/audio-software?type=" +
         type.replaceAll(" ", "+") +
         "&platform=" +
-        platform.replaceAll(" ", "+")
+        format.replaceAll(" ", "+")
     );
   };
 
@@ -93,13 +92,13 @@ export function TrnrProductList(props: Props) {
             </Box>
             <Box>
               <Text weight="bold" margin={{ bottom: "xsmall" }}>
-                Platform
+                Format
               </Text>
               <Select
                 width="small"
                 options={["All", "Max for Live", "VST", "iOS"]}
                 onChange={({ value }) => {
-                  platform = value;
+                  format = value;
                   filter();
                 }}
                 value={props.platform}
