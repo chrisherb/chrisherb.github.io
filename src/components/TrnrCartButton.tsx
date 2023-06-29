@@ -44,7 +44,7 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
         dropAlign={{ top: "bottom", left: "left" }}
         label={
           <Box direction="row" justify="center">
-            <Text>Configure</Text>
+            <Text>Add to Cart</Text>
           </Box>
         }
         dropContent={
