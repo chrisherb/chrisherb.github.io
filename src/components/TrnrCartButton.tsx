@@ -9,7 +9,7 @@ import {
 } from "grommet";
 import { Checkmark, FormDown } from "grommet-icons";
 import React, { useContext, useState } from "react";
-import { navigate } from "gatsby";
+import useIsClient from "./TrnrHooks";
 
 interface TrnrCartButtonProps {
   product?: any;
@@ -19,15 +19,18 @@ interface TrnrCartButtonProps {
 
 export function TrnrCartButton(props: TrnrCartButtonProps) {
   const [price, setPrice] = useState<string>(props.price.toString());
+  const { isClient, key } = useIsClient();
 
   const variants: Array<any> = props.product.variants;
   const hasVariants = variants.length > 0;
 
   const getHref = (price: string, variant?: string) => {
+    const referrer = isClient ? window.location.href : "";
+
     let href =
       props.product?.short_url! +
       "?wanted=true&referrer=" +
-      window.location.href +
+      referrer +
       "&price=" +
       price;
     if (variant) href += "&variant=" + variant.replaceAll(" ", "%20");
@@ -59,12 +62,13 @@ export function TrnrCartButton(props: TrnrCartButtonProps) {
               item?: any;
               index?: number | undefined;
             }) => {
-              navigate(
-                getHref(
-                  (event.item.price_difference / 100).toString(),
-                  event.item.name
-                )
-              );
+              if (isClient)
+                window.location.replace(
+                  getHref(
+                    (event.item.price_difference / 100).toString(),
+                    event.item.name
+                  )
+                );
             }}
             data={variants[0].options}
             primaryKey={(item) => <Text key={item.name}>{item.name}</Text>}

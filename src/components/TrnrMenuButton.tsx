@@ -2,6 +2,7 @@ import { navigate } from "gatsby";
 import { Box, Text } from "grommet";
 import { Next } from "grommet-icons";
 import React, { useState } from "react";
+import useIsClient from "./TrnrHooks";
 
 type Props = {
   label: string;
@@ -11,7 +12,11 @@ type Props = {
 
 export function TrnrMenuButton(props: Props) {
   const [hover, setHover] = useState(false);
-  const active = window.location.pathname.startsWith(props.to);
+  const { isClient, key } = useIsClient();
+
+  let active = false;
+
+  if (isClient) active = window.location.pathname.startsWith(props.to);
 
   return (
     <Box
