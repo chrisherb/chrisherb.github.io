@@ -82,30 +82,6 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
                 }}
               />
             </Text>
-
-            {isClient && youtubeId && (
-              <iframe
-                width="560"
-                height="315"
-                src={"https://www.youtube-nocookie.com/embed/" + youtubeId}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                frameBorder={0}
-              ></iframe>
-            )}
-
-            {sounds.length > 0 && (
-              <NameValueList margin={{ top: "medium" }} layout="grid">
-                {sounds.map((sound, index) => (
-                  <NameValuePair
-                    key={index}
-                    name={sound.relativePath.split(".")[1]}
-                  >
-                    <audio controls src={sound.publicURL!}></audio>
-                  </NameValuePair>
-                ))}
-              </NameValueList>
-            )}
             <Box direction="row" align="end" gap="medium">
               <Box width="small" gap="small" margin={{ top: "medium" }}>
                 <TrnrPriceLabel
@@ -134,6 +110,50 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
               )}
             </Box>
           </Box>
+
+          {isClient && youtubeId && (
+            <Box background="background-contrast">
+              <Box pad={{ top: "medium", horizontal: "large" }}>
+                <Heading level="2" margin="none">
+                  Videos
+                </Heading>
+              </Box>
+              <Box
+                margin={{ horizontal: "large", top: "medium", bottom: "large" }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src={"https://www.youtube-nocookie.com/embed/" + youtubeId}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  frameBorder={0}
+                ></iframe>
+              </Box>
+            </Box>
+          )}
+
+          {sounds.length > 0 && (
+            <Box background="background-contrast">
+              <Box pad={{ top: "medium", horizontal: "large" }}>
+                <Heading level="2" margin="none">
+                  Sound Samples
+                </Heading>
+              </Box>
+              <Box margin={{ horizontal: "large", bottom: "medium" }}>
+                <NameValueList margin={{ top: "medium" }} layout="grid">
+                  {sounds.map((sound, index) => (
+                    <NameValuePair
+                      key={index}
+                      name={sound.relativePath.split(".")[1]}
+                    >
+                      <audio controls src={sound.publicURL!}></audio>
+                    </NameValuePair>
+                  ))}
+                </NameValueList>
+              </Box>
+            </Box>
+          )}
         </PageContent>
       </Page>
     </TrnrMain>
