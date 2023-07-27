@@ -26,7 +26,7 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
 
   const product = props.data.productsJson!;
 
-  const demo = product.tags?.find((tag) => tag == "demo")?.length! > 0;
+  const demo = product.tags?.find((tag: any) => tag == "demo")?.length! > 0;
 
   const isIos = product.tags?.find((tag: any) => tag == "ios")?.length! > 0;
 
@@ -41,11 +41,11 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
     .sort((a, b) => a.relativePath.localeCompare(b.relativePath));
 
   const youtubeId = props.data.allYoutubeUrlsJson.nodes.find(
-    (yt: any) => yt.productId == props.data.productsJson?.id
+    (yt: any) => yt.productName == props.data.productsJson?.custom_permalink
   )?.youtubeId;
 
   const appstoreUrl = props.data.allAppstoreUrlsJson.nodes.find(
-    (ap: any) => ap.productId == props.data.productsJson?.id
+    (ap: any) => ap.productName == props.data.productsJson?.custom_permalink
   )?.url;
 
   const { isClient, key } = useIsClient();
@@ -189,13 +189,13 @@ export const query = graphql`
     }
     allYoutubeUrlsJson {
       nodes {
-        productId
+        productName
         youtubeId
       }
     }
     allAppstoreUrlsJson {
       nodes {
-        productId
+        productName
         url
       }
     }
