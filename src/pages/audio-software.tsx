@@ -46,9 +46,8 @@ export default function Component(props: PageProps) {
   const params = new URLSearchParams(props.location.search);
   const type = params.get("type");
   const platform = params.get("platform");
-  const images = data.allFile.nodes.toSorted((a: any, b: any) =>
-    a.name > b.name ? 1 : -1
-  );
+  const images = data.allFile.nodes;
+  images.sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
 
   return (
     <TrnrProductList
