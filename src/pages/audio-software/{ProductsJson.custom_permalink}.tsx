@@ -60,7 +60,7 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
       <Page kind="narrow" background="brand">
         <PageContent pad="none" background="background">
           {images.length > 1 && (
-            <Carousel>
+            <Carousel play={3000}>
               {images.map((img, index) => (
                 <GatsbyImage
                   key={index}

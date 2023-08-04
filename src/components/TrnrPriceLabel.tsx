@@ -12,7 +12,6 @@ export function TrnrPriceLabel(props: {
     const priceMaxString =
       props.priceMax !== 0 ? (props.priceMax / 100).toFixed(2) : "0";
     priceString += "-" + priceMaxString;
-    debugger;
   } else if (props.price == 0 && !props.demo) {
     priceString += "+";
   }

@@ -37,7 +37,7 @@ export function TrnrProductCard(props: Props) {
       width="550px"
     >
       {props.images.length > 1 && (
-        <Carousel>
+        <Carousel play={4000}>
           {props.images.map((img, index) => (
             <GatsbyImage
               key={index}
