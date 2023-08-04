@@ -1,13 +1,13 @@
 import React from "react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
-import { Box, Heading, Paragraph, Tag } from "grommet";
+import { Box, Carousel, Heading, Paragraph, Tag } from "grommet";
 import { TrnrButton } from "./TrnrButton";
 import { TrnrCartButton } from "./TrnrCartButton";
 import { TrnrPriceLabel } from "./TrnrPriceLabel";
 
 type Props = {
   product: any;
-  image: IGatsbyImageData;
+  images: IGatsbyImageData[];
 };
 
 export function TrnrProductCard(props: Props) {
@@ -36,10 +36,23 @@ export function TrnrProductCard(props: Props) {
       elevation="none"
       width="550px"
     >
-      <GatsbyImage
-        alt={props.product.name + " Screenshot"}
-        image={props.image}
-      />
+      {props.images.length > 1 && (
+        <Carousel>
+          {props.images.map((img, index) => (
+            <GatsbyImage
+              key={index}
+              alt={props.product.name + " Screenshot " + index}
+              image={img}
+            />
+          ))}
+        </Carousel>
+      )}
+      {props.images.length == 1 && (
+        <GatsbyImage
+          alt={props.product.name + " Screenshot "}
+          image={props.images[0]}
+        />
+      )}
       <Box pad={{ horizontal: "medium", top: "small", bottom: "medium" }}>
         <Box direction="row" align="start" gap="xsmall">
           <Heading margin={{ top: "none", bottom: "small" }} level={2}>

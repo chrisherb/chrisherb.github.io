@@ -18,8 +18,10 @@ export async function downloadAlbumData(artistUrl: string) {
   albums.forEach((album) => {
     const imageUrl = album.imageUrl;
     const fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-    downloadImage(imageUrl, "src/images/dynamic/" + fileName).catch((error) => {
-      console.log(error);
-    });
+    downloadImage(imageUrl, "src/images/dynamic/bandcamp/" + fileName).catch(
+      (error) => {
+        console.log(error);
+      }
+    );
   });
 }

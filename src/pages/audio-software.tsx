@@ -28,7 +28,7 @@ export default function Component(props: PageProps) {
       }
       allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
         nodes {
-          relativePath
+          name
           childImageSharp {
             gatsbyImageData(
               quality: 100
@@ -46,6 +46,9 @@ export default function Component(props: PageProps) {
   const params = new URLSearchParams(props.location.search);
   const type = params.get("type");
   const platform = params.get("platform");
+  const images = data.allFile.nodes.toSorted((a: any, b: any) =>
+    a.name > b.name ? 1 : -1
+  );
 
   return (
     <TrnrProductList
@@ -53,7 +56,7 @@ export default function Component(props: PageProps) {
       type={type ? type : "All"}
       platform={platform ? platform : "All"}
       products={data.allProductsJson.nodes}
-      images={data.allFile.nodes}
+      images={images}
     />
   );
 }

@@ -18,7 +18,10 @@ export const downloadGumroadData = async (accessToken: string) => {
   const promises = productsJson.products.map((product: any) => {
     const imageUrl = product.preview_url;
     const fileName = product.custom_permalink;
-    return downloadImage(imageUrl, "src/images/dynamic/" + fileName + ".png");
+    return downloadImage(
+      imageUrl,
+      "src/images/dynamic/gumroad/" + fileName + "__00.png"
+    );
   });
 
   await Promise.all(promises);

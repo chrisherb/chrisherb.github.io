@@ -3,7 +3,7 @@ import { TrnrMain } from "./TrnrMain";
 import { Box, Heading, Select, Text } from "grommet";
 import { TrnrLink } from "./TrnrLink";
 import { TrnrProductCard } from "./TrnrProductCard";
-import { getImage } from "gatsby-plugin-image";
+import { IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { navigate } from "gatsby";
 
 type Props = {
@@ -111,15 +111,16 @@ export function TrnrProductList(props: Props) {
             <Text>Nothing to see here...</Text>
           )}
           {productsByPlatform.map((product: any) => {
-            const fileName = product.custom_permalink + ".png";
-            const node = props.images.find(
-              (element: any) => element.relativePath == fileName
+            const nodes = props.images.filter((element: any) =>
+              element.name.startsWith(product.custom_permalink + "__")
             );
-            const image = getImage(node);
+            const images: IGatsbyImageData[] = nodes.map((img: any) =>
+              getImage(img)
+            );
             return (
               <TrnrProductCard
                 key={product.id}
-                image={image!}
+                images={images}
                 product={product}
               />
             );

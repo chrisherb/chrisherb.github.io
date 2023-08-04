@@ -3,6 +3,7 @@ import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { TrnrMain } from "../../components/TrnrMain";
 import {
   Box,
+  Carousel,
   Heading,
   NameValueList,
   NameValuePair,
@@ -18,11 +19,12 @@ import "../../styles/reset.css";
 import useIsClient from "../../components/TrnrHooks";
 
 export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
-  const fileName = props.data.productsJson?.custom_permalink + ".png";
-  const node: any = props.data.allFile.nodes.find(
-    (element: any) => element.relativePath == fileName
-  );
-  const image = getImage(node);
+  const fileName = props.data.productsJson?.custom_permalink + "__";
+
+  const images: Array<any> = props.data.allFile.nodes
+    .filter((element: any) => element.name.startsWith(fileName))
+    .sort((a: any, b: any) => (a.name > b.name ? 1 : -1))
+    .map((node: any) => getImage(node));
 
   const product = props.data.productsJson!;
 
@@ -57,10 +59,23 @@ export default function Component(props: PageProps<Queries.TrnrProductQuery>) {
     <TrnrMain>
       <Page kind="narrow" background="brand">
         <PageContent pad="none" background="background">
-          <GatsbyImage
-            image={image!}
-            alt={props.data.productsJson?.name + "Picture"}
-          />
+          {images.length > 1 && (
+            <Carousel>
+              {images.map((img, index) => (
+                <GatsbyImage
+                  key={index}
+                  alt={props.data.productsJson?.name + "Picture" + index}
+                  image={img}
+                />
+              ))}
+            </Carousel>
+          )}
+          {images.length == 1 && (
+            <GatsbyImage
+              alt={props.data.productsJson?.name + "Picture"}
+              image={images[0]}
+            />
+          )}
           <Box pad={"large"}>
             <Box direction="row">
               <TrnrLink to="/" color="control">
@@ -182,6 +197,7 @@ export const query = graphql`
       nodes {
         publicURL
         relativePath
+        name
         childImageSharp {
           gatsbyImageData(width: 1005, placeholder: BLURRED, quality: 100)
         }

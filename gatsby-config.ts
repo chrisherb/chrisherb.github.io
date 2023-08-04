@@ -24,6 +24,20 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `gumroad-images`,
+        path: `${__dirname}/src/images/dynamic/gumroad`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `bandcamp-images`,
+        path: `${__dirname}/src/images/dynamic/bandcamp`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `sound`,
         path: `${__dirname}/src/sound/`,
       },

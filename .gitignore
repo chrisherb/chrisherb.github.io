@@ -2,6 +2,7 @@ node_modules/
 .cache/
 public
 src/gatsby-types.d.ts
-src/images/dynamic/
+src/images/dynamic/gumroad/
+src/images/dynamic/bandcamp/
 src/data/albums.json
 src/data/products.json

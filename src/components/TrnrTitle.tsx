@@ -31,7 +31,8 @@ export function TrnrTitle() {
       }
       allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
         nodes {
-          relativePath
+          base
+          name
           childImageSharp {
             gatsbyImageData(
               quality: 100
@@ -113,8 +114,9 @@ export function TrnrTitle() {
                 album.imageUrl.lastIndexOf("/") + 1
               );
               const node = data.allFile.nodes.find(
-                (element: any) => element.relativePath == fileName
+                (element: any) => element.base == fileName
               );
+              debugger;
               const image = getImage(node);
               return (
                 <TrnrCard
@@ -135,9 +137,9 @@ export function TrnrTitle() {
           </Heading>
           <Box direction="row">
             {data.allProductsJson.nodes.map((product: any) => {
-              const fileName = product.custom_permalink + ".png";
-              const node = data.allFile.nodes.find(
-                (element: any) => element.relativePath == fileName
+              const fileName = product.custom_permalink;
+              const node = data.allFile.nodes.find((element: any) =>
+                element.name.startsWith(fileName + "__")
               );
               const image = getImage(node);
               return (
