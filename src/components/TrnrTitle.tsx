@@ -139,7 +139,7 @@ export function TrnrTitle() {
             {data.allProductsJson.nodes.map((product: any) => {
               const fileName = product.custom_permalink;
               const node = data.allFile.nodes.find((element: any) =>
-                element.name.startsWith(fileName + "__")
+                element.name.startsWith(fileName + "__00")
               );
               const image = getImage(node);
               return (
