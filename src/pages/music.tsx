@@ -21,7 +21,7 @@ export default function Component() {
       }
       allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
         nodes {
-          relativePath
+          base
           childImageSharp {
             gatsbyImageData(width: 250, placeholder: BLURRED)
           }
@@ -59,9 +59,10 @@ export default function Component() {
             const fileName = album.imageUrl.substring(
               album.imageUrl.lastIndexOf("/") + 1
             );
-            const node = data.allFile.nodes.find(
-              (element: any) => element.relativePath == fileName
-            );
+            const node = data.allFile.nodes.find((element: any) => {
+              debugger;
+              return element.base == fileName;
+            });
             const image = getImage(node);
             return (
               <TrnrCard
