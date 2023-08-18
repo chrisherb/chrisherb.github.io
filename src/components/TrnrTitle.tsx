@@ -116,7 +116,6 @@ export function TrnrTitle() {
               const node = data.allFile.nodes.find(
                 (element: any) => element.base == fileName
               );
-              debugger;
               const image = getImage(node);
               return (
                 <TrnrCard
