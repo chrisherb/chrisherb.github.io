@@ -1,6 +1,6 @@
 const bandcamp = require("bandcamp-scraper");
 import util from "util";
-import { writeFile } from "fs";
+import { writeFile, existsSync, mkdirSync } from "fs";
 import { downloadImage } from "./image-downloader";
 
 export async function downloadAlbumData(artistUrl: string) {
@@ -15,13 +15,17 @@ export async function downloadAlbumData(artistUrl: string) {
     if (error) throw error;
   });
 
+  const dir = "src/images/dynamic/bandcamp/";
+
+  if (!existsSync(dir)) {
+    mkdirSync(dir, { recursive: true });
+  }
+
   albums.forEach((album) => {
     const imageUrl = album.imageUrl;
     const fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-    downloadImage(imageUrl, "src/images/dynamic/bandcamp/" + fileName).catch(
-      (error) => {
-        console.log(error);
-      }
-    );
+    downloadImage(imageUrl, dir + fileName).catch((error) => {
+      console.log(error);
+    });
   });
 }
