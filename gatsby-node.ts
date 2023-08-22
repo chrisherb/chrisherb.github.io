@@ -6,6 +6,12 @@ exports.onPreBootstrap = async () => {
   await downloadAlbumData("https://ternar.bandcamp.com");
   reporter.success("Downloading Bandcamp data");
 
-  await downloadGumroadData("M785lI8ryP08fle1fg0jB6xoz7zKks71Vdm8S5hIt7E");
-  reporter.success("Downloading Gumroad data");
+  const token = process.env.GUMROAD_TOKEN;
+
+  if (token) {
+    await downloadGumroadData(token);
+    reporter.success("Downloading Gumroad data");
+  } else {
+    reporter.error("Error downloading Gumroad data: token not found");
+  }
 };

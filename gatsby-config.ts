@@ -1,6 +1,10 @@
 import type { GatsbyConfig } from "gatsby";
 
-const config: GatsbyConfig = {
+import { config } from "dotenv";
+
+config({ path: `.env.${process.env.NODE_ENV}` });
+
+const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     title: `Ternär Music Technology`,
     siteUrl: `https://www.ternar.tech/`,
@@ -72,4 +76,4 @@ const config: GatsbyConfig = {
   ],
 };
 
-export default config;
+export default gatsbyConfig;

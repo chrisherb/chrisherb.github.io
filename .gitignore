@@ -6,3 +6,4 @@ src/images/dynamic/gumroad/
 src/images/dynamic/bandcamp/
 src/data/albums.json
 src/data/products.json
+.env*
