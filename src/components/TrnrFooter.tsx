@@ -16,15 +16,13 @@ export function TrnrFooter() {
           target="_blank"
         />
         <Anchor
-          href="https://www.instagram.com/trnr.tech/"
-          label="Instagram"
-          target="_blank"
-        />
-        <Anchor
           href="https://store.ternar.tech/follow"
           target="_blank"
           label="Newsletter"
         />
+        <TrnrLink to="/contact" color="brand">
+          Contact
+        </TrnrLink>
         <TrnrLink to="/impressum" color="brand">
           Impressum
         </TrnrLink>
