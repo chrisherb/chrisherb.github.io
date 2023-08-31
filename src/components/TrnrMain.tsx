@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Box, Grommet, grommet } from "grommet";
-import { TrnrFooter, TrnrHeader } from "../components";
 import { deepMerge } from "grommet/utils";
+import { TrnrFooter } from "./TrnrFooter";
+import { TrnrHeader } from "./TrnrHeader";
 
 const trnrTheme = deepMerge(grommet, {
   global: {

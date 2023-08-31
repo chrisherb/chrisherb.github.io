@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { HeadFC } from "gatsby";
 import { TrnrMain } from "../components/TrnrMain";
-import { TrnrTitle } from "../components";
+import { TrnrTitle } from "../components/TrnrTitle";
 
 const IndexPage = () => {
   return (
