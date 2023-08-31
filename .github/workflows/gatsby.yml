@@ -80,6 +80,8 @@ jobs:
           PREFIX_PATHS: "true"
           GUMROAD_TOKEN: ${{ secrets.GUMROAD_TOKEN }}
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+      - name: Test
+        run: npm test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
