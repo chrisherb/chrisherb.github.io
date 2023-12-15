@@ -132,7 +132,7 @@ export function TrnrTitle() {
           </TrnrLink>
 
           <Heading level={3} size="large" margin={{ bottom: "small" }}>
-            Latest Devices
+            Latest Products
           </Heading>
           <Box direction="row">
             {data.allProductsJson.nodes.map((product: any) => {
