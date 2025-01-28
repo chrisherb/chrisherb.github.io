@@ -13,94 +13,101 @@
   <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.js"></script>
   <link href="theme.css" rel="stylesheet" />
 
+  <!-- wavesurfer.js -->
+  <script src="https://unpkg.com/wavesurfer.js@7"></script>
+
+  <!-- Web Components -->
   <script type="module" src="./components/components.js"></script>
 </head>
 
 <body class="dark">
-  <header class="fixed responsive max surface-container">
-    <trnr-header></trnr-header>
-  </header>
-  <main class="responsive">
-    <section id="software">
-      <h2>Software</h2>
-      <h3>VST/CLAP</h3>
-      <div class="grid">
-        <div class="s12 m12 l6">
-          <trnr-card-vert title="ChannelStrip" text=" Modeled tube preamp with equalizer"
-            img-src="./img/plugins/channelstrip-pro.webp"></trnr-card-vert>
+  <trnr-header></trnr-header>
+  <trnr-audio-player>
+    <main class="responsive">
+      <section id="software">
+        <h2>Software</h2>
+        <h3>VST/CLAP</h3>
+        <div class="grid">
+          <div class="s12 m12 l6">
+            <trnr-card-vert title="ChannelStrip" id="channelstrip" text=" Modeled tube preamp with equalizer"
+              img-src="./img/plugins/channelstrip-pro.webp"></trnr-card-vert>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card-vert title="ChannelStrip Pro" id="channelstrip-pro"
+              text=" Modeled tube preamp with semi parametric equalizer and compressor"
+              img-src="./img/plugins/channelstrip-pro.webp"></trnr-card-vert>
+          </div>
         </div>
-        <div class="s12 m12 l6">
-          <trnr-card-vert title="ChannelStrip Pro" text=" Modeled tube preamp with semi parametric equalizer and compressor"
-            img-src="./img/plugins/channelstrip-pro.webp"></trnr-card-vert>
-        </div>
-      </div>
-      <h3>Max for Live</h3>
-      <article>
-        <trnr-list-item title="Flechtwerk" text="Macro synthesizer" link="#"></trnr-list-item>
-        <hr />
-        <trnr-list-item title="Flechtwerk Pro" text="Advanced macro synthesizer" link="#"></trnr-list-item>
-        <hr />
-        <trnr-list-item title="ChannelStrip" text="Tube preamp with equalizer" link="#"></trnr-list-item>
-        <hr />
-        <trnr-list-item title="ChannelStrip Pro" text="Tube preamp with equalizer and compressor"
-          link="#"></trnr-list-item>
-      </article>
-    </section>
+        <h3>Max for Live</h3>
+        <article>
+          <trnr-list-item title="Flechtwerk" text="Macro synthesizer" link="#"></trnr-list-item>
+          <hr />
+          <trnr-list-item title="Flechtwerk Pro" text="Advanced macro synthesizer" link="#"></trnr-list-item>
+          <hr />
+          <trnr-list-item title="ChannelStrip" text="Tube preamp with equalizer" link="#"></trnr-list-item>
+          <hr />
+          <trnr-list-item title="ChannelStrip Pro" text="Tube preamp with equalizer and compressor"
+            link="#"></trnr-list-item>
+        </article>
+      </section>
 
-    <section id="music">
-      <h2>Music</h2>
-      <div class="grid">
-        <div class="s12 m12 l6">
-          <trnr-card title="Brick A Leg [TRNR013]" text="Akaroid" img-src="img/music/trnr013.jpg"
-            year="2023"></trnr-card>
+      <section id="music">
+        <h2>Music</h2>
+        <div class="grid">
+          <div class="s12 m12 l6">
+            <trnr-card title="Brick A Leg [TRNR013]" text="Akaroid" img-src="img/music/trnr013.jpg" year="2023"
+              audio-path="./audio/devices/brick-a-leg_02_brick-a-leg.mp3"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Grotte [TRNR012]" text="Parule" img-src="img/music/trnr012.jpg" year="2022"
+              audio-path="./audio/devices/brick-a-leg_01_panic-button.mp3"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Platzwunden & Fieber [TRNR011]" text="Elfriede Blut" img-src="img/music/trnr011.jpg"
+              year="2021"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Apparat [TRNR010]" text="Akaroid" img-src="img/music/trnr010.jpg" year="2021"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Transmitter [TRNR009]" text="Akaroid" img-src="img/music/trnr009.jpg"
+              year="2021"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="It’s Not Over Till You’re Under//Ground [TRNR008]" text="BYDL"
+              img-src="img/music/trnr008.jpg" year="2020"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Struktur [TRNR007]" text="Akaroid" img-src="img/music/trnr007.jpg"
+              year="2020"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Unimatrix Zero [TRNR006]" text="Akaroid" img-src="img/music/trnr006.jpg"
+              year="2019"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Tides [TRNR005]" text="Akaroid" img-src="img/music/trnr005.jpg" year="2019"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Equinox [TRNR004]" text="Akaroid" img-src="img/music/trnr004.jpg" year="2019"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Omega [TRNR003]" text="Akaroid" img-src="img/music/trnr003.jpg" year="2019"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Beta [TRNR002]" text="Akaroid" img-src="img/music/trnr002.jpg" year="2018"></trnr-card>
+          </div>
+          <div class="s12 m12 l6">
+            <trnr-card title="Omikron [TRNR001]" text="Akaroid" img-src="img/music/trnr001.jpg" year="2018"></trnr-card>
+          </div>
         </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Grotte [TRNR012]" text="Parule" img-src="img/music/trnr012.jpg" year="2022"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Platzwunden & Fieber [TRNR011]" text="Elfriede Blut" img-src="img/music/trnr011.jpg"
-            year="2021"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Apparat [TRNR010]" text="Akaroid" img-src="img/music/trnr010.jpg" year="2021"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Transmitter [TRNR009]" text="Akaroid" img-src="img/music/trnr009.jpg"
-            year="2021"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="It’s Not Over Till You’re Under//Ground [TRNR008]" text="BYDL"
-            img-src="img/music/trnr008.jpg" year="2020"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Struktur [TRNR007]" text="Akaroid" img-src="img/music/trnr007.jpg" year="2020"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Unimatrix Zero [TRNR006]" text="Akaroid" img-src="img/music/trnr006.jpg"
-            year="2019"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Tides [TRNR005]" text="Akaroid" img-src="img/music/trnr005.jpg" year="2019"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Equinox [TRNR004]" text="Akaroid" img-src="img/music/trnr004.jpg" year="2019"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Omega [TRNR003]" text="Akaroid" img-src="img/music/trnr003.jpg" year="2019"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Beta [TRNR002]" text="Akaroid" img-src="img/music/trnr002.jpg" year="2018"></trnr-card>
-        </div>
-        <div class="s12 m12 l6">
-          <trnr-card title="Omikron [TRNR001]" text="Akaroid" img-src="img/music/trnr001.jpg" year="2018"></trnr-card>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-    </section>
-  </main>
+      <section id="contact">
+        <h2>Contact</h2>
+      </section>
+    </main>
+  </trnr-audio-player>
 </body>
 
 </html>

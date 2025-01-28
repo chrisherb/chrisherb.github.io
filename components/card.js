@@ -9,6 +9,7 @@ class TrnrCard extends HTMLElement {
     const text = this.getAttribute('text');
     const imgSrc = this.getAttribute('img-src');
     const year = this.getAttribute('year');
+    const audioPath = this.getAttribute('audio-path');
 
     const template = document.createElement('template');
     template.innerHTML = ` 
@@ -23,7 +24,7 @@ class TrnrCard extends HTMLElement {
               <p>${text}, ${year}</p>
               
               <nav>
-                <button class="circle">
+                <button class="play-button circle" data-audio-path="${audioPath}">
                   <i>play_arrow</i>
                 </button>
                 <button class="border round" data-ui="#dialog">Buy</button>

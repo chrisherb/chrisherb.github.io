@@ -8,7 +8,7 @@ class TrnrCardVert extends HTMLElement {
     const title = this.getAttribute('title');
     const text = this.getAttribute('text');
     const imgSrc = this.getAttribute('img-src');
-    const id = this.getAttribute('id');
+    const id = Date.now();
 
     const template = document.createElement('template');
     template.innerHTML = `
@@ -18,11 +18,11 @@ class TrnrCardVert extends HTMLElement {
           <h5>${title}</h5>
           <p>${text}</p>
           <nav>
-            <button data-ui="#dialog">Buy</button>
+            <button data-ui="#${id}">Buy</button>
           </nav>
         </div>
       </article>    
-      <dialog id="dialog" class="max">
+      <dialog id="${id}" class="max">
         <div class="row">
           <button class="circle transparent" data-ui="#dialog">
             <i>arrow_back</i>
