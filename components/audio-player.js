@@ -7,7 +7,12 @@ class TrnrAudioPlayer extends HTMLElement {
 
     render() {
         const template = document.createElement('template');
-        template.innerHTML = ` 
+        template.innerHTML = `
+            <style>
+                #audio-footer {
+                    z-index: 100
+                }
+            </style>
             <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
                 <nav class="padding">
                 <button id="play-icon-container" class="circle transparent">
