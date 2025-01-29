@@ -10,11 +10,22 @@ class TrnrAudioPlayer extends HTMLElement {
         template.innerHTML = `
             <style>
                 #audio-footer {
-                    z-index: 100
+                    z-index: 100;
+
+                    .audio-nav {
+                        min-block-size: 50px;
+                        margin-bottom: 10px;
+                        margin-block-start: 0;
+                    }
+
+                    .audio-title {
+                        margin: 0 0 0 57px;
+                    }
                 }
             </style>
             <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
-                <nav class="padding">
+                <p class="small-text audio-title"></p>
+                <nav class="audio-nav">
                 <button id="play-icon-container" class="circle transparent">
                     <i id="play-icon" class="extra primary-text">play_arrow</i>
                 </button>
@@ -58,9 +69,12 @@ class TrnrAudioPlayer extends HTMLElement {
             button.addEventListener('click', () => {
                 footer.style = 'visibility: visible';
                 const audioPath = button.dataset.audioPath; // Assuming each button has a data attribute with the audio path
+                const title = button.dataset.audioTitle;
+                const artist = button.dataset.audioArtist;
                 wavesurfer.load(audioPath);
                 playState = 'pause';
                 playIcon.innerHTML = "pause";
+                this.querySelector(".audio-title").innerHTML = artist + " - " + title;
             });
         });
     }

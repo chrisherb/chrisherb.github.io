@@ -24,7 +24,7 @@ class TrnrCard extends HTMLElement {
               <p>${text}, ${year}</p>
               
               <nav>
-                <button class="play-button circle" data-audio-path="${audioPath}">
+                <button class="play-button circle" data-audio-artist="${text}" data-audio-title="${title}" data-audio-path="${audioPath}">
                   <i>play_arrow</i>
                 </button>
                 <button class="border round" data-ui="#dialog">Buy</button>
