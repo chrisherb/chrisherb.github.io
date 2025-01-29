@@ -19,6 +19,9 @@ class TrnrHeader extends HTMLElement {
             <button class="border no-round" onclick="location.href='#music';">
               <span>Music</span>
             </button>
+            <button class="border no-round" onclick="location.href='#about';">
+              <span>About</span>
+            </button>
             <button class="border right-round" onclick="location.href='#contact';">
               <span>Contact</span>
             </button>
