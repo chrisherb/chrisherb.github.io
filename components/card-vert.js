@@ -19,14 +19,16 @@ class TrnrCardVert extends HTMLElement {
 
     const template = document.createElement('template');
     template.innerHTML = `
-      <article class="no-padding border">
+      <style>
+        #card-${this.id} {
+          cursor: pointer;
+        }
+      </style>
+      <article id="card-${this.id}" class="trnr-card-vert no-padding border">
         <img class="responsive" src="${imgSrc}" />
         <div class="padding">
           <h5>${title}</h5>
           <p>${text}</p>
-          <nav>
-            <button id="open-${this.id}">Buy</button>
-          </nav>
         </div>
       </article>    
       <dialog id="dialog-${this.id}" class="max">
@@ -55,7 +57,6 @@ class TrnrCardVert extends HTMLElement {
       const paramValue = urlParams.get('page');
 
       if (paramValue === id) {
-        debugger;
         dialog.show();
       } else {
         dialog.close();
@@ -71,7 +72,7 @@ class TrnrCardVert extends HTMLElement {
     if (paramValue === id)
       dialog.show();
 
-    const openBtn = this.querySelector('#open-' + this.id);
+    const openBtn = this.querySelector('#card-' + this.id);
     openBtn.addEventListener("click", () => {
       this.addQueryParam("page", id);
       dialog.show();
