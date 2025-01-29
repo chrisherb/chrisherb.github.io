@@ -23,6 +23,9 @@ class TrnrCardVert extends HTMLElement {
         #card-${this.id} {
           cursor: pointer;
         }
+        body.no-scroll {
+          overflow: hidden;
+        }
       </style>
       <article id="card-${this.id}" class="trnr-card-vert no-padding border">
         <img class="responsive" src="${imgSrc}" />
@@ -49,38 +52,26 @@ class TrnrCardVert extends HTMLElement {
   }
 
   connectedCallback() {
-    const dialog = this.querySelector(`#dialog-${this.id}`);
     const id = this.getAttribute("id");
 
-    const onUrlChange = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const paramValue = urlParams.get('page');
-
-      if (paramValue === id) {
-        dialog.show();
-      } else {
-        dialog.close();
-      }
-    }
-
-    // Listen for popstate events to react to URL changes (back, forward, pushState, replaceState)
-    window.addEventListener('popstate', onUrlChange.bind(this));
+    // listen for popstate events to react to URL changes (back, forward, pushState, replaceState)
+    window.addEventListener('popstate', this.onUrlChange.bind(this));
 
     // check for window parameters
     const urlParams = new URLSearchParams(window.location.search);
     const paramValue = urlParams.get('page');
     if (paramValue === id)
-      dialog.show();
+      this.openDialog();
 
     const openBtn = this.querySelector('#card-' + this.id);
     openBtn.addEventListener("click", () => {
       this.addQueryParam("page", id);
-      dialog.show();
+      this.openDialog();
     });
 
     const closeBtn = this.querySelector('#close-' + this.id);
     closeBtn.addEventListener("click", () => {
-      dialog.close();
+      this.closeDialog();
       this.removeQueryParam('page');
     });
   }
@@ -95,6 +86,29 @@ class TrnrCardVert extends HTMLElement {
     const url = new URL(window.location.href); // Get current URL
     url.searchParams.set(param, value); // Add or update the parameter
     window.history.pushState({}, '', url);
+  }
+
+  openDialog() {
+    const dialog = this.querySelector(`#dialog-${this.id}`);
+    dialog.show();
+    document.body.classList.add('no-scroll'); // disable scroll
+  }
+
+  closeDialog() {
+    const dialog = this.querySelector(`#dialog-${this.id}`);
+    dialog.close();
+    document.body.classList.remove('no-scroll'); // re-enable scroll
+  }
+
+  onUrlChange() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramValue = urlParams.get('page');
+
+    if (paramValue === id) {
+      this.openDialog();
+    } else {
+      this.closeDialog();
+    }
   }
 }
 
