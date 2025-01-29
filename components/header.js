@@ -8,7 +8,7 @@ class TrnrHeader extends HTMLElement {
     const template = document.createElement('template');
     template.innerHTML = `
       <header class="fixed responsive max surface-container">
-        <nav>
+        <nav class="scroll">
           <button class="square transparent" onclick="location.href='#';">
             <img class="responsive" src="/logo.svg" style="opacity: 0.7" />
           </button>
