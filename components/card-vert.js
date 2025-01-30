@@ -27,7 +27,7 @@ class TrnrCardVert extends HTMLElement {
           overflow: hidden;
         }
       </style>
-      <article id="card-${this.id}" class="trnr-card-vert no-padding border">
+      <article id="card-${this.id}" class="wave trnr-card-vert no-padding border">
         <img class="responsive" src="${imgSrc}" />
         <div class="padding">
           <h5>${title}</h5>
