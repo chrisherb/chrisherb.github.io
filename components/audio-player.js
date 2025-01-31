@@ -11,25 +11,22 @@ class TrnrAudioPlayer extends HTMLElement {
             <style>
                 #audio-footer {
                     z-index: 100;
+                        min-block-size: 64px;
 
                     .audio-nav {
-                        min-block-size: 50px;
-                        margin-bottom: 10px;
-                        margin-block-start: 0;
                     }
 
                     .audio-title {
-                        margin: 0 0 0 57px;
                     }
                 }
             </style>
             <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
-                <p class="small-text audio-title"></p>
                 <nav class="audio-nav">
-                <button id="play-icon-container" class="circle transparent">
-                    <i id="play-icon" class="extra primary-text">play_arrow</i>
-                </button>
-                <div id="waveform" class="max"></div>
+                    <p class="small-text audio-title"></p>
+                    <button id="play-icon-container" class="circle transparent">
+                        <i id="play-icon" class="extra primary-text">play_arrow</i>
+                    </button>
+                    <div id="waveform" class="max"></div>
                 </nav>
             </footer>
       `;
@@ -49,7 +46,7 @@ class TrnrAudioPlayer extends HTMLElement {
             container: '#waveform',
             waveColor: 'rgb(81, 69, 58)',
             progressColor: 'rgb(255, 184, 112)',
-            height: 50,
+            height: 40,
             autoplay: true
         });
 
