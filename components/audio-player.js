@@ -27,6 +27,7 @@ class TrnrAudioPlayer extends HTMLElement {
                         <i id="play-icon" class="extra primary-text">play_arrow</i>
                     </button>
                     <div id="waveform" class="max"></div>
+                    <p class="small-text audio-time"></p>
                 </nav>
             </footer>
         `;
@@ -39,6 +40,7 @@ class TrnrAudioPlayer extends HTMLElement {
         const playIcon = this.querySelector('#play-icon');
         const playButtons = this.querySelectorAll('.play-button');
         const footer = this.querySelector('#audio-footer');
+        const audioTime = this.querySelector('.audio-time');
 
         let playState = 'play';
 
@@ -53,7 +55,11 @@ class TrnrAudioPlayer extends HTMLElement {
         wavesurfer.on('finish', () => {
             playIcon.innerHTML = "play_arrow";
             playState = 'play';
-        })
+        });
+
+        wavesurfer.on('timeupdate', (currentTime) => {
+            audioTime.innerText = this.toHHMMSS(currentTime);
+        });
 
         playIconContainer.addEventListener('click', () => {
             if (playState === 'play') {
@@ -79,6 +85,18 @@ class TrnrAudioPlayer extends HTMLElement {
                 this.querySelector(".audio-title").innerHTML = artist + " - " + title;
             });
         });
+    }
+
+    toHHMMSS(seconds) {
+        var secNum = parseInt(seconds, 10); // don't forget the second param
+        var hours = Math.floor(secNum / 3600);
+        var minutes = Math.floor((secNum - (hours * 3600)) / 60);
+        var seconds = secNum - (hours * 3600) - (minutes * 60);
+
+        if (hours < 10) { hours = "0" + hours; }
+        if (minutes < 10) { minutes = "0" + minutes; }
+        if (seconds < 10) { seconds = "0" + seconds; }
+        return minutes + ':' + seconds;
     }
 }
 
