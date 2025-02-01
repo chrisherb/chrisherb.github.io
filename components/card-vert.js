@@ -5,9 +5,10 @@ class TrnrCardVert extends HTMLElement {
     this.render();
   }
 
-  id = Date.now();
+  id;
 
   render() {
+    this.id = this.getAttribute('id');
     const title = this.getAttribute('title');
     const text = this.getAttribute('text');
     const imgSrc = this.getAttribute('img-src');
@@ -23,49 +24,48 @@ class TrnrCardVert extends HTMLElement {
         #card-${this.id} {
           cursor: pointer;
         }
-        body.no-scroll {
+        body.no-scroll, #main-${this.id} {
           overflow: hidden;
         }
+        #dialog-${this.id} {
+          display: block;
+          padding: 10px 0 0 0;
+        }
       </style>
+
       <article id="card-${this.id}" class="wave trnr-card-vert no-padding border">
         <img class="responsive" src="${imgSrc}" />
         <div class="padding">
           <h5>${title}</h5>
           <p>${text}</p>
         </div>
-      </article>    
+      </article>
+
       <dialog id="dialog-${this.id}" class="max">
-        <div class="row">
-          <button id="close-${this.id}" class="circle transparent">
-            <i>arrow_back</i>
-          </button>
-          <h3>${title}</h3>
-        </div>
-        ${content?.innerHTML}
-        <nav class="right-align">
-          <button class="border">Cancel</button>
-          <button>Confirm</button>
-        </nav>
+        <button id="close-${this.id}" class="circle transparent">
+          <i>arrow_back</i>
+        </button>
+        <main id="main-${this.id}" class="responsive">
+          ${content?.outerHTML}
+        </main>
       </dialog>
     `;
     this.appendChild(template.content);
   }
 
   connectedCallback() {
-    const id = this.getAttribute("id");
-
     // listen for popstate events to react to URL changes (back, forward, pushState, replaceState)
     window.addEventListener('popstate', this.onUrlChange.bind(this));
 
     // check for window parameters
     const urlParams = new URLSearchParams(window.location.search);
     const paramValue = urlParams.get('page');
-    if (paramValue === id)
+    if (paramValue === this.id)
       this.openDialog();
 
     const openBtn = this.querySelector('#card-' + this.id);
     openBtn.addEventListener("click", () => {
-      this.addQueryParam("page", id);
+      this.addQueryParam("page", this.id);
       this.openDialog();
     });
 
@@ -104,7 +104,7 @@ class TrnrCardVert extends HTMLElement {
     const urlParams = new URLSearchParams(window.location.search);
     const paramValue = urlParams.get('page');
 
-    if (paramValue === id) {
+    if (paramValue === this.id) {
       this.openDialog();
     } else {
       this.closeDialog();
