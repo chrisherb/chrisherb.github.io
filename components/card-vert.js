@@ -31,6 +31,9 @@ class TrnrCardVert extends HTMLElement {
           display: block;
           padding: 10px 0 0 0;
         }
+        #main-${this.id} {
+          margin-bottom: 64px;
+        }
       </style>
 
       <article id="card-${this.id}" class="wave trnr-card-vert no-padding border">
