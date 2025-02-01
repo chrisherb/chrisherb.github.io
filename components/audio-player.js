@@ -12,12 +12,6 @@ class TrnrAudioPlayer extends HTMLElement {
                 #audio-footer {
                     z-index: 100;
                         min-block-size: 64px;
-
-                    .audio-nav {
-                    }
-
-                    .audio-title {
-                    }
                 }
             </style>
             <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
@@ -28,6 +22,10 @@ class TrnrAudioPlayer extends HTMLElement {
                     </button>
                     <div id="waveform" class="max"></div>
                     <p class="small-text audio-time"></p>
+                    <label class="slider medium">
+                        <input id="audio-slider" type="range" value="100">
+                        <span></span>
+                    </label>
                 </nav>
             </footer>
         `;
@@ -41,6 +39,7 @@ class TrnrAudioPlayer extends HTMLElement {
         const playButtons = this.querySelectorAll('.play-button');
         const footer = this.querySelector('#audio-footer');
         const audioTime = this.querySelector('.audio-time');
+        const slider = this.querySelector('#audio-slider');
 
         let playState = 'play';
 
@@ -84,6 +83,10 @@ class TrnrAudioPlayer extends HTMLElement {
                 playIcon.innerHTML = "pause";
                 this.querySelector(".audio-title").innerHTML = artist + " - " + title;
             });
+        });
+
+        slider.addEventListener('input', input => {
+            wavesurfer.setVolume(input.target.value / 100);
         });
     }
 
