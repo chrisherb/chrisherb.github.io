@@ -29,7 +29,7 @@ class TrnrAudioPlayer extends HTMLElement {
                     <div id="waveform" class="max"></div>
                 </nav>
             </footer>
-      `;
+        `;
 
         this.appendChild(template.content);
     }
@@ -49,6 +49,11 @@ class TrnrAudioPlayer extends HTMLElement {
             height: 40,
             autoplay: true
         });
+
+        wavesurfer.on('finish', () => {
+            playIcon.innerHTML = "play_arrow";
+            playState = 'play';
+        })
 
         playIconContainer.addEventListener('click', () => {
             if (playState === 'play') {
