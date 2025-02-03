@@ -1,288 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="google" content="notranslate" />
+    <title>Ternär Music Technology</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="google" content="notranslate" />
-  <title>Ternär Music Technology</title>
+    <!-- BeerCSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.js"
+    ></script>
+    <link href="theme.css" rel="stylesheet" />
 
-  <!-- BeerCSS -->
-  <link href="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.css" rel="stylesheet" />
-  <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.js"></script>
-  <link href="theme.css" rel="stylesheet" />
+    <!-- wavesurfer.js -->
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
 
-  <!-- wavesurfer.js -->
-  <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <!-- Web Components -->
+    <script type="module" src="./components/components.js"></script>
+  </head>
 
-  <!-- Web Components -->
-  <script type="module" src="./components/components.js"></script>
-</head>
+  <body class="dark">
+    <trnr-header></trnr-header>
+    <trnr-audio-player>
+      <main class="responsive">
+        <section id="software">
+          <h2>Software</h2>
+          <h3>VST/CLAP Plugins</h3>
+          <div class="grid">
+            <div class="s12 m12 l6">
+              <trnr-card-vert
+                title="ChannelStrip"
+                id="channelstrip"
+                text=" Modeled tube preamp with equalizer"
+                img-src="./img/plugins/channelstrip.webp"
+              >
+              </trnr-card-vert>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card-vert
+                title="ChannelStrip Pro"
+                id="channelstrip-pro"
+                text=" Modeled tube preamp with semi parametric equalizer and compressor"
+                img-src="./img/plugins/channelstrip-pro.webp"
+              >
+                <article class="no-padding border card-content">
+                  <img
+                    class="responsive"
+                    src="./img/plugins/channelstrip-pro.webp"
+                  />
+                  <div class="padding">
+                    <h4 class="large">ChannelStrip Pro</h4>
+                    <p>
+                      <strong>ChannnelStrip Pro</strong> is a modeled tube
+                      preamp with high-/lowpass filters, 3 band EQ, compressor
+                      and oscilloscope available in M4L/VST3/CLAP plugin
+                      formats. <br />Controlling dynamics with saturation is an
+                      often overlooked technique in music production.
+                      ChannelStrip Pro is intended as an end-of-chain effect
+                      with smooth modeled tube saturation combined with an
+                      oscilloscope to monitor how the waveform is compressed.
+                      The integrated 3-band equalizer will furthermore help you
+                      apply gentle, unobtrusive tone-shaping, while the
+                      compressor will give you even more options for
+                      envelope-shaping. A safety clipper at the end of the
+                      signal chain protects against overshooting peaks.
+                    </p>
+                    <p>
+                      Even as a simple distortion effect, equalizer or
+                      compressor, ChannelStrip will make a great addition to
+                      your DAW's stock plugins.
+                    </p>
+                    <p>Features:</p>
+                    <ul>
+                      <li>Modeled tube saturation with character control</li>
+                      <li>Adjustable oversampling up to 64x</li>
+                      <li>High-/lowpass filters with gentle slope</li>
+                      <li>
+                        Unobtrusive 3-band equalizer with adjustable
+                        crossover-frequencies
+                      </li>
+                      <li>Easy to use one-knob compressor</li>
+                      <li>Safety-clipper at the output</li>
+                      <li>Oscilloscope with adjustable sample-size</li>
+                    </ul>
+                    <p>
+                      Available in M4L (Ableton Live 11+ Mac/Windows) and
+                      VST3/CLAP (Mac/Win/Linux 64bit) formats.
+                    </p>
+                    <h3 class="small">Known Issues:</h3>
+                    <p>
+                      Some anti virus software flag the Windows CLAP and VST3
+                      versions of this plugin as (false positive) malware. Hang
+                      tight while I work on a fix for that.
+                    </p>
+                  </div>
+                </article>
+              </trnr-card-vert>
+            </div>
+          </div>
+          <h3 class="small">Legacy Max for Live Devices</h3>
+          <article class="scroll medium">
+            <table is="trnr-table" class="border">
+              <tr>
+                <td>Flechtwerk</td>
+                <td>Macro synthesizer</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Flechtwerk Pro</td>
+                <td>Advanced Macro synthesizer</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>ChannelStrip</td>
+                <td>Tube preamp with equalizer</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>ChannelStrip Pro</td>
+                <td>Tube preamp with equalizer and compressor</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Triplex Machines</td>
+                <td>Specialized retro FM synthesizers</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>RetroSampler</td>
+                <td>Lo-fi sample player</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>RetroSampler Pro</td>
+                <td>Advanced lo-fi sample player</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>FrenchPump</td>
+                <td>French house style pumping compressor</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Duckling</td>
+                <td>Simple ducker device</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Atomizer</td>
+                <td>8 Bit waveshaper with lookup table scanning</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>DmmG</td>
+                <td>Digital multi-mode gate</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>DmmG Pro</td>
+                <td>Advanced digital multi-mode gate</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Combine Sequencer</td>
+                <td>Esoteric sequencer with master + slave devices</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>BitEcho</td>
+                <td>12 Bit, 80s inspired, modeled digital hardware delay</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>BitEcho Pro</td>
+                <td>
+                  Advanced 12 Bit, 80s inspired, modeled digital hardware delay
+                </td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Hatster</td>
+                <td>Hihat synthesizer with modeled LPG filter</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Hatster Pro</td>
+                <td>Advanced hihat synthesizer with modeled LPG filter</td>
+                <td>
+                  <button>Download Windows Version</button>
+                  <button>Download Mac Version</button>
+                </td>
+              </tr>
+            </table>
+          </article>
+        </section>
 
-<body class="dark">
-  <trnr-header></trnr-header>
-  <trnr-audio-player>
-    <main class="responsive">
-      <section id="software">
-        <h2>Software</h2>
-        <h3>VST/CLAP Plugins</h3>
-        <div class="grid">
-          <div class="s12 m12 l6">
-            <trnr-card-vert title="ChannelStrip" id="channelstrip" text=" Modeled tube preamp with equalizer"
-              img-src="./img/plugins/channelstrip.webp">
+        <section id="music">
+          <h2>Music</h2>
+          <div class="grid">
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Brick A Leg [TRNR013]"
+                text="Akaroid"
+                img-src="img/music/trnr013.jpg"
+                year="2023"
+                audio-path="./audio/devices/brick-a-leg_02_brick-a-leg.mp3"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Grotte [TRNR012]"
+                text="Parule"
+                img-src="img/music/trnr012.jpg"
+                year="2022"
+                audio-path="./audio/devices/brick-a-leg_01_panic-button.mp3"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Platzwunden & Fieber [TRNR011]"
+                text="Elfriede Blut"
+                img-src="img/music/trnr011.jpg"
+                year="2021"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Apparat [TRNR010]"
+                text="Akaroid"
+                img-src="img/music/trnr010.jpg"
+                year="2021"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Transmitter [TRNR009]"
+                text="Akaroid"
+                img-src="img/music/trnr009.jpg"
+                year="2021"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="It's Not Over Till You're Under//Ground [TRNR008]"
+                text="BYDL"
+                img-src="img/music/trnr008.jpg"
+                year="2020"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Struktur [TRNR007]"
+                text="Akaroid"
+                img-src="img/music/trnr007.jpg"
+                year="2020"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Unimatrix Zero [TRNR006]"
+                text="Akaroid"
+                img-src="img/music/trnr006.jpg"
+                year="2019"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Tides [TRNR005]"
+                text="Akaroid"
+                img-src="img/music/trnr005.jpg"
+                year="2019"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Equinox [TRNR004]"
+                text="Akaroid"
+                img-src="img/music/trnr004.jpg"
+                year="2019"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Omega [TRNR003]"
+                text="Akaroid"
+                img-src="img/music/trnr003.jpg"
+                year="2019"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Beta [TRNR002]"
+                text="Akaroid"
+                img-src="img/music/trnr002.jpg"
+                year="2018"
+              ></trnr-card>
+            </div>
+            <div class="s12 m12 l6">
+              <trnr-card
+                title="Omikron [TRNR001]"
+                text="Akaroid"
+                img-src="img/music/trnr001.jpg"
+                year="2018"
+              ></trnr-card>
+            </div>
+          </div>
+        </section>
 
-            </trnr-card-vert>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card-vert title="ChannelStrip Pro" id="channelstrip-pro"
-              text=" Modeled tube preamp with semi parametric equalizer and compressor"
-              img-src="./img/plugins/channelstrip-pro.webp">
-              <article class="no-padding border card-content">
-                <img class="responsive" src="./img/plugins/channelstrip-pro.webp">
-                <div class="padding">
-                  <h4 class="large">ChannelStrip Pro</h4>
-                  <p><strong>ChannnelStrip Pro</strong> is a modeled tube preamp with high-/lowpass filters, 3 band EQ,
-                    compressor and oscilloscope available in M4L/VST3/CLAP plugin formats. <br>Controlling dynamics with
-                    saturation is an often overlooked technique in music production. ChannelStrip Pro is intended as an
-                    end-of-chain effect with smooth modeled tube saturation combined with an oscilloscope to monitor how
-                    the waveform is compressed. The integrated 3-band equalizer will furthermore help you apply gentle,
-                    unobtrusive tone-shaping, while the compressor will give you even more options for envelope-shaping.
-                    A
-                    safety clipper at the end of the signal chain protects against overshooting peaks.</p>
-                  <p>Even as a simple distortion effect, equalizer or compressor, ChannelStrip will make a great
-                    addition
-                    to your DAW's stock plugins.</p>
-                  <p>Features:</p>
-                  <ul>
-                    <li>Modeled tube saturation with character control</li>
-                    <li>Adjustable oversampling up to 64x</li>
-                    <li>High-/lowpass filters with gentle slope</li>
-                    <li>Unobtrusive 3-band equalizer with adjustable crossover-frequencies</li>
-                    <li>Easy to use one-knob compressor</li>
-                    <li>Safety-clipper at the output</li>
-                    <li>Oscilloscope with adjustable sample-size</li>
-                  </ul>
-                  <p>Available in M4L (Ableton Live 11+ Mac/Windows) and VST3/CLAP (Mac/Win/Linux 64bit) formats.</p>
-                  <h3 class="small">Known Issues:</h3>
-                  <p>Some anti virus software flag the Windows CLAP and VST3 versions of this plugin as (false positive)
-                    malware. Hang tight while I work on a fix for that.</p>
-                </div>
-              </article>
-            </trnr-card-vert>
-          </div>
-        </div>
-        <h3 class="small">Legacy Max for Live Devices</h3>
-        <article>
-          <table is="trnr-table" class="border">
-            <tr>
-              <td>Flechtwerk</td>
-              <td>Macro synthesizer</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Flechtwerk Pro</td>
-              <td>Advanced Macro synthesizer</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>ChannelStrip</td>
-              <td>Tube preamp with equalizer</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>ChannelStrip Pro</td>
-              <td>Tube preamp with equalizer and compressor</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>ChannelStrip Pro ME</td>
-              <td>Oversampled tube preamp with equalizer and compressor</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Triplex Machines</td>
-              <td>Specialized retro FM synthesizers</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>RetroSampler</td>
-              <td>Lo-fi sample player</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>RetroSampler Pro</td>
-              <td>Advanced lo-fi sample player</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>FrenchPump</td>
-              <td>French house style pumping compressor</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Duckling</td>
-              <td>Simple ducker device</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Atomizer</td>
-              <td>8 Bit waveshaper with lookup table scanning</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>DmmG</td>
-              <td>Digital multi-mode gate</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>DmmG Pro</td>
-              <td>Advanced digital multi-mode gate</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Combine Sequencer</td>
-              <td>Esoteric sequencer with master + slave devices</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>BitEcho</td>
-              <td>12 Bit, 80s inspired, modeled digital hardware delay</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>BitEcho Pro</td>
-              <td>Advanced 12 Bit, 80s inspired, modeled digital hardware delay</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Hatster</td>
-              <td>Hihat synthesizer with modeled LPG filter</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Hatster Pro</td>
-              <td>Advanced hihat synthesizer with modeled LPG filter</td>
-              <td>
-                <button>Download Windows Version</button>
-                <button>Download Mac Version</button>
-              </td>
-            </tr>
-          </table>
-        </article>
-      </section>
-
-      <section id="music">
-        <h2>Music</h2>
-        <div class="grid">
-          <div class="s12 m12 l6">
-            <trnr-card title="Brick A Leg [TRNR013]" text="Akaroid" img-src="img/music/trnr013.jpg" year="2023"
-              audio-path="./audio/devices/brick-a-leg_02_brick-a-leg.mp3"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Grotte [TRNR012]" text="Parule" img-src="img/music/trnr012.jpg" year="2022"
-              audio-path="./audio/devices/brick-a-leg_01_panic-button.mp3"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Platzwunden & Fieber [TRNR011]" text="Elfriede Blut" img-src="img/music/trnr011.jpg"
-              year="2021"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Apparat [TRNR010]" text="Akaroid" img-src="img/music/trnr010.jpg" year="2021"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Transmitter [TRNR009]" text="Akaroid" img-src="img/music/trnr009.jpg"
-              year="2021"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="It's Not Over Till You're Under//Ground [TRNR008]" text="BYDL"
-              img-src="img/music/trnr008.jpg" year="2020"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Struktur [TRNR007]" text="Akaroid" img-src="img/music/trnr007.jpg"
-              year="2020"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Unimatrix Zero [TRNR006]" text="Akaroid" img-src="img/music/trnr006.jpg"
-              year="2019"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Tides [TRNR005]" text="Akaroid" img-src="img/music/trnr005.jpg" year="2019"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Equinox [TRNR004]" text="Akaroid" img-src="img/music/trnr004.jpg" year="2019"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Omega [TRNR003]" text="Akaroid" img-src="img/music/trnr003.jpg" year="2019"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Beta [TRNR002]" text="Akaroid" img-src="img/music/trnr002.jpg" year="2018"></trnr-card>
-          </div>
-          <div class="s12 m12 l6">
-            <trnr-card title="Omikron [TRNR001]" text="Akaroid" img-src="img/music/trnr001.jpg" year="2018"></trnr-card>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <h2>About</h2>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-      </section>
-    </main>
-  </trnr-audio-player>
-</body>
-
+        <section id="about">
+          <h2>About</h2>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+        </section>
+      </main>
+    </trnr-audio-player>
+  </body>
 </html>
