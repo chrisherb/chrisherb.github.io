@@ -5,13 +5,13 @@ class TrnrCard extends HTMLElement {
   }
 
   render() {
-    const title = this.getAttribute('title');
-    const text = this.getAttribute('text');
-    const imgSrc = this.getAttribute('img-src');
-    const year = this.getAttribute('year');
-    const audioPath = this.getAttribute('audio-path');
+    const title = this.getAttribute("title");
+    const text = this.getAttribute("text");
+    const imgSrc = this.getAttribute("img-src");
+    const year = this.getAttribute("year");
+    const audioPath = this.getAttribute("audio-path");
 
-    const template = document.createElement('template');
+    const template = document.createElement("template");
     template.innerHTML = ` 
       <article class="no-padding border">
         <div class="grid no-space">
@@ -39,4 +39,4 @@ class TrnrCard extends HTMLElement {
   }
 }
 
-window.customElements.define('trnr-card', TrnrCard);
+window.customElements.define("trnr-card", TrnrCard);

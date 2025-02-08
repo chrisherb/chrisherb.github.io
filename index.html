@@ -253,13 +253,21 @@
           <h2>Music</h2>
           <div class="grid">
             <div class="s12 m12 l6">
-              <trnr-card
-                title="Brick A Leg [TRNR013]"
-                text="Akaroid"
-                img-src="img/music/trnr013.jpg"
-                year="2023"
-                audio-path="./audio/music/akaroid_brick-a-leg.mp3"
-              ></trnr-card>
+              <article class="no-padding border" is="trnr-album-article">
+                <img
+                  loading="lazy"
+                  class="responsive"
+                  src="./img/music/trnr013.jpg"
+                />
+                <h3>Brick A Leg [TRNR013]</h3>
+                <p>Akaroid</p>
+                <p>2023</p>
+                <audio
+                  controls
+                  src="./audio/music/akaroid_brick-a-leg.mp3"
+                ></audio>
+                <a>Download</a>
+              </article>
             </div>
             <div class="s12 m12 l6">
               <trnr-card
