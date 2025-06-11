@@ -7,6 +7,7 @@ class TrnrCard extends HTMLElement {
   render() {
     const title = this.getAttribute("title");
     const text = this.getAttribute("text");
+    const catalogNumber = this.getAttribute("catalog-number");
     const imgSrc = this.getAttribute("img-src");
     const year = this.getAttribute("year");
     const audioPath = this.getAttribute("audio-path");
@@ -18,11 +19,13 @@ class TrnrCard extends HTMLElement {
           <div class="s6">
             <img loading="lazy" class="responsive" src="${imgSrc}" />
           </div>
-          <div class="s6">
-            <div class="padding">
-              <h6>${title}</h6>
-              <p>${text}, ${year}</p>
-              
+          <div class="s6 padding">
+            <strong>${text}</strong>
+            <h3 class="small">${title}</h3>
+            <div class="badge none primary">${catalogNumber}</div>
+            <div class="badge none secondary">${year}</div>
+            
+            <div class="max absolute bottom left padding">
               <nav>
                 <button class="play-button circle" data-audio-artist="${text}" data-audio-title="${title}" data-audio-path="${audioPath}">
                   <i>play_arrow</i>

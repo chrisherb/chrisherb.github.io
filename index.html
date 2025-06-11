@@ -9,24 +9,60 @@
 
     <!-- BeerCSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.css"
+      href="https://cdn.jsdelivr.net/npm/beercss@3.11.17/dist/cdn/beer.min.css"
       rel="stylesheet"
     />
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/npm/beercss@3.8.0/dist/cdn/beer.min.js"
+      src="https://cdn.jsdelivr.net/npm/beercss@3.11.17/dist/cdn/beer.min.js"
     ></script>
-    <link href="theme.css" rel="stylesheet" />
+    <link href="styles/theme.css" rel="stylesheet" />
 
     <!-- wavesurfer.js -->
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
 
     <!-- Web Components -->
     <script type="module" src="./components/components.js"></script>
+
+    <!-- Gumroad -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
 
   <body class="dark">
-    <trnr-header></trnr-header>
+    <header class="fixed responsive max surface-container">
+      <nav class="scroll">
+        <a href="#">
+          <img
+            class="responsive"
+            src="/logo.svg"
+            style="opacity: 0.9; width: 40px; height: 40px"
+          />
+        </a>
+        <nav class="group connected center-align max">
+          <button
+            class="border left-round"
+            onclick="location.href='#software';"
+          >
+            <span>Software</span>
+          </button>
+          <button class="border no-round" onclick="location.href='#music';">
+            <span>Music</span>
+          </button>
+          <button class="border no-round" onclick="location.href='#about';">
+            <span>About</span>
+          </button>
+          <button
+            class="border right-round"
+            onclick="location.href='#contact';"
+          >
+            <span>Contact</span>
+          </button>
+        </nav>
+      </nav>
+    </header>
     <trnr-audio-player>
       <main class="responsive">
         <section id="software">
@@ -36,216 +72,145 @@
             <div class="s12 m12 l6">
               <trnr-card-vert
                 title="ChannelStrip"
-                id="channelstrip"
-                text=" Modeled tube preamp with equalizer"
-                img-src="./img/plugins/channelstrip.webp"
-              >
-              </trnr-card-vert>
+                text="Modeled tube preamp with equalizer"
+                img-src="https://public-files.gumroad.com/8mdzclomjmwu8bvc9ta7dodw1uu1"
+                href="https://trnr.gumroad.com/l/channelstrip"
+              ></trnr-card-vert>
             </div>
             <div class="s12 m12 l6">
               <trnr-card-vert
                 title="ChannelStrip Pro"
-                id="channelstrip-pro"
-                text=" Modeled tube preamp with semi parametric equalizer and compressor"
-                img-src="./img/plugins/channelstrip-pro.webp"
-              >
-                <article class="no-padding border card-content">
-                  <img
-                    class="responsive"
-                    src="./img/plugins/channelstrip-pro.webp"
-                  />
-                  <div class="padding">
-                    <h4 class="large">ChannelStrip Pro</h4>
-                    <p>
-                      <strong>ChannnelStrip Pro</strong> is a modeled tube
-                      preamp with high-/lowpass filters, 3 band EQ, compressor
-                      and oscilloscope available in M4L/VST3/CLAP plugin
-                      formats. <br />Controlling dynamics with saturation is an
-                      often overlooked technique in music production.
-                      ChannelStrip Pro is intended as an end-of-chain effect
-                      with smooth modeled tube saturation combined with an
-                      oscilloscope to monitor how the waveform is compressed.
-                      The integrated 3-band equalizer will furthermore help you
-                      apply gentle, unobtrusive tone-shaping, while the
-                      compressor will give you even more options for
-                      envelope-shaping. A safety clipper at the end of the
-                      signal chain protects against overshooting peaks.
-                    </p>
-                    <p>
-                      Even as a simple distortion effect, equalizer or
-                      compressor, ChannelStrip will make a great addition to
-                      your DAW's stock plugins.
-                    </p>
-                    <p>Features:</p>
-                    <ul>
-                      <li>Modeled tube saturation with character control</li>
-                      <li>Adjustable oversampling up to 64x</li>
-                      <li>High-/lowpass filters with gentle slope</li>
-                      <li>
-                        Unobtrusive 3-band equalizer with adjustable
-                        crossover-frequencies
-                      </li>
-                      <li>Easy to use one-knob compressor</li>
-                      <li>Safety-clipper at the output</li>
-                      <li>Oscilloscope with adjustable sample-size</li>
-                    </ul>
-                    <p>
-                      Available in M4L (Ableton Live 11+ Mac/Windows) and
-                      VST3/CLAP (Mac/Win/Linux 64bit) formats.
-                    </p>
-                    <h3 class="small">Known Issues:</h3>
-                    <p>
-                      Some anti virus software flag the Windows CLAP and VST3
-                      versions of this plugin as (false positive) malware. Hang
-                      tight while I work on a fix for that.
-                    </p>
-                  </div>
-                </article>
-              </trnr-card-vert>
+                text="Modeled tube preamp with semi parametric equalizer and compressor"
+                img-src="https://public-files.gumroad.com/cx6t9b7lpam7cepe87qqbrgs6gks"
+                href="https://trnr.gumroad.com/l/channelstrip-pro"
+              ></trnr-card-vert>
             </div>
           </div>
           <h3 class="small">Legacy Max for Live Devices</h3>
-          <article class="scroll medium">
-            <table is="trnr-table" class="border">
-              <tr>
-                <td>Flechtwerk</td>
-                <td>Macro synthesizer</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Flechtwerk Pro</td>
-                <td>Advanced Macro synthesizer</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>ChannelStrip</td>
-                <td>Tube preamp with equalizer</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>ChannelStrip Pro</td>
-                <td>Tube preamp with equalizer and compressor</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Triplex Machines</td>
-                <td>Specialized retro FM synthesizers</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>RetroSampler</td>
-                <td>Lo-fi sample player</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>RetroSampler Pro</td>
-                <td>Advanced lo-fi sample player</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>FrenchPump</td>
-                <td>French house style pumping compressor</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Duckling</td>
-                <td>Simple ducker device</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Atomizer</td>
-                <td>8 Bit waveshaper with lookup table scanning</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>DmmG</td>
-                <td>Digital multi-mode gate</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>DmmG Pro</td>
-                <td>Advanced digital multi-mode gate</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Combine Sequencer</td>
-                <td>Esoteric sequencer with master + slave devices</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>BitEcho</td>
-                <td>12 Bit, 80s inspired, modeled digital hardware delay</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>BitEcho Pro</td>
-                <td>
-                  Advanced 12 Bit, 80s inspired, modeled digital hardware delay
-                </td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Hatster</td>
-                <td>Hihat synthesizer with modeled LPG filter</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Hatster Pro</td>
-                <td>Advanced hihat synthesizer with modeled LPG filter</td>
-                <td>
-                  <button>Download Windows Version</button>
-                  <button>Download Mac Version</button>
-                </td>
-              </tr>
-            </table>
+          <article id="device-list" class="scroll medium">
+            <ul class="list border">
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/flechtwerk">
+                  <strong>Flechtwerk</strong><em>Macro synthesizer</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/flechtwerk-pro">
+                  <strong>Flechtwerk Pro</strong>
+                  <em>Advanced macro synthesizer</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/channelstrip">
+                  <strong>ChannelStrip</strong>
+                  <em>Tube preamp with equalizer</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/channelstrip-pro">
+                  <strong>ChannelStrip Pro</strong>
+                  <em>Tube preamp with equalizer and compressor</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/triplex-machines">
+                  <strong>Triplex Machines</strong>
+                  <em>Specialized retro FM synthesizers</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/retrosampler">
+                  <strong>RetroSampler</strong>
+                  <em>Lo-fi sample player</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/retrosampler-pro">
+                  <strong>RetroSampler Pro</strong>
+                  <em>Advanced lo-fi sample player</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/frenchpump">
+                  <strong>FrenchPump</strong>
+                  <em>French house style pumping compressor</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/duckling">
+                  <strong>Duckling</strong>
+                  <em>Simple ducker device</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/atomizer">
+                  <strong>Atomizer</strong>
+                  <em>8-Bit waveshaper with lookup table scanning</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/dmmg">
+                  <strong>DmmG</strong>
+                  <em>Digital multi-mode gate</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/dmmg-pro">
+                  <strong>DmmG Pro</strong>
+                  <em>Advanced digital multi-mode gate</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/combine">
+                  <strong>Combine Sequencer</strong>
+                  <em>Esoteric sequencer with master + slave devices</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/bitecho">
+                  <strong>BitEcho</strong>
+                  <em>12 Bit, 80s inspired, modeled digital hardware delay</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/bitecho-pro">
+                  <strong>BitEcho Pro</strong>
+                  <em
+                    >Advanced 12 Bit, 80s inspired, modeled digital hardware
+                    delay</em
+                  >
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/hatster">
+                  <strong>Hatster</strong>
+                  <em>Hihat synthesizer with modeled LPG filter</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+              <li class="wave">
+                <a href="https://trnr.gumroad.com/l/hatster-pro">
+                  <strong>Hatster Pro</strong>
+                  <em>Advanced hihat synthesizer with modeled LPG filter</em>
+                  <i class="max right-align">download</i>
+                </a>
+              </li>
+            </ul>
           </article>
         </section>
 
@@ -253,25 +218,19 @@
           <h2>Music</h2>
           <div class="grid">
             <div class="s12 m12 l6">
-              <article class="no-padding border" is="trnr-album-article">
-                <img
-                  loading="lazy"
-                  class="responsive"
-                  src="./img/music/trnr013.jpg"
-                />
-                <h3>Brick A Leg [TRNR013]</h3>
-                <p>Akaroid</p>
-                <p>2023</p>
-                <audio
-                  controls
-                  src="./audio/music/akaroid_brick-a-leg.mp3"
-                ></audio>
-                <a>Download</a>
-              </article>
+              <trnr-card
+                title="Brick A Leg"
+                catalog-number="TRNR013"
+                text="Akaroid"
+                img-src="img/music/trnr013.jpg"
+                year="2023"
+                audio-path="./audio/music/akaroid_brick-a-leg.mp3"
+              ></trnr-card>
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Grotte [TRNR012]"
+                title="Grotte"
+                catalog-number="TRNR012"
                 text="Parule"
                 img-src="img/music/trnr012.jpg"
                 year="2022"
@@ -280,7 +239,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Platzwunden & Fieber [TRNR011]"
+                title="Platzwunden & Fieber"
+                catalog-number="TRNR011"
                 text="Elfriede Blut"
                 img-src="img/music/trnr011.jpg"
                 year="2021"
@@ -288,7 +248,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Apparat [TRNR010]"
+                title="Apparat"
+                catalog-number="TRNR010"
                 text="Akaroid"
                 img-src="img/music/trnr010.jpg"
                 year="2021"
@@ -296,7 +257,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Transmitter [TRNR009]"
+                title="Transmitter"
+                catalog-number="TRNR009"
                 text="Akaroid"
                 img-src="img/music/trnr009.jpg"
                 year="2021"
@@ -304,7 +266,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="It's Not Over Till You're Under//Ground [TRNR008]"
+                title="It's Not Over Till You're Under//Ground"
+                catalog-number="TRNR008"
                 text="BYDL"
                 img-src="img/music/trnr008.jpg"
                 year="2020"
@@ -312,7 +275,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Struktur [TRNR007]"
+                title="Struktur"
+                catalog-number="TRNR007"
                 text="Akaroid"
                 img-src="img/music/trnr007.jpg"
                 year="2020"
@@ -320,7 +284,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Unimatrix Zero [TRNR006]"
+                title="Unimatrix Zero"
+                catalog-number="TRNR006"
                 text="Akaroid"
                 img-src="img/music/trnr006.jpg"
                 year="2019"
@@ -328,7 +293,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Tides [TRNR005]"
+                title="Tides"
+                catalog-number="TRNR005"
                 text="Akaroid"
                 img-src="img/music/trnr005.jpg"
                 year="2019"
@@ -336,7 +302,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Equinox [TRNR004]"
+                title="Equinox"
+                catalog-number="TRNR004"
                 text="Akaroid"
                 img-src="img/music/trnr004.jpg"
                 year="2019"
@@ -344,7 +311,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Omega [TRNR003]"
+                title="Omega"
+                catalog-number="TRNR003"
                 text="Akaroid"
                 img-src="img/music/trnr003.jpg"
                 year="2019"
@@ -352,7 +320,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Beta [TRNR002]"
+                title="Beta"
+                catalog-number="TRNR002"
                 text="Akaroid"
                 img-src="img/music/trnr002.jpg"
                 year="2018"
@@ -360,7 +329,8 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
-                title="Omikron [TRNR001]"
+                title="Omikron"
+                catalog-number="TRNR001"
                 text="Akaroid"
                 img-src="img/music/trnr001.jpg"
                 year="2018"

@@ -1,0 +1,11 @@
+#device-list {
+  ul li em {
+    white-space: initial;
+  }
+}
+
+trnr-card article {
+  h3 {
+    margin-block-start: 0 !important;
+  }
+}

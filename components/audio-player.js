@@ -10,7 +10,7 @@ class TrnrAudioPlayer extends HTMLElement {
             <style>
                 #audio-footer {
                     z-index: 100;
-                        min-block-size: 64px;
+                    min-block-size: 64px;
                 }
             </style>
             <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
@@ -22,8 +22,10 @@ class TrnrAudioPlayer extends HTMLElement {
                     <div id="waveform" class="max"></div>
                     <p class="small-text audio-time"></p>
                     <label class="slider medium">
-                        <input id="audio-slider" type="range" value="100">
-                        <span></span>
+                        <input id="audio-slider" type="range" value="50">
+                        <span>
+                          <i>volume_up</i>
+                        </span>
                     </label>
                 </nav>
             </footer>
@@ -58,6 +60,8 @@ class TrnrAudioPlayer extends HTMLElement {
       height: 40,
       autoplay: true,
     });
+
+    wavesurfer.setVolume(0.5); // Set initial volume to 50%
 
     wavesurfer.on("finish", () => {
       playIcon.innerHTML = "play_arrow";

@@ -22,7 +22,7 @@ class TrnrAlbumArticle extends HTMLElement {
             <button class="play-button circle" data-audio-artist="${artist.innerText}" data-audio-title="${title.innerText}" data-audio-path="${audioSrc}">
               <i>play_arrow</i>
             </button>
-            <button class="border round" data-ui="#dialog">${link.innerText}</button>
+            <button class="border round">${link.innerText}</button>
           </nav>
         </div>
       </div>`;
