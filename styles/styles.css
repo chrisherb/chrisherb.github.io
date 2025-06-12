@@ -31,3 +31,9 @@ trnr-card-vert {
     block-size: 18rem;
   }
 }
+
+trnr-header {
+  header.fixed {
+    position: fixed;
+  }
+}
