@@ -26,7 +26,7 @@ class TrnrCard extends HTMLElement {
             ${catalogNumber} | ${year}
             <div class="max absolute bottom left padding">
               <nav>
-                <button class="circle" data-audio-artist="${text}" data-audio-title="${title}" data-audio-path="${audioPath}">
+                <button class="play-button circle" data-audio-artist="${text}" data-audio-title="${title}" data-audio-path="${audioPath}">
                   <i>play_arrow</i>
                 </button>
                 ${this.getMenu(links)}
