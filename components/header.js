@@ -9,7 +9,7 @@ class TrnrHeader extends HTMLElement {
     template.innerHTML = `
       <header class="fixed responsive max surface-container">
         <nav class="scroll">
-          <a href="#">
+          <a data-scroll href="#home">
             <img
               class="responsive"
               src="/logo.svg"
@@ -19,20 +19,18 @@ class TrnrHeader extends HTMLElement {
           <nav class="group connected center-align max">
             <button
               class="border left-round"
-              onclick="location.href='#software';"
-            >
+              id="software-button">
               <span>Software</span>
             </button>
-            <button class="border no-round" onclick="location.href='#music';">
+            <button id="music-button" class="border no-round">
               <span>Music</span>
             </button>
-            <button class="border no-round" onclick="location.href='#about';">
+            <button id="about-button" class="border no-round">
               <span>About</span>
             </button>
             <button
-              class="border right-round"
-              onclick="location.href='#contact';"
-            >
+              id="contact-button"
+              class="border right-round">
               <span>Contact</span>
             </button>
           </nav>
@@ -41,6 +39,28 @@ class TrnrHeader extends HTMLElement {
     `;
 
     this.appendChild(template.content);
+
+    var scroll = new SmoothScroll("a[href*='#']");
+    var softwareAnchor = document.querySelector("#software");
+    var musicAnchor = document.querySelector("#music");
+    var aboutAnchor = document.querySelector("#about");
+    var contactAnchor = document.querySelector("#contact");
+
+    document.getElementById("software-button").addEventListener("click", () => {
+      scroll.animateScroll(softwareAnchor);
+    });
+
+    document.getElementById("music-button").addEventListener("click", () => {
+      scroll.animateScroll(musicAnchor);
+    });
+
+    document.getElementById("about-button").addEventListener("click", () => {
+      scroll.animateScroll(aboutAnchor);
+    });
+
+    document.getElementById("contact-button").addEventListener("click", () => {
+      scroll.animateScroll(contactAnchor);
+    });
   }
 }
 
