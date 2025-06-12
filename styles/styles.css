@@ -6,6 +6,14 @@
 
 #trnr-main {
   margin-top: 4rem;
+
+  section {
+    margin-bottom: 4rem;
+  }
+
+  hr {
+    margin-bottom: 1rem;
+  }
 }
 
 trnr-card article {
