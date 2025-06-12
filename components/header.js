@@ -38,9 +38,13 @@ class TrnrHeader extends HTMLElement {
       </header>
     `;
 
+    const getOffset = () => {
+      return 72;
+    };
+
     this.appendChild(template.content);
 
-    var scroll = new SmoothScroll("a[href*='#']");
+    var scroll = new SmoothScroll("a[href*='#']", { offset: getOffset });
     var softwareAnchor = document.querySelector("#software");
     var musicAnchor = document.querySelector("#music");
     var aboutAnchor = document.querySelector("#about");

@@ -4,6 +4,10 @@
   }
 }
 
+#trnr-main {
+  margin-top: 4rem;
+}
+
 trnr-card article {
   h3 {
     margin-block-start: 0 !important;
