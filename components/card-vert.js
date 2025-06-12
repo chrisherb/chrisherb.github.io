@@ -9,13 +9,16 @@ class TrnrCardVert extends HTMLElement {
     const imgSrc = this.getAttribute("img-src");
     const title = this.getAttribute("title");
     const text = this.getAttribute("text");
+    const size = this.getAttribute("size") || "medium";
+    const imgSize = size;
+    const cardSize = size;
 
     const template = document.createElement("template");
     template.innerHTML = `
       <a href="${href}">
-        <article class="wave trnr-card-vert no-padding border">
+        <article class="wave ${cardSize} no-padding border">
           <img
-            class="responsive"
+            class="${imgSize} responsive"
             src="${imgSrc}"
           />
           <div class="padding">

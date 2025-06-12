@@ -9,3 +9,25 @@ trnr-card article {
     margin-block-start: 0 !important;
   }
 }
+
+trnr-card-vert {
+  a {
+    display: block;
+  }
+
+  article.medium {
+    block-size: 19rem;
+  }
+
+  img.responsive.medium {
+    block-size: 10rem;
+  }
+
+  article.large {
+    block-size: 26rem;
+  }
+
+  img.responsive.large {
+    block-size: 18rem;
+  }
+}
