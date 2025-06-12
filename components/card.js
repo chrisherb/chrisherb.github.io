@@ -63,10 +63,17 @@ class TrnrCard extends HTMLElement {
       return { title, href };
     });
 
-    return links.map(
-      (l) =>
-        `<li><a href="${l.href.trim()}" target="_blank">${l.title.trim()}</a></li>`
-    );
+    return links
+      .map(
+        (l) =>
+          `<li>
+          <a href="${l.href.trim()}" target="_blank">
+            <i>open_in_new</i>
+            ${l.title.trim()}
+          </a>
+        </li>`
+      )
+      .join("");
   }
 }
 
