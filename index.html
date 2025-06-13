@@ -372,10 +372,39 @@
         <section id="about">
           <trnr-section-header title="About" icon="lightbulb">
           </trnr-section-header>
+          <p>
+            Hi, I'm Chris! Glad you found your way to this little corner of the
+            internet. I am a musician and software developer from Germany. I
+            originally started this project to share my music, but over time I
+            also started developing music software. I hope you find something
+            here that you like! If you have any questions or just want to say
+            hi, feel free to reach out via the contact form below.
+          </p>
         </section>
         <section id="contact">
           <trnr-section-header title="Contact" icon="emoji_people">
           </trnr-section-header>
+          <form>
+            <fieldset>
+              <legend>Send me an Email!</legend>
+              <div class="field border label">
+                <input type="email" required />
+                <label>Email</label>
+              </div>
+              <div class="field border label">
+                <input type="text" />
+                <label>Subject</label>
+              </div>
+              <div class="field border label textarea">
+                <textarea required></textarea>
+                <label>Message</label>
+              </div>
+              <button class="responsive" type="submit">
+                <i>send</i>
+                <span>Send</span>
+              </button>
+            </fieldset>
+          </form>
         </section>
       </main>
     </trnr-audio-player>
