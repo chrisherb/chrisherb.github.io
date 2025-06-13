@@ -34,6 +34,9 @@ class TrnrHeader extends HTMLElement {
               <span>Contact</span>
             </button>
           </nav>
+          <a href="https://gumroad.com/checkout">
+            <i>shopping_cart</i>
+          </a>
         </nav>
       </header>
     `;
