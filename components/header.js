@@ -12,7 +12,7 @@ class TrnrHeader extends HTMLElement {
           <a data-scroll href="#home">
             <img
               class="responsive"
-              src="/logo.svg"
+              src="static/logo.svg"
               style="opacity: 0.9; width: 40px; height: 40px"
             />
           </a>
