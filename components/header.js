@@ -47,7 +47,12 @@ class TrnrHeader extends HTMLElement {
 
     this.appendChild(template.content);
 
-    var scroll = new SmoothScroll("a[href*='#']", { offset: getOffset });
+    var scroll = new SmoothScroll("a[href*='#']", {
+      offset: getOffset,
+      speed: 500,
+      speedAsDuration: true,
+      easing: "easeInCubic",
+    });
     var softwareAnchor = document.querySelector("#software");
     var musicAnchor = document.querySelector("#music");
     var aboutAnchor = document.querySelector("#about");
