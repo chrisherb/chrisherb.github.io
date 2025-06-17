@@ -39,7 +39,44 @@
     <trnr-header></trnr-header>
     <trnr-audio-player>
       <main id="trnr-main" class="responsive">
-        <section id="home"></section>
+        <section id="home">
+          <article class="trnr-article black border">
+            <div class="grid padding">
+              <div class="s12 m6 l6">
+                <img
+                  src="static/logo.svg"
+                  class="logo"
+                  alt="Ternär Music Technology Logo"
+                />
+                <h1 class="title">Ternär Music Technology</h1>
+                <h2 class="subtitle">Waveform Manufacturing and Machinery</h2>
+              </div>
+              <div class="s12 m6 l6 center-align middle-align center-col">
+                <span class="large-text">Latest Releases:</span>
+                <trnr-carousel>
+                  <ul>
+                    <li>
+                      <a href="#trnr013"><img src="img/music/trnr013.jpg" /></a>
+                      <span>Akaroid - Brick A Leg</span>
+                    </li>
+                    <li>
+                      <a href="#trnr012"><img src="img/music/trnr012.jpg" /></a>
+                      <span>Parule - Grotte</span>
+                    </li>
+                    <li>
+                      <a href="#trnr011"><img src="img/music/trnr011.jpg" /></a>
+                      <span>Elfriede Blut - Platzwunden & Fieber</span>
+                    </li>
+                    <li>
+                      <a href="#trnr010"><img src="img/music/trnr010.jpg" /></a>
+                      <span>Akaroid - Apparat</span>
+                    </li>
+                  </ul>
+                </trnr-carousel>
+              </div>
+            </div>
+          </article>
+        </section>
         <section id="software">
           <trnr-section-header title="Software" icon="cable">
           </trnr-section-header>
@@ -48,6 +85,7 @@
             <div class="grid">
               <div class="s12 m12 l6">
                 <trnr-card-vert
+                  id="channelstrip"
                   title="ChannelStrip"
                   text="Modeled tube preamp with equalizer"
                   img-src="img/plugins/channelstrip.webp"
@@ -57,6 +95,7 @@
               </div>
               <div class="s12 m12 l6">
                 <trnr-card-vert
+                  id="channelstrip-pro"
                   title="ChannelStrip Pro"
                   text="Modeled tube preamp with semi parametric equalizer and compressor"
                   img-src="img/plugins/channelstrip-pro.webp"
@@ -226,6 +265,7 @@
           <div class="grid">
             <div class="s12 m12 l6">
               <trnr-card
+                id="trnr013"
                 title="Brick A Leg"
                 catalog-number="TRNR013"
                 text="Akaroid"
@@ -237,6 +277,7 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
+                id="trnr012"
                 title="Grotte"
                 catalog-number="TRNR012"
                 text="Parule"
@@ -248,6 +289,7 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
+                id="trnr011"
                 title="Platzwunden & Fieber"
                 catalog-number="TRNR011"
                 text="Elfriede Blut"
@@ -259,6 +301,7 @@
             </div>
             <div class="s12 m12 l6">
               <trnr-card
+                id="trnr010"
                 title="Apparat"
                 catalog-number="TRNR010"
                 text="Akaroid"
@@ -392,9 +435,10 @@
     <footer class="surface-container">
       <div class="responsive">
         <p>
-          © 2018-2025 Christopher Herb. All rights reserved.
+          © 2018-2025 Ternär Music Technology Christopher Herb. All rights
+          reserved.
           <br />
-          Made with <span class="heart">♥</span> in Germany.
+          Made with ♥ in Germany.
           <br />
           <a class="link" href="imprint.html">Impressum</a>
         </p>

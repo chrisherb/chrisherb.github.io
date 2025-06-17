@@ -6,7 +6,7 @@ class TrnrHeader extends HTMLElement {
 
   render() {
     const template = document.createElement("template");
-    template.innerHTML = `
+    template.innerHTML = /* html */ `
       <header class="fixed responsive max surface-container">
         <nav class="scroll">
           <a data-scroll href="#home">

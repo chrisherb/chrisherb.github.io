@@ -1,3 +1,36 @@
+@font-face {
+  font-family: "FORCED SQUARE";
+  src: url("../static/fonts/FORCED SQUARE.ttf");
+}
+
+#home {
+  padding-top: 3rem;
+}
+
+.trnr-article {
+  img.logo {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .title {
+    font-family: "FORCED SQUARE";
+    text-transform: uppercase;
+    font-size: 2.45rem;
+    line-height: 2.5rem;
+    margin-top: 0.7rem;
+    margin-bottom: 0;
+  }
+
+  .subtitle {
+    font-family: "FORCED SQUARE";
+    text-transform: uppercase;
+    font-size: 1.53rem;
+    line-height: 1.5rem;
+    margin: 0;
+  }
+}
+
 #device-list {
   ul li em {
     white-space: initial;
@@ -48,4 +81,16 @@ trnr-header {
   header.fixed {
     position: fixed;
   }
+}
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal centering */
+  justify-content: center; /* vertical alignment if height is set */
+  width: 100%;
+}
+trnr-carousel {
+  display: block;
+  margin: 1rem auto;
 }
