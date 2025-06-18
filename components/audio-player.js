@@ -7,29 +7,23 @@ class TrnrAudioPlayer extends HTMLElement {
   render() {
     const template = document.createElement("template");
     template.innerHTML = `
-              <style>
-                  #audio-footer {
-                      z-index: 100;
-                      min-block-size: 64px;
-                  }
-              </style>
-              <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
-                  <nav class="audio-nav">
-                      <p class="small-text audio-title"></p>
-                      <button id="play-icon-container" class="circle transparent">
-                          <i id="play-icon" class="extra primary-text">play_arrow</i>
-                      </button>
-                      <div id="waveform" class="max"></div>
-                      <p class="small-text audio-time"></p>
-                      <label class="slider medium">
-                          <input id="audio-slider" type="range" value="50">
-                          <span>
-                            <i>volume_up</i>
-                          </span>
-                      </label>
-                  </nav>
-              </footer>
-          `;
+      <footer id="audio-footer" style="visibility: hidden" class="fixed responsive max surface-container">
+        <nav class="audio-nav">
+          <p class="small-text audio-title"></p>
+          <button id="play-icon-container" class="circle transparent">
+            <i id="play-icon" class="extra primary-text">play_arrow</i>
+          </button>
+          <div id="waveform" class="max"></div>
+          <p class="small-text audio-time"></p>
+          <label class="slider medium">
+            <input id="audio-slider" type="range" value="50">
+            <span>
+              <i>volume_up</i>
+            </span>
+          </label>
+        </nav>
+      </footer>
+    `;
 
     this.appendChild(template.content);
   }

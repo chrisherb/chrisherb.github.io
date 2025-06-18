@@ -122,7 +122,37 @@ trnr-header {
   justify-content: center; /* vertical alignment if height is set */
   width: 100%;
 }
+
 trnr-carousel {
   display: block;
   margin: 1rem auto;
+}
+
+trnr-audio-player {
+  z-index: 100;
+  min-block-size: 64px;
+
+  @media (max-width: 550px) {
+    #waveform {
+      display: none;
+    }
+
+    .slider.medium {
+      --_track: 1.5rem;
+    }
+
+    p.audio-title {
+      display: contents;
+    }
+
+    .slider {
+      width: 6rem;
+    }
+
+    #play-icon-container {
+      margin: -0.5rem;
+    }
+  }
+  @media (min-width: 551px) {
+  }
 }
