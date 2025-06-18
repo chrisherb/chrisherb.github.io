@@ -20,7 +20,7 @@ class TrnrCardVert extends HTMLElement {
 
     const osIconsHtml = osIcons
       .map((os) => {
-        return ` <i class="${iconSize}"><img alt="${os} icon" src="../static/icons/${os}.svg" /></i>`;
+        return ` <i class="${iconSize}"><img alt="${os} icon" src="/static/icons/${os}.svg" /></i>`;
       })
       .join("");
 
