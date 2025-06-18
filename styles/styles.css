@@ -52,6 +52,38 @@
 trnr-card article {
   h3 {
     margin-block-start: 0 !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 550px) {
+    .stream-buy-btn span {
+      display: none;
+    }
+    .stream-buy-btn .mobile-label {
+      display: inline;
+    }
+    .stream-buy-btn .stream-icon {
+      display: none;
+    }
+    .stream-buy-btn .dropdown-icon {
+      margin: -8px;
+    }
+    h3 {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+  }
+  @media (min-width: 551px) {
+    .stream-buy-btn .mobile-label {
+      display: none;
+    }
+    h3 {
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+    }
   }
 }
 

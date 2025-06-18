@@ -14,8 +14,8 @@ class TrnrCard extends HTMLElement {
     const links = this.getAttribute("data-links");
 
     const template = document.createElement("template");
-    template.innerHTML = ` 
-      <article class="no-padding border">
+    template.innerHTML = `
+      <article class="trnr-card no-padding border">
         <div class="grid no-space">
           <div class="s6">
             <img loading="lazy" class="responsive" src="${imgSrc}" />
@@ -44,10 +44,11 @@ class TrnrCard extends HTMLElement {
     if (!links) return "";
 
     const template = `
-      <button class="border">
-        <i>stream</i>
+      <button class="border stream-buy-btn">
+        <i class="stream-icon">stream</i>
         <span>Stream / Buy</span>
-        <i>arrow_drop_down</i>
+        <span class="mobile-label">Stream/Buy</span>
+        <i class="dropdown-icon">arrow_drop_down</i>
         <menu>
           ${this.getLinks(links)}
         </menu>
