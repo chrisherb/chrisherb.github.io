@@ -109,10 +109,8 @@ trnr-card-vert {
   }
 }
 
-trnr-header {
-  header.fixed {
-    position: fixed;
-  }
+trnr-header header.fixed {
+  position: fixed;
 }
 
 .center-col {
@@ -128,7 +126,7 @@ trnr-carousel {
   margin: 1rem auto;
 }
 
-trnr-audio-player {
+trnr-audio-player #audio-header {
   z-index: 100;
   min-block-size: 64px;
 
