@@ -163,3 +163,8 @@ trnr-audio-player #audio-header {
   @media (min-width: 551px) {
   }
 }
+
+footer .trnr-footer {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
