@@ -5,4 +5,3 @@ import "./audio-player.js";
 import "./section-header.js";
 import "./contact-form.js";
 import "./carousel.js";
-import "./keks-banner.js";
